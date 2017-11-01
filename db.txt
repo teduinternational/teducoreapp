@@ -1,0 +1,141 @@
+Product Category
+	Id
+	Alias
+	Name
+	ParentId
+	Seo
+	CreatedDate,
+	SortingOrder
+	Status
+
+Product
+	Id
+	Name
+	Alias
+	Seo
+	CategoryId
+	CreatedDate,
+	Status,
+	Image,
+	Price
+	PromotionPrice,
+	Quantity,
+	Description
+	Content,
+	HotFlg,
+	NewFlg
+	Status
+	
+
+Bill
+	CustomerId,
+	CustomerName,
+	CustomerAddress,
+	CustomerPhone,
+	CustomerEmail,
+	BillDate,
+	Status
+BillDetail
+	BillId,
+	ProductId,
+	Quantity,
+	Price
+
+User
+UserRole
+Role
+
+Blog
+	Id
+	Name
+	Seo,
+	Description,
+	Content,
+	Image,
+	Status
+Menu
+	Id
+	Name
+	Url,
+	Css,
+	ParentId,
+	Status,
+	SortingOrder
+
+Slide
+	Id
+	Name
+	Url,
+	Image
+	Text,
+	Sort,
+	Status
+
+AdvertisementPage
+	Id
+	Name
+AdvertisementPosition
+	Id
+	PageId
+	Name
+Advertisement
+	PositionId
+	Image
+	Url,
+	Status
+
+Brand
+	Id
+	Name
+	Image
+	Status
+
+Footer
+	Id
+	Content
+
+Language
+	Id
+	Name
+	Default
+
+ProductTag
+	ProductId
+	TagId
+BlogTag
+	BlogId
+	TagId
+Tag
+	Id
+	Name
+	Type
+
+Page
+	Id
+	Name
+	Content
+
+Feedback
+	Name
+	Email
+	Phone
+	Content
+	CreatedDate
+	Status
+
+Contact
+	Id
+	Name
+	Address,
+	Phone,
+	Website,
+	Email,
+	Longtitude,
+	Latitude
+
+SystemConfig
+	Id
+	Value1
+	Value2
+	Value3
+	Value4
