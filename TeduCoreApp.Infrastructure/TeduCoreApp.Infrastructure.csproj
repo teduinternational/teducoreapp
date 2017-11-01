@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Enums\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="SharedKernel\" />
   </ItemGroup>
 
 </Project>
