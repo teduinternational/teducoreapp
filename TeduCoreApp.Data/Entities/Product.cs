@@ -54,7 +54,7 @@ namespace TeduCoreApp.Data.Entities
 
         public string SeoPageTitle {set;get;}
 
-        [Column(TypeName ="varchar")]
+        [Column(TypeName ="varchar(255)")]
         [StringLength(255)]
         public string SeoAlias {set;get;}
 
