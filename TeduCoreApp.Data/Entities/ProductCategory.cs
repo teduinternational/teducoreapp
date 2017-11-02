@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using TeduCoreApp.Data.Enums;
 using TeduCoreApp.Data.Interfaces;
 using TeduCoreApp.Infrastructure.SharedKernel;
 
 namespace TeduCoreApp.Data.Entities
 {
+    [Table("ProductCategories")]
     public class ProductCategory : DomainEntity<int>,
         IHasSeoMetaData, ISwitchable, ISortable, IDateTracking
     {
@@ -28,7 +30,7 @@ namespace TeduCoreApp.Data.Entities
 
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
-        public int SorOrder { set; get; }
+        public int SortOrder { set; get; }
         public Status Status { set; get; }
         public string SeoPageTitle { set; get; }
         public string SeoAlias { set; get; }
