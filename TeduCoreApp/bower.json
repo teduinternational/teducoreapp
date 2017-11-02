@@ -5,6 +5,20 @@
     "bootstrap": "3.3.7",
     "jquery": "2.2.0",
     "jquery-validation": "1.14.0",
-    "jquery-validation-unobtrusive": "3.2.6"
+    "jquery-validation-unobtrusive": "3.2.6",
+    "gentelella": "~1.4.0",
+    "font-awesome": "~4.7.0",
+    "nprogress": "~0.2.0",
+    "bootstrap-daterangepicker": "~2.1.25",
+    "fastclick": "~1.0.6",
+    "Chart.js": "~2.7.1",
+    "jquery-sparkline": "~2.1.3",
+    "flot": "~0.8.3",
+    "flot.orderbars": "~1.0.0",
+    "flot-spline": "~0.8.2",
+    "flot.curvedlines": "~1.1.1",
+    "DateJS": "~1.0.0-rc3",
+    "moment": "~2.19.1"
+
   }
 }
