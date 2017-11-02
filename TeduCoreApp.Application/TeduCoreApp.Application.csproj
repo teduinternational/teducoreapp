@@ -5,10 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Implementation\" />
-    <Folder Include="AutoMapper\" />
-    <Folder Include="ViewModels\" />
+    <PackageReference Include="AutoMapper" Version="6.1.1" />
   </ItemGroup>
 
   <ItemGroup>
