@@ -1,0 +1,850 @@
+2017-11-03T07:56:24.4772215+07:00  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T07:56:25.2475697+07:00  [INF] Executed DbCommand ("34"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:56:25.2841664+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:56:25.3102925+07:00  [INF] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Functions] AS [f]" (0723d8ff)
+2017-11-03T07:56:25.3495282+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'DefaultFooterId'" (0723d8ff)
+2017-11-03T07:56:25.3608983+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Colors] AS [c]" (0723d8ff)
+2017-11-03T07:56:25.4228702+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AdvertistmentPages] AS [a]" (0723d8ff)
+2017-11-03T07:56:25.4682913+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Slides] AS [s]" (0723d8ff)
+2017-11-03T07:56:25.4884467+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Sizes] AS [s]" (0723d8ff)
+2017-11-03T07:56:25.5128628+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [ProductCategories] AS [p]" (0723d8ff)
+2017-11-03T07:56:25.5869085+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:56:25.6103439+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:56:25.6269297+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:56:33.7192837+07:00 0HL92AMQUDIKD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/   (ca22a1cb)
+2017-11-03T07:56:34.3927836+07:00 0HL92AMQUDIKD:00000001 [INF] Executing action method "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T07:56:39.6899012+07:00 0HL92AMQUDIKD:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T07:56:40.8199966+07:00 0HL92AMQUDIKD:00000001 [INF] Executed action "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" in 6513.5706ms (afa2e885)
+2017-11-03T07:56:40.8506001+07:00 0HL92AMQUDIKD:00000001 [INF] Request finished in 7206.2484ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T07:56:40.8580162+07:00 0HL92AMQUDIKE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/css/site.css   (ca22a1cb)
+2017-11-03T07:56:40.8778917+07:00 0HL92AMQUDIKE:00000001 [INF] The file "/css/site.css" was not modified (f1f8d725)
+2017-11-03T07:56:40.8851314+07:00 0HL92AMQUDIKG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/jquery/dist/jquery.js   (ca22a1cb)
+2017-11-03T07:56:40.9642059+07:00 0HL92AMQUDIKD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2017-11-03T07:56:41.0004786+07:00 0HL92AMQUDIKG:00000001 [INF] The file "/lib/jquery/dist/jquery.js" was not modified (f1f8d725)
+2017-11-03T07:56:41.0175731+07:00 0HL92AMQUDIKG:00000001 [INF] Request finished in 123.5163ms 304 application/javascript (791a596a)
+2017-11-03T07:56:41.0257266+07:00 0HL92AMQUDIKD:00000002 [INF] The file "/lib/bootstrap/dist/css/bootstrap.css" was not modified (f1f8d725)
+2017-11-03T07:56:41.0437981+07:00 0HL92AMQUDIKE:00000001 [INF] Request finished in 73.5821ms 304 text/css (791a596a)
+2017-11-03T07:56:41.0573815+07:00 0HL92AMQUDIKI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/images/banner2.svg   (ca22a1cb)
+2017-11-03T07:56:41.1299114+07:00 0HL92AMQUDIKE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/images/banner1.svg   (ca22a1cb)
+2017-11-03T07:56:41.1454540+07:00 0HL92AMQUDIKD:00000002 [INF] Request finished in 100.0305ms 304 text/css (791a596a)
+2017-11-03T07:56:41.1572466+07:00 0HL92AMQUDIKF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/images/banner3.svg   (ca22a1cb)
+2017-11-03T07:56:41.1914260+07:00 0HL92AMQUDIKF:00000001 [INF] The file "/images/banner3.svg" was not modified (f1f8d725)
+2017-11-03T07:56:41.2068815+07:00 0HL92AMQUDIKI:00000001 [INF] The file "/images/banner2.svg" was not modified (f1f8d725)
+2017-11-03T07:56:41.2237394+07:00 0HL92AMQUDIKG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap/dist/js/bootstrap.js   (ca22a1cb)
+2017-11-03T07:56:41.2539837+07:00 0HL92AMQUDIKF:00000001 [INF] Request finished in 145.0048ms 304 image/svg+xml (791a596a)
+2017-11-03T07:56:41.2710514+07:00 0HL92AMQUDIKE:00000002 [INF] The file "/images/banner1.svg" was not modified (f1f8d725)
+2017-11-03T07:56:41.3013914+07:00 0HL92AMQUDIKI:00000001 [INF] Request finished in 166.4145ms 304 image/svg+xml (791a596a)
+2017-11-03T07:56:41.3201839+07:00 0HL92AMQUDIKG:00000002 [INF] The file "/lib/bootstrap/dist/js/bootstrap.js" was not modified (f1f8d725)
+2017-11-03T07:56:41.3485774+07:00 0HL92AMQUDIKD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/js/site.js?v=7mkNbU1tgQL1bUeZe3j2R151hKLhLDKO4BBaR-iqCy0   (ca22a1cb)
+2017-11-03T07:56:41.3523298+07:00 0HL92AMQUDIKH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/images/banner4.svg   (ca22a1cb)
+2017-11-03T07:56:41.3760903+07:00 0HL92AMQUDIKG:00000002 [INF] Request finished in 238.4925ms 304 application/javascript (791a596a)
+2017-11-03T07:56:41.3787502+07:00 0HL92AMQUDIKE:00000002 [INF] Request finished in 184.7402ms 304 image/svg+xml (791a596a)
+2017-11-03T07:56:41.3913693+07:00 0HL92AMQUDIKH:00000001 [INF] The file "/images/banner4.svg" was not modified (f1f8d725)
+2017-11-03T07:56:41.4010770+07:00 0HL92AMQUDIKD:00000003 [INF] The file "/js/site.js" was not modified (f1f8d725)
+2017-11-03T07:56:41.4331914+07:00 0HL92AMQUDIKH:00000001 [INF] Request finished in 86.6528ms 304 image/svg+xml (791a596a)
+2017-11-03T07:56:41.4629155+07:00 0HL92AMQUDIKD:00000003 [INF] Request finished in 164.1261ms 304 application/javascript (791a596a)
+2017-11-03T07:56:41.6553906+07:00 0HL92AMQUDIKD:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2   (ca22a1cb)
+2017-11-03T07:56:41.6795283+07:00 0HL92AMQUDIKD:00000004 [INF] The file "/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff2" was not modified (f1f8d725)
+2017-11-03T07:56:41.6974336+07:00 0HL92AMQUDIKD:00000004 [INF] Request finished in 33.5717ms 304 font/woff2 (791a596a)
+2017-11-03T07:56:54.4949079+07:00 0HL92AMQUDIKD:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T07:56:54.5183087+07:00 0HL92AMQUDIKD:00000005 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 8.0139ms (afa2e885)
+2017-11-03T07:56:54.6442355+07:00 0HL92AMQUDIKD:00000005 [ERR] An unhandled exception has occurred while executing the request (cf926119)
+System.InvalidOperationException: Unable to resolve service for type 'Microsoft.Extensions.Logging.ILogger' while attempting to activate 'TeduCoreApp.Areas.Admin.Controllers.LoginController'.
+   at Microsoft.Extensions.Internal.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.<Invoke>d__6.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.<Invoke>d__7.MoveNext()
+2017-11-03T07:56:54.8356525+07:00 0HL92AMQUDIKD:00000005 [INF] Request finished in 339.4702ms 500 text/html; charset=utf-8 (791a596a)
+2017-11-03T07:58:16.2637142+07:00  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T07:58:16.6404305+07:00  [INF] Executed DbCommand ("8"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:58:16.6649920+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:58:16.6903791+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Functions] AS [f]" (0723d8ff)
+2017-11-03T07:58:16.7321992+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'DefaultFooterId'" (0723d8ff)
+2017-11-03T07:58:16.7463853+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Colors] AS [c]" (0723d8ff)
+2017-11-03T07:58:16.8176307+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AdvertistmentPages] AS [a]" (0723d8ff)
+2017-11-03T07:58:16.8568553+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Slides] AS [s]" (0723d8ff)
+2017-11-03T07:58:16.8733487+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Sizes] AS [s]" (0723d8ff)
+2017-11-03T07:58:16.8916603+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [ProductCategories] AS [p]" (0723d8ff)
+2017-11-03T07:58:16.9509123+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:58:16.9677026+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:58:16.9791885+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T07:58:17.4102820+07:00 0HL92ANRV96SF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/   (ca22a1cb)
+2017-11-03T07:58:17.7074776+07:00 0HL92ANRV96SF:00000001 [INF] Executing action method "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T07:58:20.8163723+07:00 0HL92ANRV96SF:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T07:58:21.5423805+07:00 0HL92ANRV96SF:00000001 [INF] Executed action "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" in 3741.6098ms (afa2e885)
+2017-11-03T07:58:21.5799174+07:00 0HL92ANRV96SF:00000001 [INF] Request finished in 4191.3759ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T07:58:24.6666018+07:00 0HL92ANRV96SF:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin   (ca22a1cb)
+2017-11-03T07:58:24.6838649+07:00 0HL92ANRV96SF:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T07:58:24.9738620+07:00 0HL92ANRV96SF:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T07:58:25.2678759+07:00 0HL92ANRV96SF:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" in 586.3498ms (afa2e885)
+2017-11-03T07:58:25.2777898+07:00 0HL92ANRV96SF:00000002 [INF] Request finished in 608.0608ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T07:58:25.3295637+07:00 0HL92ANRV96SB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap-daterangepicker/daterangepicker.css   (ca22a1cb)
+2017-11-03T07:58:25.3381868+07:00 0HL92ANRV96SD:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2017-11-03T07:58:25.3446558+07:00 0HL92ANRV96SF:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2017-11-03T07:58:25.3525141+07:00 0HL92ANRV96SE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/nprogress/nprogress.css   (ca22a1cb)
+2017-11-03T07:58:25.3638403+07:00 0HL92ANRV96SA:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin-side/css/custom.css   (ca22a1cb)
+2017-11-03T07:58:25.3671128+07:00 0HL92ANRV96SB:00000001 [INF] The file "/lib/bootstrap-daterangepicker/daterangepicker.css" was not modified (f1f8d725)
+2017-11-03T07:58:25.4081319+07:00 0HL92ANRV96SE:00000001 [INF] The file "/lib/nprogress/nprogress.css" was not modified (f1f8d725)
+2017-11-03T07:58:25.4125252+07:00 0HL92ANRV96SD:00000001 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2017-11-03T07:58:25.4208224+07:00 0HL92ANRV96SF:00000003 [INF] The file "/lib/font-awesome/css/font-awesome.css" was not modified (f1f8d725)
+2017-11-03T07:58:25.4456109+07:00 0HL92ANRV96SA:00000001 [INF] The file "/admin-side/css/custom.css" was not modified (f1f8d725)
+2017-11-03T07:58:25.4975938+07:00 0HL92ANRV96SE:00000001 [INF] Request finished in 93.5993ms 304 text/css (791a596a)
+2017-11-03T07:58:25.5049648+07:00 0HL92ANRV96SD:00000001 [INF] Request finished in 108.303ms 200 text/css (791a596a)
+2017-11-03T07:58:25.5112255+07:00 0HL92ANRV96SF:00000003 [INF] Request finished in 118.7909ms 304 text/css (791a596a)
+2017-11-03T07:58:25.5137431+07:00 0HL92ANRV96SA:00000001 [INF] Request finished in 132.2787ms 304 text/css (791a596a)
+2017-11-03T07:58:25.5296211+07:00 0HL92ANRV96SB:00000001 [INF] Request finished in 89.4749ms 304 text/css (791a596a)
+2017-11-03T07:58:25.5917231+07:00 0HL92ANRV96SE:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/jquery-sparkline/dist/jquery.sparkline.js   (ca22a1cb)
+2017-11-03T07:58:25.5945037+07:00 0HL92ANRV96SD:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/fastclick/lib/fastclick.js   (ca22a1cb)
+2017-11-03T07:58:25.6011378+07:00 0HL92ANRV96SF:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/Chart.js/dist/Chart.js   (ca22a1cb)
+2017-11-03T07:58:25.6127969+07:00 0HL92ANRV96SA:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/nprogress/nprogress.js   (ca22a1cb)
+2017-11-03T07:58:25.6252460+07:00 0HL92ANRV96SD:00000002 [INF] The file "/lib/fastclick/lib/fastclick.js" was not modified (f1f8d725)
+2017-11-03T07:58:25.6358657+07:00 0HL92ANRV96SB:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/moment/moment.js   (ca22a1cb)
+2017-11-03T07:58:25.6616727+07:00 0HL92ANRV96SE:00000002 [INF] The file "/lib/jquery-sparkline/dist/jquery.sparkline.js" was not modified (f1f8d725)
+2017-11-03T07:58:25.6886712+07:00 0HL92ANRV96SF:00000004 [INF] The file "/lib/Chart.js/dist/Chart.js" was not modified (f1f8d725)
+2017-11-03T07:58:25.7069374+07:00 0HL92ANRV96SB:00000002 [INF] The file "/lib/moment/moment.js" was not modified (f1f8d725)
+2017-11-03T07:58:25.7220898+07:00 0HL92ANRV96SA:00000002 [INF] The file "/lib/nprogress/nprogress.js" was not modified (f1f8d725)
+2017-11-03T07:58:25.7309815+07:00 0HL92ANRV96SD:00000002 [INF] Request finished in 101.7014ms 304 application/javascript (791a596a)
+2017-11-03T07:58:25.7475463+07:00 0HL92ANRV96SE:00000002 [INF] Request finished in 153.5738ms 304 application/javascript (791a596a)
+2017-11-03T07:58:25.7615957+07:00 0HL92ANRV96SB:00000002 [INF] Request finished in 171.8958ms 304 application/javascript (791a596a)
+2017-11-03T07:58:25.7690053+07:00 0HL92ANRV96SD:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2017-11-03T07:58:25.7745822+07:00 0HL92ANRV96SF:00000004 [INF] Request finished in 150.0727ms 304 application/javascript (791a596a)
+2017-11-03T07:58:25.7926853+07:00 0HL92ANRV96SA:00000002 [INF] Request finished in 176.2858ms 304 application/javascript (791a596a)
+2017-11-03T07:58:25.8012181+07:00 0HL92ANRV96SD:00000003 [INF] The file "/lib/font-awesome/fonts/fontawesome-webfont.woff2" was not modified (f1f8d725)
+2017-11-03T07:58:25.8351644+07:00 0HL92ANRV96SE:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin-side/images/img.jpg   (ca22a1cb)
+2017-11-03T07:58:25.8516224+07:00 0HL92ANRV96SD:00000003 [INF] Request finished in 65.6705ms 304 font/woff2 (791a596a)
+2017-11-03T07:58:25.9263722+07:00 0HL92ANRV96SF:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2017-11-03T07:58:25.9363001+07:00 0HL92ANRV96SA:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootbox/bootbox.js   (ca22a1cb)
+2017-11-03T07:58:25.9466780+07:00 0HL92ANRV96SB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2017-11-03T07:58:25.9501697+07:00 0HL92ANRV96SD:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T07:58:25.9573613+07:00 0HL92ANRV96SE:00000003 [INF] The file "/admin-side/images/img.jpg" was not modified (f1f8d725)
+2017-11-03T07:58:26.0088978+07:00 0HL92ANRV96SB:00000003 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2017-11-03T07:58:26.0097640+07:00 0HL92ANRV96SF:00000005 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2017-11-03T07:58:26.0122836+07:00 0HL92ANRV96SE:00000003 [INF] Request finished in 179.4031ms 304 image/jpeg (791a596a)
+2017-11-03T07:58:26.0191274+07:00 0HL92ANRV96SD:00000004 [INF] Sending file. Request path: '"/app/shared/tedu.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\shared\tedu.js"' (27b0a520)
+2017-11-03T07:58:26.0500224+07:00 0HL92ANRV96SA:00000003 [INF] Sending file. Request path: '"/lib/bootbox/bootbox.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\bootbox\bootbox.js"' (27b0a520)
+2017-11-03T07:58:26.0689228+07:00 0HL92ANRV96SA:00000003 [INF] Request finished in 215.7633ms 200 application/javascript (791a596a)
+2017-11-03T07:58:26.1082025+07:00 0HL92ANRV96SD:00000004 [INF] Request finished in 130.2809ms 200 application/javascript (791a596a)
+2017-11-03T07:58:26.1319773+07:00 0HL92ANRV96SF:00000005 [INF] Request finished in 250.0642ms 200 application/javascript (791a596a)
+2017-11-03T07:58:26.1360713+07:00 0HL92ANRV96SC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap-daterangepicker/daterangepicker.js   (ca22a1cb)
+2017-11-03T07:58:26.1545842+07:00 0HL92ANRV96SE:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin-side/js/custom.js   (ca22a1cb)
+2017-11-03T07:58:26.1671531+07:00 0HL92ANRV96SE:00000004 [INF] The file "/admin-side/js/custom.js" was not modified (f1f8d725)
+2017-11-03T07:58:26.2026135+07:00 0HL92ANRV96SE:00000004 [INF] Request finished in 142.4118ms 304 application/javascript (791a596a)
+2017-11-03T07:58:26.2054639+07:00 0HL92ANRV96SB:00000003 [INF] Request finished in 259.2609ms 200 application/javascript (791a596a)
+2017-11-03T07:58:26.2122876+07:00 0HL92ANRV96SC:00000001 [INF] The file "/lib/bootstrap-daterangepicker/daterangepicker.js" was not modified (f1f8d725)
+2017-11-03T07:58:26.2284456+07:00 0HL92ANRV96SC:00000001 [INF] Request finished in 131.7014ms 304 application/javascript (791a596a)
+2017-11-03T07:58:27.8488533+07:00 0HL92ANRV96SC:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T07:58:27.8712215+07:00 0HL92ANRV96SC:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T07:58:28.0438736+07:00 0HL92ANRV96SC:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T07:58:28.0910928+07:00 0HL92ANRV96SC:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 221.7273ms (afa2e885)
+2017-11-03T07:58:28.1410689+07:00 0HL92ANRV96SC:00000002 [INF] Request finished in 253.9985ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T07:58:28.1420551+07:00 0HL92ANRV96SE:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T07:58:28.1821082+07:00 0HL92ANRV96SC:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/animate.css/animate.css   (ca22a1cb)
+2017-11-03T07:58:28.2062657+07:00 0HL92ANRV96SE:00000005 [INF] Sending file. Request path: '"/app/controllers/login/index.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\controllers\login\index.js"' (27b0a520)
+2017-11-03T07:58:28.2124490+07:00 0HL92ANRV96SC:00000003 [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2017-11-03T07:58:28.2873338+07:00 0HL92ANRV96SE:00000005 [INF] Request finished in 142.1733ms 200 application/javascript (791a596a)
+2017-11-03T07:58:28.2945455+07:00 0HL92ANRV96SC:00000003 [INF] Request finished in 107.8909ms 200 text/css (791a596a)
+2017-11-03T07:58:35.5588147+07:00 0HL92ANRV96SC:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap/dist/css/bootstrap.css.map   (ca22a1cb)
+2017-11-03T07:58:35.5690694+07:00 0HL92ANRV96SC:00000004 [INF] The file "/lib/bootstrap/dist/css/bootstrap.css.map" was not modified (f1f8d725)
+2017-11-03T07:58:35.5857459+07:00 0HL92ANRV96SC:00000004 [INF] Request finished in 21.821ms 304 text/plain (791a596a)
+2017-11-03T07:59:26.1202418+07:00 0HL92ANRV96SC:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T07:59:26.2561690+07:00 0HL92ANRV96SC:00000005 [INF] Antiforgery token validation failed. "The required antiforgery cookie \".AspNetCore.Antiforgery.pf0Ov5EFmfc\" is not present." (843d91fe)
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The required antiforgery cookie ".AspNetCore.Antiforgery.pf0Ov5EFmfc" is not present.
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.<ValidateRequestAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter.<OnAuthorizationAsync>d__3.MoveNext()
+2017-11-03T07:59:26.2692500+07:00 0HL92ANRV96SC:00000005 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter"'. (8b6446cb)
+2017-11-03T07:59:26.2882641+07:00 0HL92ANRV96SC:00000005 [INF] Executing HttpStatusCodeResult, setting HTTP status code 400 (e28ccfae)
+2017-11-03T07:59:26.2925166+07:00 0HL92ANRV96SC:00000005 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 103.9434ms (afa2e885)
+2017-11-03T07:59:26.3050966+07:00 0HL92ANRV96SC:00000005 [INF] Request finished in 183.146ms 400  (791a596a)
+2017-11-03T08:00:11.4747816+07:00 0HL92ANRV96SC:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:00:11.4845338+07:00 0HL92ANRV96SC:00000006 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:00:11.4911325+07:00 0HL92ANRV96SC:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:00:11.5033393+07:00 0HL92ANRV96SC:00000006 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 17.3276ms (afa2e885)
+2017-11-03T08:00:11.5304220+07:00 0HL92ANRV96SC:00000006 [INF] Request finished in 39.2525ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:00:11.5483047+07:00 0HL92ANRV96SC:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:00:11.5639684+07:00 0HL92ANRV96SC:00000007 [INF] Sending file. Request path: '"/app/controllers/login/index.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\controllers\login\index.js"' (27b0a520)
+2017-11-03T08:00:11.5916172+07:00 0HL92ANRV96SC:00000007 [INF] Request finished in 41.0519ms 200 application/javascript (791a596a)
+2017-11-03T08:00:12.1116679+07:00 0HL92ANRV96SC:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:00:12.1237438+07:00 0HL92ANRV96SC:00000008 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:00:12.1304210+07:00 0HL92ANRV96SC:00000008 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:00:12.1443665+07:00 0HL92ANRV96SC:00000008 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 16.9067ms (afa2e885)
+2017-11-03T08:00:12.2460564+07:00 0HL92ANRV96SC:00000008 [INF] Request finished in 138.441ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:00:12.3186500+07:00 0HL92ANRV96SC:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:00:12.3266684+07:00 0HL92ANRV96SC:00000009 [INF] The file "/app/controllers/login/index.js" was not modified (f1f8d725)
+2017-11-03T08:00:12.3586990+07:00 0HL92ANRV96SC:00000009 [INF] Request finished in 24.3689ms 304 application/javascript (791a596a)
+2017-11-03T08:00:22.2955940+07:00 0HL92ANRV96SC:0000000A [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:00:22.3346446+07:00 0HL92ANRV96SC:0000000A [INF] Antiforgery token validation failed. "The required antiforgery cookie \".AspNetCore.Antiforgery.pf0Ov5EFmfc\" is not present." (843d91fe)
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The required antiforgery cookie ".AspNetCore.Antiforgery.pf0Ov5EFmfc" is not present.
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.<ValidateRequestAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter.<OnAuthorizationAsync>d__3.MoveNext()
+2017-11-03T08:00:22.3434989+07:00 0HL92ANRV96SC:0000000A [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter"'. (8b6446cb)
+2017-11-03T08:00:22.3683847+07:00 0HL92ANRV96SC:0000000A [INF] Executing HttpStatusCodeResult, setting HTTP status code 400 (e28ccfae)
+2017-11-03T08:00:22.3740215+07:00 0HL92ANRV96SC:0000000A [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 71.1509ms (afa2e885)
+2017-11-03T08:00:22.3911213+07:00 0HL92ANRV96SC:0000000A [INF] Request finished in 86.0448ms 400  (791a596a)
+2017-11-03T08:04:36.6160140+07:00 0HL92ANRV96SC:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:04:36.6246671+07:00 0HL92ANRV96SC:0000000B [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:04:36.8456029+07:00 0HL92ANRV96SC:0000000B [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:04:36.9530057+07:00 0HL92ANRV96SC:0000000B [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 280.7823ms (afa2e885)
+2017-11-03T08:04:37.0383279+07:00 0HL92ANRV96SG:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/animate.css/animate.css   (ca22a1cb)
+2017-11-03T08:04:37.0446028+07:00 0HL92ANRV96SJ:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2017-11-03T08:04:37.0848944+07:00 0HL92ANRV96SH:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2017-11-03T08:04:37.0945202+07:00 0HL92ANRV96SC:0000000B [INF] Request finished in 344.2058ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:04:37.1060787+07:00 0HL92ANRV96SI:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2017-11-03T08:04:37.1435831+07:00 0HL92ANRV96SH:00000001 [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.css" was not modified (f1f8d725)
+2017-11-03T08:04:37.1693253+07:00 0HL92ANRV96SG:00000001 [INF] The file "/lib/animate.css/animate.css" was not modified (f1f8d725)
+2017-11-03T08:04:37.1941377+07:00 0HL92ANRV96SJ:00000001 [INF] The file "/lib/notifyjs/dist/notify.js" was not modified (f1f8d725)
+2017-11-03T08:04:37.2378254+07:00 0HL92ANRV96SI:00000001 [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.js" was not modified (f1f8d725)
+2017-11-03T08:04:37.2778575+07:00 0HL92ANRV96SK:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:04:37.3237363+07:00 0HL92ANRV96SH:00000001 [INF] Request finished in 196.0274ms 304 text/css (791a596a)
+2017-11-03T08:04:37.3996730+07:00 0HL92ANRV96SC:0000000C [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:04:37.4289509+07:00 0HL92ANRV96SG:00000001 [INF] Request finished in 223.6643ms 304 text/css (791a596a)
+2017-11-03T08:04:37.4319364+07:00 0HL92ANRV96SJ:00000001 [INF] Request finished in 246.5039ms 304 application/javascript (791a596a)
+2017-11-03T08:04:37.4505856+07:00 0HL92ANRV96SI:00000001 [INF] Request finished in 278.1014ms 304 application/javascript (791a596a)
+2017-11-03T08:04:37.4646267+07:00 0HL92ANRV96SC:0000000C [INF] The file "/app/controllers/login/index.js" was not modified (f1f8d725)
+2017-11-03T08:04:37.4783357+07:00 0HL92ANRV96SC:0000000C [INF] Request finished in 307.8202ms 304 application/javascript (791a596a)
+2017-11-03T08:04:37.5043772+07:00 0HL92ANRV96SK:00000001 [INF] The file "/app/shared/tedu.js" was not modified (f1f8d725)
+2017-11-03T08:04:37.5381962+07:00 0HL92ANRV96SK:00000001 [INF] Request finished in 556.1868ms 304 application/javascript (791a596a)
+2017-11-03T08:04:39.4361071+07:00 0HL92ANRV96SK:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:04:39.4438603+07:00 0HL92ANRV96SK:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:04:39.4486247+07:00 0HL92ANRV96SK:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:04:39.4786544+07:00 0HL92ANRV96SK:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 14.1869ms (afa2e885)
+2017-11-03T08:04:39.4952043+07:00 0HL92ANRV96SK:00000002 [INF] Request finished in 55.6736ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:06:32.0087364+07:00 0HL92ANRV96SK:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:06:32.0217003+07:00 0HL92ANRV96SK:00000003 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:06:32.2057004+07:00 0HL92ANRV96SK:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:06:32.2448893+07:00 0HL92ANRV96SK:00000003 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 222.2976ms (afa2e885)
+2017-11-03T08:06:32.3268269+07:00 0HL92ANRV96SK:00000003 [INF] Request finished in 293.3459ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:06:32.3478207+07:00 0HL92ANRV96SK:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:06:32.3642550+07:00 0HL92ANRV96SK:00000004 [INF] The file "/app/controllers/login/index.js" was not modified (f1f8d725)
+2017-11-03T08:06:32.3901359+07:00 0HL92ANRV96SK:00000004 [INF] Request finished in 39.491ms 304 application/javascript (791a596a)
+2017-11-03T08:06:41.7003759+07:00 0HL92ANRV96SK:00000005 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:06:41.7245720+07:00 0HL92ANRV96SK:00000005 [INF] Antiforgery token validation failed. "The required antiforgery request token was not provided in either form field \"__RequestVerificationToken\" or header value \"RequestVerificationToken\"." (843d91fe)
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The required antiforgery request token was not provided in either form field "__RequestVerificationToken" or header value "RequestVerificationToken".
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.<ValidateRequestAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter.<OnAuthorizationAsync>d__3.MoveNext()
+2017-11-03T08:06:41.7346214+07:00 0HL92ANRV96SK:00000005 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter"'. (8b6446cb)
+2017-11-03T08:06:41.7413926+07:00 0HL92ANRV96SK:00000005 [INF] Executing HttpStatusCodeResult, setting HTTP status code 400 (e28ccfae)
+2017-11-03T08:06:41.7487254+07:00 0HL92ANRV96SK:00000005 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 40.5465ms (afa2e885)
+2017-11-03T08:06:41.7608735+07:00 0HL92ANRV96SK:00000005 [INF] Request finished in 55.8087ms 400  (791a596a)
+2017-11-03T08:06:46.4648188+07:00 0HL92ANRV96SK:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:06:46.4737992+07:00 0HL92ANRV96SK:00000006 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:06:46.4826912+07:00 0HL92ANRV96SK:00000006 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:06:46.4962706+07:00 0HL92ANRV96SK:00000006 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 17.9122ms (afa2e885)
+2017-11-03T08:06:46.5421198+07:00 0HL92ANRV96SK:00000006 [INF] Request finished in 51.1235ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:06:46.6000527+07:00 0HL92ANRV96SH:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin-side/css/custom.css   (ca22a1cb)
+2017-11-03T08:06:46.6024589+07:00 0HL92ANRV96SC:0000000D [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/font-awesome/css/font-awesome.css   (ca22a1cb)
+2017-11-03T08:06:46.6351627+07:00 0HL92ANRV96SH:00000002 [INF] Sending file. Request path: '"/admin-side/css/custom.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\admin-side\css\custom.css"' (27b0a520)
+2017-11-03T08:06:46.6399481+07:00 0HL92ANRV96SK:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootstrap/dist/css/bootstrap.css   (ca22a1cb)
+2017-11-03T08:06:46.6424361+07:00 0HL92ANRV96SI:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/nprogress/nprogress.css   (ca22a1cb)
+2017-11-03T08:06:46.6524395+07:00 0HL92ANRV96SC:0000000D [INF] Sending file. Request path: '"/lib/font-awesome/css/font-awesome.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\font-awesome\css\font-awesome.css"' (27b0a520)
+2017-11-03T08:06:46.6547283+07:00 0HL92ANRV96SK:00000007 [INF] Sending file. Request path: '"/lib/bootstrap/dist/css/bootstrap.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\bootstrap\dist\css\bootstrap.css"' (27b0a520)
+2017-11-03T08:06:46.6912306+07:00 0HL92ANRV96SJ:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/animate.css/animate.css   (ca22a1cb)
+2017-11-03T08:06:46.7060181+07:00 0HL92ANRV96SH:00000002 [INF] Request finished in 155.2825ms 200 text/css (791a596a)
+2017-11-03T08:06:46.7179802+07:00 0HL92ANRV96SI:00000002 [INF] Sending file. Request path: '"/lib/nprogress/nprogress.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\nprogress\nprogress.css"' (27b0a520)
+2017-11-03T08:06:46.7317435+07:00 0HL92ANRV96SC:0000000D [INF] Request finished in 120.2812ms 200 text/css (791a596a)
+2017-11-03T08:06:46.7604314+07:00 0HL92ANRV96SG:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2017-11-03T08:06:46.7877255+07:00 0HL92ANRV96SK:00000007 [INF] Request finished in 130.1717ms 200 text/css (791a596a)
+2017-11-03T08:06:46.8159996+07:00 0HL92ANRV96SJ:00000002 [INF] Sending file. Request path: '"/lib/animate.css/animate.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\animate.css\animate.css"' (27b0a520)
+2017-11-03T08:06:46.8360602+07:00 0HL92ANRV96SG:00000002 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.css"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.css"' (27b0a520)
+2017-11-03T08:06:46.8382808+07:00 0HL92ANRV96SH:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2017-11-03T08:06:46.8597533+07:00 0HL92ANRV96SI:00000002 [INF] Request finished in 189.4377ms 200 text/css (791a596a)
+2017-11-03T08:06:46.8871328+07:00 0HL92ANRV96SC:0000000E [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/jquery/dist/jquery.js   (ca22a1cb)
+2017-11-03T08:06:46.9213709+07:00 0HL92ANRV96SH:00000003 [INF] Sending file. Request path: '"/lib/notifyjs/dist/notify.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\notifyjs\dist\notify.js"' (27b0a520)
+2017-11-03T08:06:46.9725306+07:00 0HL92ANRV96SJ:00000002 [INF] Request finished in 160.1664ms 200 text/css (791a596a)
+2017-11-03T08:06:46.9891246+07:00 0HL92ANRV96SK:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2017-11-03T08:06:47.0005731+07:00 0HL92ANRV96SC:0000000E [INF] Sending file. Request path: '"/lib/jquery/dist/jquery.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\jquery\dist\jquery.js"' (27b0a520)
+2017-11-03T08:06:47.0039042+07:00 0HL92ANRV96SG:00000002 [INF] Request finished in 201.9713ms 200 text/css (791a596a)
+2017-11-03T08:06:47.0125870+07:00 0HL92ANRV96SH:00000003 [INF] Request finished in 203.1792ms 200 application/javascript (791a596a)
+2017-11-03T08:06:47.0265337+07:00 0HL92ANRV96SK:00000008 [INF] Sending file. Request path: '"/lib/notifyjs/dist/styles/metro/notify-metro.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\notifyjs\dist\styles\metro\notify-metro.js"' (27b0a520)
+2017-11-03T08:06:47.0298119+07:00 0HL92ANRV96SI:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:06:47.0374358+07:00 0HL92ANRV96SJ:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:06:47.0606294+07:00 0HL92ANRV96SI:00000003 [INF] Sending file. Request path: '"/app/shared/tedu.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\shared\tedu.js"' (27b0a520)
+2017-11-03T08:06:47.0774627+07:00 0HL92ANRV96SJ:00000003 [INF] Sending file. Request path: '"/app/controllers/login/index.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\controllers\login\index.js"' (27b0a520)
+2017-11-03T08:06:47.0863737+07:00 0HL92ANRV96SC:0000000E [INF] Request finished in 255.7335ms 200 application/javascript (791a596a)
+2017-11-03T08:06:47.0963828+07:00 0HL92ANRV96SG:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/font-awesome/fonts/fontawesome-webfont.woff2?v=4.7.0   (ca22a1cb)
+2017-11-03T08:06:47.1014543+07:00 0HL92ANRV96SK:00000008 [INF] Request finished in 221.1156ms 200 application/javascript (791a596a)
+2017-11-03T08:06:47.1102092+07:00 0HL92ANRV96SJ:00000003 [INF] Request finished in 93.5648ms 200 application/javascript (791a596a)
+2017-11-03T08:06:47.1155615+07:00 0HL92ANRV96SI:00000003 [INF] Request finished in 98.1485ms 200 application/javascript (791a596a)
+2017-11-03T08:06:47.1284935+07:00 0HL92ANRV96SG:00000003 [INF] Sending file. Request path: '"/lib/font-awesome/fonts/fontawesome-webfont.woff2"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\lib\font-awesome\fonts\fontawesome-webfont.woff2"' (27b0a520)
+2017-11-03T08:06:47.1788340+07:00 0HL92ANRV96SG:00000003 [INF] Request finished in 104.4964ms 200 font/woff2 (791a596a)
+2017-11-03T08:07:25.0135062+07:00 0HL92ANRV96SG:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:07:25.0228663+07:00 0HL92ANRV96SG:00000004 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:07:25.0289104+07:00 0HL92ANRV96SG:00000004 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:07:25.0413229+07:00 0HL92ANRV96SG:00000004 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 16.5303ms (afa2e885)
+2017-11-03T08:07:25.1164069+07:00 0HL92ANRV96SG:00000004 [INF] Request finished in 33.5742ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:07:25.1313689+07:00 0HL92ANRV96SG:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:07:25.1419930+07:00 0HL92ANRV96SG:00000005 [INF] Sending file. Request path: '"/app/shared/tedu.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\shared\tedu.js"' (27b0a520)
+2017-11-03T08:07:25.1564887+07:00 0HL92ANRV96SG:00000005 [INF] Request finished in 19.129ms 200 application/javascript (791a596a)
+2017-11-03T08:07:31.9649116+07:00 0HL92ANRV96SG:00000006 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:07:32.0366685+07:00 0HL92ANRV96SG:00000006 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" with arguments (["TeduCoreApp.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:09:41.4866021+07:00  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:09:41.8564866+07:00  [INF] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:09:41.8861163+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:09:41.9118824+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Functions] AS [f]" (0723d8ff)
+2017-11-03T08:09:41.9442791+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'DefaultFooterId'" (0723d8ff)
+2017-11-03T08:09:41.9569412+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Colors] AS [c]" (0723d8ff)
+2017-11-03T08:09:42.0311512+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AdvertistmentPages] AS [a]" (0723d8ff)
+2017-11-03T08:09:42.0955276+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Slides] AS [s]" (0723d8ff)
+2017-11-03T08:09:42.1225561+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Sizes] AS [s]" (0723d8ff)
+2017-11-03T08:09:42.1479292+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [ProductCategories] AS [p]" (0723d8ff)
+2017-11-03T08:09:42.2276224+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:09:42.2520669+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:09:42.2738461+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:09:43.2784167+07:00 0HL92AU8ALTGO:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/   (ca22a1cb)
+2017-11-03T08:09:43.6335025+07:00 0HL92AU8ALTGO:00000001 [INF] Executing action method "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:09:48.6243119+07:00 0HL92AU8ALTGO:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:09:49.9033995+07:00 0HL92AU8ALTGO:00000001 [INF] Executed action "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" in 6171.9188ms (afa2e885)
+2017-11-03T08:09:49.9304485+07:00 0HL92AU8ALTGO:00000001 [INF] Request finished in 6686.8172ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:10:07.9338089+07:00 0HL92AU8ALTGO:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:10:07.9574598+07:00 0HL92AU8ALTGO:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:10:08.3062236+07:00 0HL92AU8ALTGO:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:10:08.3629860+07:00 0HL92AU8ALTGO:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 406.587ms (afa2e885)
+2017-11-03T08:10:08.4684283+07:00 0HL92AU8ALTGO:00000002 [INF] Request finished in 437.4352ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:10:08.5015329+07:00 0HL92AU8ALTGO:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:10:08.5158771+07:00 0HL92AU8ALTGT:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:10:08.5413147+07:00 0HL92AU8ALTGT:00000001 [INF] The file "/app/controllers/login/index.js" was not modified (f1f8d725)
+2017-11-03T08:10:08.5983202+07:00 0HL92AU8ALTGO:00000003 [INF] Sending file. Request path: '"/app/shared/tedu.js"'. Physical path: '"C:\Users\ngoct\Documents\Visual Studio 2017\Projects\TeduCoreApp\TeduCoreApp\wwwroot\app\shared\tedu.js"' (27b0a520)
+2017-11-03T08:10:08.6336031+07:00 0HL92AU8ALTGT:00000001 [INF] Request finished in 143.8902ms 304 application/javascript (791a596a)
+2017-11-03T08:10:08.6381553+07:00 0HL92AU8ALTGO:00000003 [INF] Request finished in 148.1595ms 200 application/javascript (791a596a)
+2017-11-03T08:10:14.3452215+07:00 0HL92AU8ALTGO:00000004 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:10:14.5282748+07:00 0HL92AU8ALTGO:00000004 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" with arguments (["TeduCoreApp.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:10:22.1141927+07:00 0HL92AU8ALTGO:00000004 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:10:22.3414840+07:00 0HL92AU8ALTGO:00000004 [INF] Executed DbCommand ("151"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-11-03T08:10:22.5449603+07:00 0HL92AU8ALTGO:00000004 [INF] Executed DbCommand ("12"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-11-03T08:10:22.6175108+07:00 0HL92AU8ALTGO:00000004 [INF] Executed DbCommand ("11"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2017-11-03T08:10:22.6616818+07:00 0HL92AU8ALTGO:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2017-11-03T08:10:22.7010431+07:00 0HL92AU8ALTGO:00000004 [INF] Executed DbCommand ("2"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2017-11-03T08:10:22.7181860+07:00 0HL92AU8ALTGO:00000004 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2017-11-03T08:10:40.9843569+07:00 0HL92AU8ALTGT:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/animate.css/animate.css   (ca22a1cb)
+2017-11-03T08:10:41.0117015+07:00 0HL92AU8ALTGO:00000004 [INF] User logged in. (fdce0db4)
+2017-11-03T08:10:41.0181035+07:00 0HL92AU8ALTGT:00000002 [INF] The file "/lib/animate.css/animate.css" was not modified (f1f8d725)
+2017-11-03T08:10:41.0476577+07:00 0HL92AU8ALTGO:00000004 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-11-03T08:10:41.0696211+07:00 0HL92AU8ALTGT:00000002 [INF] Request finished in 47.9434ms 304 text/css (791a596a)
+2017-11-03T08:10:41.2479520+07:00 0HL92AU8ALTGO:00000004 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 26765.3309ms (afa2e885)
+2017-11-03T08:10:41.3218330+07:00 0HL92AU8ALTGO:00000004 [INF] Request finished in 26922.0122ms 200 application/json; charset=utf-8 (791a596a)
+2017-11-03T08:12:11.8021151+07:00  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:12:12.0967026+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:12:12.1297518+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:12:12.1554053+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Functions] AS [f]" (0723d8ff)
+2017-11-03T08:12:12.1935990+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'DefaultFooterId'" (0723d8ff)
+2017-11-03T08:12:12.2072744+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Colors] AS [c]" (0723d8ff)
+2017-11-03T08:12:12.2880017+07:00  [INF] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AdvertistmentPages] AS [a]" (0723d8ff)
+2017-11-03T08:12:12.3437201+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Slides] AS [s]" (0723d8ff)
+2017-11-03T08:12:12.3630791+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Sizes] AS [s]" (0723d8ff)
+2017-11-03T08:12:12.3869053+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [ProductCategories] AS [p]" (0723d8ff)
+2017-11-03T08:12:12.4518824+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:12:12.4711791+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:12:12.4830669+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:12:13.5286258+07:00 0HL92AVL3E602:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/   (ca22a1cb)
+2017-11-03T08:12:13.6579002+07:00 0HL92AVL3E602:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:13.8997678+07:00 0HL92AVL3E602:00000001 [INF] Executing action method "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:19.0750761+07:00 0HL92AVL3E602:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:12:19.2009934+07:00 0HL92AVL3E600:00000001 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:12:19.2391711+07:00 0HL92AVL3E600:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:19.5443934+07:00 0HL92AVL3E600:00000001 [INF] Antiforgery token validation failed. "The provided antiforgery token was meant for a different claims-based user than the current user." (843d91fe)
+Microsoft.AspNetCore.Antiforgery.AntiforgeryValidationException: The provided antiforgery token was meant for a different claims-based user than the current user.
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.ValidateTokens(HttpContext httpContext, AntiforgeryTokenSet antiforgeryTokenSet)
+   at Microsoft.AspNetCore.Antiforgery.Internal.DefaultAntiforgery.<ValidateRequestAsync>d__9.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter.<OnAuthorizationAsync>d__3.MoveNext()
+2017-11-03T08:12:19.6318805+07:00 0HL92AVL3E600:00000001 [INF] Authorization failed for the request at filter '"Microsoft.AspNetCore.Mvc.ViewFeatures.Internal.ValidateAntiforgeryTokenAuthorizationFilter"'. (8b6446cb)
+2017-11-03T08:12:19.6942875+07:00 0HL92AVL3E600:00000001 [INF] Executing HttpStatusCodeResult, setting HTTP status code 400 (e28ccfae)
+2017-11-03T08:12:19.7320498+07:00 0HL92AVL3E600:00000001 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 350.0196ms (afa2e885)
+2017-11-03T08:12:19.8123054+07:00 0HL92AVL3E600:00000001 [INF] Request finished in 561.4591ms 400  (791a596a)
+2017-11-03T08:12:20.6702166+07:00 0HL92AVL3E602:00000001 [INF] Executed action "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" in 6785.4256ms (afa2e885)
+2017-11-03T08:12:20.6981816+07:00 0HL92AVL3E602:00000001 [INF] Request finished in 7342.0361ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:12:26.4387187+07:00 0HL92AVL3E602:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:12:26.4437076+07:00 0HL92AVL3E602:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:26.4659400+07:00 0HL92AVL3E602:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:26.8020955+07:00 0HL92AVL3E602:00000002 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:12:26.8544552+07:00 0HL92AVL3E602:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 395.1262ms (afa2e885)
+2017-11-03T08:12:26.9434994+07:00 0HL92AVL3E600:00000002 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.css   (ca22a1cb)
+2017-11-03T08:12:26.9516657+07:00 0HL92AVL3E607:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:12:26.9544114+07:00 0HL92AVL3E602:00000002 [INF] Request finished in 425.1857ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:12:26.9922418+07:00 0HL92AVL3E605:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/notify.js   (ca22a1cb)
+2017-11-03T08:12:27.0088140+07:00 0HL92AVL3E608:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:12:27.0122626+07:00 0HL92AVL3E606:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/notifyjs/dist/styles/metro/notify-metro.js   (ca22a1cb)
+2017-11-03T08:12:27.0201291+07:00 0HL92AVL3E608:00000001 [INF] The file "/app/shared/tedu.js" was not modified (f1f8d725)
+2017-11-03T08:12:27.0241998+07:00 0HL92AVL3E607:00000001 [INF] The file "/app/controllers/login/index.js" was not modified (f1f8d725)
+2017-11-03T08:12:27.0464954+07:00 0HL92AVL3E600:00000002 [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.css" was not modified (f1f8d725)
+2017-11-03T08:12:27.0476643+07:00 0HL92AVL3E605:00000001 [INF] The file "/lib/notifyjs/dist/notify.js" was not modified (f1f8d725)
+2017-11-03T08:12:27.0515222+07:00 0HL92AVL3E606:00000001 [INF] The file "/lib/notifyjs/dist/styles/metro/notify-metro.js" was not modified (f1f8d725)
+2017-11-03T08:12:27.0863728+07:00 0HL92AVL3E607:00000001 [INF] Request finished in 140.9433ms 304 application/javascript (791a596a)
+2017-11-03T08:12:27.1072680+07:00 0HL92AVL3E605:00000001 [INF] Request finished in 126.1114ms 304 application/javascript (791a596a)
+2017-11-03T08:12:27.1117340+07:00 0HL92AVL3E600:00000002 [INF] Request finished in 141.4269ms 304 text/css (791a596a)
+2017-11-03T08:12:27.1218659+07:00 0HL92AVL3E606:00000001 [INF] Request finished in 143.035ms 304 application/javascript (791a596a)
+2017-11-03T08:12:27.1395434+07:00 0HL92AVL3E608:00000001 [INF] Request finished in 71.3217ms 304 application/javascript (791a596a)
+2017-11-03T08:12:32.4207924+07:00 0HL92AVL3E606:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:12:32.4294476+07:00 0HL92AVL3E606:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:32.5052743+07:00 0HL92AVL3E606:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" with arguments (["TeduCoreApp.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:34.2999389+07:00 0HL92AVL3E606:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:12:34.5122142+07:00 0HL92AVL3E606:00000002 [INF] Executed DbCommand ("120"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-11-03T08:12:34.8072795+07:00 0HL92AVL3E606:00000002 [INF] Executed DbCommand ("2"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-11-03T08:12:34.9100952+07:00 0HL92AVL3E606:00000002 [INF] Executed DbCommand ("3"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2017-11-03T08:12:34.9684046+07:00 0HL92AVL3E606:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2017-11-03T08:12:35.0127196+07:00 0HL92AVL3E606:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2017-11-03T08:12:35.0303407+07:00 0HL92AVL3E606:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2017-11-03T08:12:35.0383357+07:00 0HL92AVL3E606:00000002 [INF] User logged in. (fdce0db4)
+2017-11-03T08:12:35.0538668+07:00 0HL92AVL3E606:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-11-03T08:12:35.1504910+07:00 0HL92AVL3E606:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 2705.6576ms (afa2e885)
+2017-11-03T08:12:35.1600236+07:00 0HL92AVL3E606:00000002 [INF] Request finished in 2744.2241ms 200 application/json; charset=utf-8 (791a596a)
+2017-11-03T08:12:35.1785812+07:00 0HL92AVL3E606:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/Admin/Home/Index   (ca22a1cb)
+2017-11-03T08:12:35.1849541+07:00 0HL92AVL3E606:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:35.1958706+07:00 0HL92AVL3E606:00000003 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:35.4743185+07:00 0HL92AVL3E606:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:12:35.9342802+07:00 0HL92AVL3E606:00000003 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" in 696.745ms (afa2e885)
+2017-11-03T08:12:36.0169244+07:00 0HL92AVL3E606:00000003 [INF] Request finished in 762.5646ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:12:36.0608983+07:00 0HL92AVL3E606:00000004 [INF] Request starting HTTP/1.1 GET http://localhost:56852/lib/bootbox/bootbox.js   (ca22a1cb)
+2017-11-03T08:12:36.0724104+07:00 0HL92AVL3E606:00000004 [INF] The file "/lib/bootbox/bootbox.js" was not modified (f1f8d725)
+2017-11-03T08:12:36.0955904+07:00 0HL92AVL3E606:00000004 [INF] Request finished in 42.0303ms 304 application/javascript (791a596a)
+2017-11-03T08:12:46.8129077+07:00 0HL92AVL3E606:00000005 [INF] Request starting HTTP/1.1 GET http://localhost:56852/Admin/Home/Index   (ca22a1cb)
+2017-11-03T08:12:46.8214504+07:00 0HL92AVL3E606:00000005 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:46.8272214+07:00 0HL92AVL3E606:00000005 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:46.8323964+07:00 0HL92AVL3E606:00000005 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:12:46.8487748+07:00 0HL92AVL3E606:00000005 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" in 11.4768ms (afa2e885)
+2017-11-03T08:12:46.8767016+07:00 0HL92AVL3E606:00000005 [INF] Request finished in 51.8543ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:12:46.8944820+07:00 0HL92AVL3E606:00000006 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:12:46.9092901+07:00 0HL92AVL3E606:00000006 [INF] The file "/app/shared/tedu.js" was not modified (f1f8d725)
+2017-11-03T08:12:46.9208934+07:00 0HL92AVL3E606:00000006 [INF] Request finished in 27.9981ms 304 application/javascript (791a596a)
+2017-11-03T08:12:54.1160616+07:00 0HL92AVL3E606:00000007 [INF] Request starting HTTP/1.1 GET http://localhost:56852/Admin/Home/Index   (ca22a1cb)
+2017-11-03T08:12:54.1224354+07:00 0HL92AVL3E606:00000007 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:54.1275672+07:00 0HL92AVL3E606:00000007 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:54.1368448+07:00 0HL92AVL3E606:00000007 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:12:54.1535615+07:00 0HL92AVL3E606:00000007 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" in 15.735ms (afa2e885)
+2017-11-03T08:12:54.2138305+07:00 0HL92AVL3E606:00000007 [INF] Request finished in 48.0793ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:12:55.9560964+07:00 0HL92AVL3E606:00000008 [INF] Request starting HTTP/1.1 GET http://localhost:56852/Admin/Home/login.html   (ca22a1cb)
+2017-11-03T08:12:55.9620862+07:00 0HL92AVL3E606:00000008 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:55.9772051+07:00 0HL92AVL3E606:00000008 [INF] Request finished in 15.297ms 404  (791a596a)
+2017-11-03T08:12:59.7927679+07:00 0HL92AVL3E606:00000009 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:12:59.8032039+07:00 0HL92AVL3E606:00000009 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:12:59.8099501+07:00 0HL92AVL3E606:00000009 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:12:59.8161379+07:00 0HL92AVL3E606:00000009 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:12:59.8322302+07:00 0HL92AVL3E606:00000009 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 12.7462ms (afa2e885)
+2017-11-03T08:12:59.9420847+07:00 0HL92AVL3E606:00000009 [INF] Request finished in 83.5256ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:13:06.7478715+07:00 0HL92AVL3E606:0000000A [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:13:06.7560295+07:00 0HL92AVL3E606:0000000A [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:13:06.7691682+07:00 0HL92AVL3E606:0000000A [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" with arguments (["TeduCoreApp.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:13:09.1873176+07:00 0HL92AVL3E606:0000000A [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:13:09.2212108+07:00 0HL92AVL3E606:0000000A [INF] Executed DbCommand ("5"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-11-03T08:13:09.2576372+07:00 0HL92AVL3E606:0000000A [INF] Executed DbCommand ("0"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-11-03T08:13:09.2679317+07:00 0HL92AVL3E606:0000000A [INF] Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2017-11-03T08:13:09.2820398+07:00 0HL92AVL3E606:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2017-11-03T08:13:09.3602862+07:00 0HL92AVL3E606:0000000A [INF] Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2017-11-03T08:13:09.3808498+07:00 0HL92AVL3E606:0000000A [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2017-11-03T08:13:09.4003209+07:00 0HL92AVL3E606:0000000A [INF] User logged in. (fdce0db4)
+2017-11-03T08:13:09.4116992+07:00 0HL92AVL3E606:0000000A [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-11-03T08:13:09.4307639+07:00 0HL92AVL3E606:0000000A [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 2656.283ms (afa2e885)
+2017-11-03T08:13:09.4997647+07:00 0HL92AVL3E606:0000000A [INF] Request finished in 2689.2111ms 200 application/json; charset=utf-8 (791a596a)
+2017-11-03T08:13:16.8564693+07:00 0HL92AVL3E606:0000000B [INF] Request starting HTTP/1.1 GET http://localhost:56852/Admin/Home/Index   (ca22a1cb)
+2017-11-03T08:13:16.8718120+07:00 0HL92AVL3E606:0000000B [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:13:16.8855908+07:00 0HL92AVL3E606:0000000B [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:13:16.8994558+07:00 0HL92AVL3E606:0000000B [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:13:17.0972721+07:00 0HL92AVL3E606:0000000B [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" in 38.555ms (afa2e885)
+2017-11-03T08:13:17.1397342+07:00 0HL92AVL3E606:0000000B [INF] Request finished in 249.5428ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:13:17.1623887+07:00 0HL92AVL3E600:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:13:17.1761125+07:00 0HL92AVL3E600:00000003 [INF] The file "/app/shared/tedu.js" was not modified (f1f8d725)
+2017-11-03T08:13:17.1922356+07:00 0HL92AVL3E600:00000003 [INF] Request finished in 128.2791ms 304 application/javascript (791a596a)
+2017-11-03T08:13:58.1383733+07:00  [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:13:58.5474155+07:00  [INF] Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppRoles] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:13:58.5862151+07:00  [INF] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AppUsers] AS [a])
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:13:58.6128429+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Functions] AS [f]" (0723d8ff)
+2017-11-03T08:13:58.6493144+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Footers] AS [x]
+WHERE [x].[Id] = 'DefaultFooterId'" (0723d8ff)
+2017-11-03T08:13:58.6598581+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Colors] AS [c]" (0723d8ff)
+2017-11-03T08:13:58.7400801+07:00  [INF] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [AdvertistmentPages] AS [a]" (0723d8ff)
+2017-11-03T08:13:58.8050580+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Slides] AS [s]" (0723d8ff)
+2017-11-03T08:13:58.8374778+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Sizes] AS [s]" (0723d8ff)
+2017-11-03T08:13:58.8684446+07:00  [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [ProductCategories] AS [p]" (0723d8ff)
+2017-11-03T08:13:58.9525821+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeTitle')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:13:58.9742972+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaKeyword')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:13:58.9878243+07:00  [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [SystemConfigs] AS [x]
+        WHERE [x].[Id] = N'HomeMetaDescription')
+    THEN CAST(1 AS BIT) ELSE CAST(0 AS BIT)
+END" (0723d8ff)
+2017-11-03T08:13:59.7220657+07:00 0HL92B0KOI7RF:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/   (ca22a1cb)
+2017-11-03T08:13:59.8727213+07:00 0HL92B0KOI7RF:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:14:00.2883479+07:00 0HL92B0KOI7RF:00000001 [INF] Authorization was successful for user: "admin". (d7eb274a)
+2017-11-03T08:14:00.3324818+07:00 0HL92B0KOI7RF:00000001 [INF] Executing action method "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:14:04.4686407+07:00 0HL92B0KOI7RC:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/admin/login   (ca22a1cb)
+2017-11-03T08:14:04.4845818+07:00 0HL92B0KOI7RC:00000001 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:14:04.5049705+07:00 0HL92B0KOI7RC:00000001 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:14:05.4202057+07:00 0HL92B0KOI7RC:00000001 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Login/Index.cshtml". (9707eebe)
+2017-11-03T08:14:05.4499143+07:00 0HL92B0KOI7RF:00000001 [INF] Executing ViewResult, running view at path "/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:14:05.8500065+07:00 0HL92B0KOI7RE:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/shared/tedu.js   (ca22a1cb)
+2017-11-03T08:14:05.9809904+07:00 0HL92B0KOI7RC:00000001 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Index (TeduCoreApp)" in 1135.7113ms (afa2e885)
+2017-11-03T08:14:06.0012160+07:00 0HL92B0KOI7RE:00000001 [INF] The file "/app/shared/tedu.js" was not modified (f1f8d725)
+2017-11-03T08:14:06.0268871+07:00 0HL92B0KOI7RB:00000001 [INF] Request starting HTTP/1.1 GET http://localhost:56852/app/controllers/login/index.js   (ca22a1cb)
+2017-11-03T08:14:06.0362407+07:00 0HL92B0KOI7RC:00000001 [INF] Request finished in 1527.2398ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:14:06.0621644+07:00 0HL92B0KOI7RB:00000001 [INF] The file "/app/controllers/login/index.js" was not modified (f1f8d725)
+2017-11-03T08:14:06.1038174+07:00 0HL92B0KOI7RE:00000001 [INF] Request finished in 291.2155ms 304 application/javascript (791a596a)
+2017-11-03T08:14:06.1796934+07:00 0HL92B0KOI7RB:00000001 [INF] Request finished in 333.1682ms 304 application/javascript (791a596a)
+2017-11-03T08:14:07.1149523+07:00 0HL92B0KOI7RF:00000001 [INF] Executed action "TeduCoreApp.Controllers.HomeController.Index (TeduCoreApp)" in 6873.9176ms (afa2e885)
+2017-11-03T08:14:07.1293555+07:00 0HL92B0KOI7RF:00000001 [INF] Request finished in 7511.4473ms 200 text/html; charset=utf-8 (791a596a)
+2017-11-03T08:14:07.3279198+07:00 0HL92B0KOI7RB:00000002 [INF] Request starting HTTP/1.1 POST http://localhost:56852/admin/login/authen application/x-www-form-urlencoded; charset=UTF-8 33 (ca22a1cb)
+2017-11-03T08:14:07.3419741+07:00 0HL92B0KOI7RB:00000002 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:14:07.6288202+07:00 0HL92B0KOI7RB:00000002 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" with arguments (["TeduCoreApp.Models.AccountViewModels.LoginViewModel"]) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:14:07.6801884+07:00 0HL92B0KOI7RB:00000002 [INF] Entity Framework Core "2.0.0-rtm-26452" initialized '"AppDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "MigrationsAssembly=TeduCoreApp.Data.EF " (9958f5bb)
+2017-11-03T08:14:07.8318660+07:00 0HL92B0KOI7RB:00000002 [INF] Executed DbCommand ("68"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[Balance], [u].[BirthDay], [u].[ConcurrencyStamp], [u].[DateCreated], [u].[DateModified], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[Status], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [AppUsers] AS [u]
+WHERE [u].[NormalizedUserName] = @__normalizedUserName_0" (0723d8ff)
+2017-11-03T08:14:08.0741532+07:00 0HL92B0KOI7RB:00000002 [INF] Executed DbCommand ("11"ms) [Parameters=["@__user_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [uc].[Id], [uc].[ClaimType], [uc].[ClaimValue], [uc].[UserId]
+FROM [AppUserClaims] AS [uc]
+WHERE [uc].[UserId] = @__user_Id_0" (0723d8ff)
+2017-11-03T08:14:08.2254436+07:00 0HL92B0KOI7RB:00000002 [INF] Executed DbCommand ("19"ms) [Parameters=["@__userId_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [role].[Name]
+FROM [AppUserRoles] AS [userRole]
+INNER JOIN [AppRoles] AS [role] ON [userRole].[RoleId] = [role].[Id]
+WHERE [userRole].[UserId] = @__userId_0" (0723d8ff)
+2017-11-03T08:14:08.2995645+07:00 0HL92B0KOI7RB:00000002 [INF] Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Description], [r].[Name], [r].[NormalizedName]
+FROM [AppRoles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0" (0723d8ff)
+2017-11-03T08:14:08.4444047+07:00 0HL92B0KOI7RB:00000002 [INF] Executed DbCommand ("19"ms) [Parameters=["@__role_Id_0='?'"], CommandType='Text', CommandTimeout='30']"
+""SELECT [rc].[ClaimType], [rc].[ClaimValue]
+FROM [AppRoleClaims] AS [rc]
+WHERE [rc].[RoleId] = @__role_Id_0" (0723d8ff)
+2017-11-03T08:14:08.4643241+07:00 0HL92B0KOI7RB:00000002 [INF] AuthenticationScheme: "Identity.Application" signed in. (c66dd7e7)
+2017-11-03T08:14:08.4744215+07:00 0HL92B0KOI7RB:00000002 [INF] User logged in. (fdce0db4)
+2017-11-03T08:14:08.5026127+07:00 0HL92B0KOI7RB:00000002 [INF] Executing ObjectResult, writing value "Microsoft.AspNetCore.Mvc.ControllerContext". (4e968210)
+2017-11-03T08:14:08.6184460+07:00 0HL92B0KOI7RB:00000002 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.LoginController.Authen (TeduCoreApp)" in 1167.3744ms (afa2e885)
+2017-11-03T08:14:08.6656296+07:00 0HL92B0KOI7RB:00000002 [INF] Request finished in 1322.2986ms 200 application/json; charset=utf-8 (791a596a)
+2017-11-03T08:14:08.6809492+07:00 0HL92B0KOI7RB:00000003 [INF] Request starting HTTP/1.1 GET http://localhost:56852/Admin/Home/Index   (ca22a1cb)
+2017-11-03T08:14:08.6938700+07:00 0HL92B0KOI7RB:00000003 [INF] AuthenticationScheme: "Identity.Application" was successfully authenticated. (1805f3b3)
+2017-11-03T08:14:08.7111771+07:00 0HL92B0KOI7RB:00000003 [INF] Executing action method "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" with arguments (null) - ModelState is Valid (ba7f4ac2)
+2017-11-03T08:14:09.0028648+07:00 0HL92B0KOI7RB:00000003 [INF] Executing ViewResult, running view at path "/Areas/Admin/Views/Home/Index.cshtml". (9707eebe)
+2017-11-03T08:14:09.5794420+07:00 0HL92B0KOI7RB:00000003 [INF] Executed action "TeduCoreApp.Areas.Admin.Controllers.HomeController.Index (TeduCoreApp)" in 740.3954ms (afa2e885)
+2017-11-03T08:14:09.8021361+07:00 0HL92B0KOI7RB:00000003 [INF] Request finished in 909.6259ms 200 text/html; charset=utf-8 (791a596a)
