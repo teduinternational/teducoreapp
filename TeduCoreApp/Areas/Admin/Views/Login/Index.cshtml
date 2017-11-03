@@ -35,7 +35,7 @@
         <div class="login_wrapper">
             <div class="animate form login_form">
                 <section class="login_content">
-                    <form>
+                    <form id="frmLogin">
                         @Html.AntiForgeryToken()
                         <h1>Đăng nhập</h1>
                         <div>
@@ -70,6 +70,12 @@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/notifyjs/dist/notify.js"></script>
     <script src="~/lib/notifyjs/dist/styles/metro/notify-metro.js"></script>
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/lib/jquery-validation/localization/messages_vi.js"></script>
+
     <script src="~/app/shared/tedu.js"></script>
     <script src="~/app/controllers/login/index.js"></script>
     <script>
