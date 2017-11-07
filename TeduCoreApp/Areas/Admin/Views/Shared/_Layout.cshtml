@@ -21,6 +21,7 @@
     <link href="~/lib/notifyjs/dist/styles/metro/notify-metro.css" rel="stylesheet" />
     <!-- Custom Theme Style -->
     <link href="~/admin-side/css/custom.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
 </head>
 
 <body class="nav-md">
@@ -51,7 +52,6 @@
                     <!-- sidebar menu -->
                     @await Component.InvokeAsync("SideBar")
                     <!-- /sidebar menu -->
-
                     <!-- /menu footer buttons -->
                     <div class="sidebar-footer hidden-small">
                         <a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -81,9 +81,9 @@
 
                         <ul class="nav navbar-nav navbar-right">
                             <li class="">
-                               @await Html.PartialAsync("_LoginPartial")
+                                @await Html.PartialAsync("_LoginPartial")
                             </li>
-                            
+
                             <li role="presentation" class="dropdown">
                                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
@@ -180,6 +180,7 @@
     <!-- NProgress -->
     <script src="~/lib/nprogress/nprogress.js"></script>
     <!-- Chart.js -->
+    <script src="~/lib/mustache/mustache.js"></script>
 
     <script src="~/lib/Chart.js/dist/Chart.js"></script>
     <!-- jQuery Sparklines -->
@@ -187,15 +188,15 @@
     <script src="~/lib/jquery-sparkline/dist/jquery.sparkline.js"></script>
     <!-- Flot -->
     @*<script src="../vendors/Flot/jquery.flot.js"></script>
-    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
-    <script src="../vendors/Flot/jquery.flot.time.js"></script>
-    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
-    <script src="../vendors/Flot/jquery.flot.resize.js"></script>*@
+        <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+        <script src="../vendors/Flot/jquery.flot.time.js"></script>
+        <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+        <script src="../vendors/Flot/jquery.flot.resize.js"></script>*@
 
     <!-- Flot plugins -->
     @*<script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>*@
+        <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+        <script src="../vendors/flot.curvedlines/curvedLines.js"></script>*@
     <!-- DateJS -->
     @*<script src="../vendors/DateJS/build/date.js"></script>*@
     <!-- bootstrap-daterangepicker -->
@@ -208,5 +209,6 @@
     <script src="~/app/shared/tedu.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/admin-side/js/custom.js"></script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

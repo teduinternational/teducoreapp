@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@section Scripts{ 
+<script src="~/app/controllers/product/index.js"></script>
+    <script>
+        var product = new productController();
+        product.initialize();
+    </script>
+}
+<div class="page-title">
+    <div class="title_left">
+        <h3>Products <small>List products</small></h3>
+    </div>
+
+    <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="10%">#</th>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Image</th>
+                            <th>Created Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbl-content">
+                   
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script id="table-template" type="x-tmpl-mustache">
+    <tr>
+        <th scope="row">
+            <button class="btn btn-default btn-sm"><i class="fa fa-pencil"></i></button>
+            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+        </th>
+        <td>{{Name}}</td>
+        <td>{{CategoryName}}</td>
+        <td>{{Price}}</td>
+        <td>{{{Image}}}</td>
+        <td>{{CreatedDate}}</td>
+        <td>{{{Status}}}</td>
+    </tr>
+</script>
