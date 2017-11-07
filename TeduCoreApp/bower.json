@@ -22,7 +22,8 @@
     "notifyjs": "~0.4.2",
     "bootbox": "~4.4.0",
     "animate.css": "~3.5.2",
-    "mustache": "~2.3.0"
+    "mustache": "~2.3.0",
+    "twbs-pagination": "~1.4.1"
 
   }
 }
