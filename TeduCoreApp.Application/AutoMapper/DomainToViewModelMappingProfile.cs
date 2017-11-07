@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TeduCoreApp.Application.ViewModels.Product;
+using TeduCoreApp.Application.ViewModels.System;
 using TeduCoreApp.Data.Entities;
 
 namespace TeduCoreApp.Application.AutoMapper
@@ -12,6 +13,8 @@ namespace TeduCoreApp.Application.AutoMapper
         public DomainToViewModelMappingProfile()
         {
             CreateMap<ProductCategory, ProductCategoryViewModel>();
+            CreateMap<Function, FunctionViewModel>();
+
         }
     }
 }
