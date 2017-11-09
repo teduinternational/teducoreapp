@@ -1,0 +1,112 @@
+﻿<div id="modal-add-edit" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Category update</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+
+                        <div class="form-group">
+                            <input type="hidden" id="hidIdM" value="0" />
+                            <label for="txtNameM" class="col-sm-2 control-label no-padding-right">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtNameM" class="form-control" id="txtNameM" placeholder="Name of category">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">Parent</label>
+                            <div class="col-sm-10">
+                                <input id="ddlCategoryIdM" class="form-control" name="ddlCategoryIdM" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAliasM" class="col-sm-2 control-label no-padding-right">Alias</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtAliasM" class="form-control" id="txtAliasM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDescM" class="col-sm-2 control-label no-padding-right">Description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="3" name="txtDescM" class="form-control" id="txtDescM"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtOrderM" class="col-sm-2 control-label no-padding-right">Sort Order</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="txtOrderM" class="form-control" id="txtOrderM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtHomeOrderM" class="col-sm-2 control-label no-padding-right">Home Order</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="txtHomeOrderM" class="form-control" id="txtHomeOrderM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtImageM" class="col-sm-2 control-label no-padding-right">Images</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input type="text" name="txtImageM" class="form-control" id="txtImageM" />
+                                    <input type="file" id="fileInputImage" style="display:none" />
+                                    <span class="input-group-btn">
+                                        <input type="button" id="btnSelectImg" class="btn btn-default" value="Browser" />
+                                    </span>
+                                </div><!-- /input-group -->
+
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSeoPageTitleM" class="col-sm-2 control-label no-padding-right">SEO Title</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtSeoPageTitleM" class="form-control" id="txtSeoPageTitleM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSeoAliasM" class="col-sm-2 control-label no-padding-right">URL SEO</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtSeoAliasM" class="form-control" id="txtSeoAliasM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSeoKeywordM" class="col-sm-2 control-label no-padding-right">SEO Keyword</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtSeoKeywordM" class="form-control" id="txtSeoKeywordM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSeoDescriptionM" class="col-sm-2 control-label no-padding-right">SEO Description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="3" name="txtSeoDescriptionM" class="form-control" id="txtSeoDescriptionM"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" id="ckStatusM">
+                                        <span class="text">Active.</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="ckShowHomeM">
+                                        <span class="text">Show on home.</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="btnCancel" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="btnSave" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

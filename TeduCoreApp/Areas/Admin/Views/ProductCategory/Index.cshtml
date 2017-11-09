@@ -7,6 +7,7 @@
     <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
 }
 @section Scripts{
+
     <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
     <script src="~/app/controllers/product-category/index.js" asp-append-version="true"></script>
     <script>
@@ -33,7 +34,12 @@
         <div class="x_panel">
             <div class="x_content">
                 <ul id="treeProductCategory"></ul>
+                <div id="contextMenu" class="easyui-menu" style="width:120px;">
+                    <div id="btnEdit" data-options="iconCls:'icon-edit'">Sửa</div>
+                    <div id="btnDelete" data-options="iconCls:'icon-remove'">Xoá</div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+@Html.Partial("_AddEditModal.cshtml")
