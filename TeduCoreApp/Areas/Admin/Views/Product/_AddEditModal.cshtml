@@ -1,0 +1,131 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add edit product</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group">
+                            <input type="hidden" id="hidIdM" value="0" />
+                            <label for="txtNameM" class="col-sm-2 control-label no-padding-right">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtNameM" class="form-control" id="txtNameM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">Category</label>
+                            <div class="col-sm-10">
+                                <input id="ddlCategoryIdM" required class="form-control" name="ddlCategoryIdM" value="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtDescM" class="col-sm-2 control-label no-padding-right">Description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="4" name="txtDescM" class="form-control" id="txtDescM"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtUnitM" class="col-sm-2 control-label no-padding-right">Unit</label>
+                            <div class="col-sm-5">
+                                <input type="text" name="txtUnitM" class="form-control" id="txtUnitM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label ">Sell price</label>
+                            <div class="col-sm-2">
+                                <input type="text" name="txtPriceM" class="form-control" id="txtPriceM">
+                            </div>
+
+                            <label class="col-sm-2 control-label">Original price</label>
+                            <div class="col-sm-2">
+                                <input type="text" name="txtOriginalPriceM" class="form-control" id="txtOriginalPriceM">
+                            </div>
+                            <label class="col-sm-2 control-label">Promotion</label>
+                            <div class="col-sm-2">
+                                <input type="text" name="txtPromotionPriceM" class="form-control" id="txtPromotionPriceM">
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                            <label for="txtImageM" class="col-sm-2 control-label no-padding-right">Image</label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input type="text" name="txtImageM" class="form-control" id="txtImageM" />
+                                    <input type="file" id="fileInputImage" style="display:none" />
+                                    <span class="input-group-btn">
+                                        <input type="button" id="btnSelectImg" class="btn btn-default" value="Browser" />
+                                    </span>
+                                </div>
+
+                            </div>
+
+                        </div>*@
+                        @*<div class="form-group">
+                            <label for="txtContentM" class="col-sm-2 control-label no-padding-right">Content</label>
+                            <div class="col-sm-10">
+                                <textarea id="txtContentM" rows="6" class="form-control"></textarea>
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            <label for="txtMetakeywordM" class="col-sm-2 control-label no-padding-right">SEO title</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtSeoPageTitleM" class="form-control" id="txtSeoPageTitleM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtSeoAliasM" class="col-sm-2 control-label no-padding-right">SEO Url</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtSeoAliasM" class="form-control" id="txtSeoAliasM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMetakeywordM" class="col-sm-2 control-label no-padding-right">SEO Keywords</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtMetakeywordM" class="form-control" id="txtMetakeywordM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtMetaDescriptionM" class="col-sm-2 control-label no-padding-right">SEO Description</label>
+                            <div class="col-sm-10">
+                                <textarea rows="3" name="txtMetaDescriptionM" class="form-control" id="txtMetaDescriptionM"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtTagM" class="col-sm-2 control-label no-padding-right">Tag (separated by comma)</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtTagM" class="form-control" id="txtTagM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" id="ckStatusM">
+                                        <span class="text">Active.</span>
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="ckHotM">
+                                        <span class="text">Hot product</span>
+                                    </label>
+
+                                    <label>
+                                        <input type="checkbox" checked="checked" id="ckShowHomeM">
+                                        <span class="text">Show on home</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSave" class="btn btn-success">Save changes</button>
+                                <button type="button" id="btnCancel" data-dismiss="modal" class="btn btn-danger">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
