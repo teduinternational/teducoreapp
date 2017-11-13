@@ -24,7 +24,8 @@
     "animate.css": "~3.5.2",
     "mustache": "~2.3.0",
     "twbs-pagination": "~1.4.1",
-    "jQuery-EasyUI": "~1.5.3"
+    "jQuery-EasyUI": "~1.5.3",
+    "ckeditor": "~4.7.3"
 
   }
 }
