@@ -135,7 +135,7 @@ namespace TeduCoreApp.Application.Implementation
 
         public async Task UpdateAsync(AppRoleViewModel roleVm)
         {
-            var role = await _roleManager.FindByIdAsync(roleVm.Id);
+            var role = await _roleManager.FindByIdAsync(roleVm.Id.ToString());
             role.Description = roleVm.Description;
             role.Name = roleVm.Name;
             await _roleManager.UpdateAsync(role);
