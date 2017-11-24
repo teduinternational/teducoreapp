@@ -22,6 +22,8 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
 using TeduCoreApp.Helpers;
 using TeduCoreApp.Infrastructure.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using TeduCoreApp.Authorization;
 
 namespace TeduCoreApp
 {
@@ -96,6 +98,9 @@ namespace TeduCoreApp
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IRoleService, RoleService>();
+
+            services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
+
 
         }
 
