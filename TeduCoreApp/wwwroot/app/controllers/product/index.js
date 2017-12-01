@@ -120,6 +120,24 @@
             });
             return false;
         });
+
+        $('#btn-export').on('click', function () {
+            $.ajax({
+                type: "POST",
+                url: "/Admin/Product/ExportExcel",
+                beforeSend: function () {
+                    tedu.startLoading();
+                },
+                success: function (response) {
+                    window.location.href = response;
+                    tedu.stopLoading();
+                },
+                error: function () {
+                    tedu.notify('Has an error in progress', 'error');
+                    tedu.stopLoading();
+                }
+            });
+        });
     }
 
     function registerControls() {

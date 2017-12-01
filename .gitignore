@@ -263,3 +263,4 @@ __pycache__/
 *.pyc
 /TeduCoreApp/wwwroot/uploaded/images/20171113
 /TeduCoreApp/wwwroot/uploaded/excels
+/TeduCoreApp/wwwroot/export-files
