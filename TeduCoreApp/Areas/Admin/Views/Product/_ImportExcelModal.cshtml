@@ -1,0 +1,38 @@
+﻿<div id="modal-import-excel" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Import Excel</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group">
+                            <label for="txtName" class="col-sm-2 control-label no-padding-right">Choose file</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="file" id="fileInputExcel" />
+                                </div><!-- /input-group -->
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">Category</label>
+                            <div class="col-sm-10">
+                                <input id="ddlCategoryIdImportExcel" required class="form-control" name="ddlCategoryIdM" value="">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="btnImportExcel" class="btn btn-success">Save</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
