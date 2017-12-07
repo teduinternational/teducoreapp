@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Product;
+using TeduCoreApp.Data.EF.Repositories;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
 using TeduCoreApp.Data.IRepositories;
@@ -23,14 +24,18 @@ namespace TeduCoreApp.Application.Implementation
         IProductRepository _productRepository;
         ITagRepository _tagRepository;
         IProductTagRepository _productTagRepository;
+        IProductQuantityRepository _productQuantityRepository;
+
         IUnitOfWork _unitOfWork;
         public ProductService(IProductRepository productRepository,
             ITagRepository tagRepository,
+            IProductQuantityRepository productQuantityRepository,
             IUnitOfWork unitOfWork,
         IProductTagRepository productTagRepository)
         {
             _productRepository = productRepository;
             _tagRepository = tagRepository;
+            _productQuantityRepository = productQuantityRepository;
             _productTagRepository = productTagRepository;
             _unitOfWork = unitOfWork;
         }
@@ -70,6 +75,21 @@ namespace TeduCoreApp.Application.Implementation
 
             }
             return productVm;
+        }
+
+        public void AddQuantity(int productId, List<ProductQuantityViewModel> quantities)
+        {
+            _productQuantityRepository.RemoveMultiple(_productQuantityRepository.FindAll(x => x.ProductId == productId).ToList());
+            foreach (var quantity in quantities)
+            {
+                _productQuantityRepository.Add(new ProductQuantity()
+                {
+                    ProductId = productId,
+                    ColorId = quantity.ColorId,
+                    SizeId = quantity.SizeId,
+                    Quantity = quantity.Quantity
+                });
+            }
         }
 
         public void Delete(int id)
@@ -115,6 +135,11 @@ namespace TeduCoreApp.Application.Implementation
         public ProductViewModel GetById(int id)
         {
             return Mapper.Map<Product, ProductViewModel>(_productRepository.FindById(id));
+        }
+
+        public List<ProductQuantityViewModel> GetQuantities(int productId)
+        {
+            return _productQuantityRepository.FindAll(x => x.ProductId == productId).ProjectTo<ProductQuantityViewModel>().ToList();
         }
 
         public void ImportExcel(string filePath, int categoryId)

@@ -24,5 +24,9 @@ namespace TeduCoreApp.Application.Interfaces
 
 
         void Save();
+
+        void AddQuantity(int productId, List<ProductQuantityViewModel> quantities);
+
+        List<ProductQuantityViewModel> GetQuantities(int productId);
     }
 }

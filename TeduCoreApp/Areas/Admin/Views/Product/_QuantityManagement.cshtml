@@ -1,0 +1,51 @@
+﻿<div id="modal-quantity-management" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Quản lý số lượng</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <input type="hidden" id="hidId" value="" />
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Màu sắc</td>
+                                    <td>Kích thước</td>
+                                    <td>Số lượng</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody id="table-quantity-content"></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="4">
+                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-quantity">Thêm</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+
+                    <script type="x-tmpl-mustache" id="template-table-quantity">
+                        <tr data-id="{{Id}}">
+                            <td>{{{Colors}}}</td>
+                            <td>{{{Sizes}}}</td>
+                            <td><input type="number" class="txtQuantity form-control" value="{{Quantity}}" /></td>
+                            <td><button class="btn btn-xs btn-danger btn-delete-quantity" type="button"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                    </script>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="btnSaveQuantity" class="btn btn-success">Lưu lại</button>
+
+                    <button type="button" data-dismiss="modal" class="btn btn-danger">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
