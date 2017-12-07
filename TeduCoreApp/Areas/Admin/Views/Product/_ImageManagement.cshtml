@@ -1,0 +1,39 @@
+﻿<div id="modal-image-manage" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Quản lý hình ảnh</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right">Ảnh đã chọn</label>
+                            <div class="col-sm-10">
+                                <input type="hidden" id="hidId" value="" />
+                                <div id="image-list" class="col-md-12">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtName" class="col-sm-2 control-label no-padding-right">Chọn ảnh</label>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <input type="file" id="fileImage" />
+                                </div><!-- /input-group -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="btnSaveImages" class="btn btn-success">Lưu lại</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger">Hủy bỏ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
