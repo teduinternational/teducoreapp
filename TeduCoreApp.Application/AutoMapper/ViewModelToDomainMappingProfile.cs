@@ -27,6 +27,18 @@ namespace TeduCoreApp.Application.AutoMapper
 
             CreateMap<PermissionViewModel, Permission>()
             .ConstructUsing(c => new Permission(c.RoleId, c.FunctionId, c.CanCreate, c.CanRead, c.CanUpdate, c.CanDelete));
+
+
+
+            CreateMap<BillViewModel, Bill>()
+              .ConstructUsing(c => new Bill(c.Id,c.CustomerName, c.CustomerAddress, 
+              c.CustomerMobile, c.CustomerMessage, c.BillStatus, 
+              c.PaymentMethod, c.Status, c.CustomerId));
+
+            CreateMap<BillDetailViewModel, BillDetail>()
+              .ConstructUsing(c => new BillDetail(c.Id, c.BillId, c.ProductId,
+              c.Quantity, c.Price, c.ColorId, c.SizeId));
+
         }
     }
 }
