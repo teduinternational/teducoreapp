@@ -1,0 +1,48 @@
+﻿<div id="modal-whole-price" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Quản lý giá bán sỉ</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <td>Từ</td>
+                                    <td>Đến</td>
+                                    <td>Giá</td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody id="table-content-whole-price"></tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3">
+                                        <button class="btn btn-xs btn-success" type="button" id="btn-add-whole-price">Thêm</button>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </form>
+                    <script type="x-tmpl-mustache" id="template-table-whole-price">
+                        <tr data-id="{{Id}}">
+                            <td><input type="number" class="form-control txtQuantityFrom" value="{{FromQuantity}}" /></td>
+                            <td><input type="number" class="form-control txtQuantityTo" value="{{ToQuantity}}" /></td>
+                            <td><input type="number" class="txtWholePrice form-control" value="{{Price}}" /></td>
+                            <td><button class="btn btn-xs btn-danger btn-delete-whole-price" data-id="{{Id}}" type="button"><i class="fa fa-trash"></i></button></td>
+                        </tr>
+                    </script>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="button" id="btnSaveWholePrice" class="btn btn-success">Lưu lại</button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger">Hủy bỏ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
