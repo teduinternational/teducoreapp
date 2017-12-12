@@ -10,7 +10,6 @@ using TeduCoreApp.Extensions;
 
 namespace TeduCoreApp.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         public IActionResult Index()
