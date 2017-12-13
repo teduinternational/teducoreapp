@@ -1,4 +1,5 @@
-﻿<div class="navleft-container">
+﻿@model List<ProductCategoryViewModel>
+<div class="navleft-container">
     <div class="mega-menu-title">
         <h3><span>All Categories</span></h3>
     </div>
@@ -6,254 +7,31 @@
     <!-- Shop by category -->
     <div class="mega-menu-category">
         <ul class="nav">
-            <li>
-                <a href="#">Home pages </a>
-                <div class="wrap-popup column1">
-                    <div class="popup">
-                        <ul class="nav">
-                            <li><a href="index.html"><span>Home Version 1</span></a></li>
-                            <li><a href="version2/index.html"><span>Home Version 2</span></a></li>
-                            <li><a href="version3/index.html"><span>Home Version 3</span></a></li>
-                            <li><a href="version4/index.html"><span>Home Version 4</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#">Pages</a>
-                <div class="wrap-popup">
-                    <div class="popup">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
+            @foreach (var item in Model.Where(x => x.ParentId == null))
+            {
+                if (Model.Any(x => x.ParentId == item.Id))
+                {
+                    <li>
+                        <a href="/@item.SeoAlias-c.@(item.Id).html">@item.Name</a>
+                        <div class="wrap-popup column1">
+                            <div class="popup">
                                 <ul class="nav">
-                                    <li><a href="shop_grid.html"><span>Grid View Category Page</span></a></li>
-                                    <li><a href="shop_grid_full_width.html"><span>Grid View Full Width</span></a></li>
-                                    <li><a href="shop_list.html"><span>List View Category Page</span></a></li>
-                                    <li><a href="single_product.html"><span>Full Width Product Page</span> </a></li>
-                                    <li><a href="single_product_sidebar.html"><span>Product Page With Sidebar</span> </a></li>
-                                    <li><a href="single_product_magnify_zoom.html"><span>Product Page Magnify Zoom</span> </a></li>
-                                    <li><a href="shopping_cart.html"><span>Shopping Cart</span></a></li>
-                                    <li><a href="wishlist.html"><span>Wishlist</span></a></li>
-                                    <li><a href="compare.html"><span>Compare Products</span></a></li>
-                                    <li><a href="checkout.html"><span>Checkout</span></a></li>
-                                    <li><a href="sitemap.html"><span>Sitemap</span></a></li>
+                                    @foreach (var subItem in Model.Where(x => x.ParentId == item.Id))
+                                    {
+                                        <li><a href="/@subItem.SeoAlias-c.@(subItem.Id).html"><span>@subItem.Name</span></a></li>
+                                    }
                                 </ul>
-                            </div>
-                            <div class="col-md-4 col-sm-6 has-sep">
-                                <ul class="nav">
-                                    <li><a href="about_us.html"><span>About Us</span></a></li>
-                                    <li><a href="contact_us.html"><span>Contact Us</span></a></li>
-                                    <li><a href="orders_list.html"><span>Orders List</span></a></li>
-                                    <li><a href="order_details.html"><span>Order Details</span></a></li>
-                                    <li><a href="404error.html"><span>404 Error</span> </a></li>
-                                    <li><a href="faq.html"><span>FAQ Page</span></a></li>
-                                    <li><a href="manufacturers.html"><span>Manufacturers</span></a></li>
-                                    <li><a href="quick_view.html"><span>Quick View</span></a></li>
-                                    <li><a href="dashboard.html"><span>Account Dashboard</span></a></li>
-                                    <li><a href="shortcodes.html"><span>Shortcodes</span> </a></li>
-                                    <li><a href="typography.html"><span>Typography</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 has-sep hidden-sm">
-                                <div class="custom-menu-right">
-                                    <div class="box-banner menu-banner">
-                                        <div class="add-right"><a href="#"><img src="/client-side/images/menu-banner-img1.jpg" alt="responsive"></a></div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#">TV &amp; Audio</a>
-                <div class="wrap-popup">
-                    <div class="popup">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <h3>Televisions</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html">LCD Televisions</a></li>
-                                    <li><a href="shop_grid.html">Projection Televisions</a></li>
-                                    <li><a href="shop_grid.html">Play Stations</a></li>
-                                    <li><a href="shop_grid.html">Televisions/Tube</a></li>
-                                </ul>
-                                <br>
-                                <h3>Headphones</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html">Players &amp; Video</a></li>
-                                    <li><a href="shop_grid.html">Party Dresses</a></li>
-                                    <li><a href="shop_grid.html">Midi Dresses</a></li>
-                                    <li><a href="shop_grid.html">Strapless Dresses</a></li>
-                                    <li><a href="shop_grid.html">Day Dresses</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-sm-6 has-sep">
-                                <h3>Appliances</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html">Kitchen</a></li>
-                                    <li><a href="shop_grid.html">Refrigerators</a></li>
-                                    <li><a href="shop_grid.html">Laundry &amp; Garment</a></li>
-                                    <li><a href="shop_grid.html">Vacuum Cleaners</a></li>
-                                </ul>
-                                <br>
-                                <h3>Video Accessories</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html">Bags &amp; Cases</a></li>
-                                    <li><a href="shop_grid.html">Video Tapes</a></li>
-                                    <li><a href="shop_grid.html">Memory Card</a></li>
-                                    <li><a href="shop_grid.html">Readers Tripods</a></li>
-                                    <li><a href="shop_grid.html">Batteries</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 has-sep hidden-sm">
-                                <div class="custom-menu-right">
-                                    <div class="box-banner media">
-                                        <div class="add-desc">
-                                            <h3>
-                                                Computer <br>
-                                                Services
-                                            </h3>
-                                            <div class="price-sale">2016</div>
-                                            <a href="#">Shop Now</a>
-                                        </div>
-                                        <div class="add-right"><a href="#"><img src="/client-side/images/menu-banner-img2.jpg" alt="fashion"></a></div>
-                                    </div>
-                                    <div class="box-banner media">
-                                        <div class="add-desc">
-                                            <h3>Save up to</h3>
-                                            <div class="price-sale">75 <sup>%</sup><sub>off</sub></div>
-                                            <a href="#">Shopping Now</a>
-                                        </div>
-                                        <div class="add-right"><a href="#"><img src="/client-side/images/menu-banner-img3.jpg" alt=" html store"></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="#">Apple Store </a>
-                <div class="wrap-popup">
-                    <div class="popup">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <h3>Online store</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html">Mac personal computers</a></li>
-                                    <li><a href="shop_grid.html">iPhone smartphones</a></li>
-                                    <li><a href="shop_grid.html">iPad tablet computers</a></li>
-                                    <li><a href="shop_grid.html">iPod portable</a></li>
-                                    <li><a href="shop_grid.html">Media players</a></li>
-                                    <li><a href="shop_grid.html">Smartwatches</a></li>
-                                    <li><a href="shop_grid.html">Apple TV digital</a></li>
-                                    <li><a href="shop_grid.html">software</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 col-sm-6 has-sep">
-                                <h3>Accessories</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html"><span>JCables Chargers</span></a></li>
-                                    <li><a href="shop_grid.html"><span>Cases Backup</span></a></li>
-                                    <li><a href="shop_grid.html"><span>Battery Packs Screen</span> </a></li>
-                                    <li><a href="shop_grid.html"><span>Protectors</span> </a></li>
-                                    <li><a href="shop_grid.html"><span>Holders &amp; Stands</span></a></li>
-                                    <li><a href="shop_grid.html"><span>Office Wireless</span></a></li>
-                                    <li><a href="shop_grid.html"><span>Cable Phones</span></a></li>
-                                    <li><a href="shop_grid.html"><span>Fax Radio Phones</span></a></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-4 has-sep hidden-sm">
-                                <div class="custom-menu-right">
-                                    <div class="box-banner menu-banner">
-                                        <div class="add-right"><a href="#"><img src="/client-side/images/menu-banner-img4.jpg" alt="responsive"></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="shop_grid.html">Photo &amp; Camera</a>
-                <div class="wrap-popup column3">
-                    <div class="popup">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <h3>Camera Store</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html"> Canon PowerShot </a></li>
-                                    <li><a href="shop_grid.html"> Photography </a></li>
-                                    <li><a href="shop_grid.html"> Action Camcorders </a></li>
-                                    <li><a href="shop_grid.html"> Film Cameras </a></li>
-                                    <li><a href="shop_grid.html"> Photo Studio </a></li>
-                                    <li><a href="shop_grid.html"> Camera Lenses </a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-6 has-sep">
-                                <h3>Accessories</h3>
-                                <ul class="nav">
-                                    <li><a href="shop_grid.html"> Bags &amp; Cases </a></li>
-                                    <li><a href="shop_grid.html"> Keyboards</a></li>
-                                    <li><a href="shop_grid.html"> Web Cameras </a></li>
-                                    <li><a href="shop_grid.html"> Batteries &amp; Chargers </a></li>
-                                    <li><a href="shop_grid.html"> USB Gadgets </a></li>
-                                    <li><a href="shop_grid.html"> Cables &amp; Connectors </a></li>
-                                </ul>
-                            </div>
-                            <div class="col-sm-12"> <a class="ads1" href="#"><img class="img-responsive" src="/client-side/images/menu-banner-img5.jpg" alt="bootstrap"></a> </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="shop_grid.html">Smartphone</a>
-                <div class="wrap-popup column1">
-                    <div class="popup">
-                        <ul class="nav">
-                            <li><a href="shop_grid.html"><span>Micromax Canvas</span></a></li>
-                            <li><a href="shop_grid.html"><span>Moto G5</span></a></li>
-                            <li><a href="shop_grid.html"><span>iPhone 6-32GB</span></a></li>
-                            <li><a href="shop_grid.html"><span>OnePlus 5</span></a></li>
-                            <li><a href="shop_grid.html"><span>Samsung On7 pro</span></a></li>
-                            <li><a href="shop_grid.html"><span>Coolpad Cool</span></a></li>
-                            <li><a href="shop_grid.html"><span>Xolo Era</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <a href="shop_grid.html">Laptop</a>
-                <div class="wrap-popup column1">
-                    <div class="popup">
-                        <ul class="nav">
-                            <li><a href="shop_grid.html"><span>Lenovo Ideapad</span></a></li>
-                            <li><a href="shop_grid.html"><span>Dell Inspiron</span></a></li>
-                            <li><a href="shop_grid.html"><span>Acer One 14</span></a></li>
-                            <li><a href="shop_grid.html"><span>Toshiba</span></a></li>
-                            <li><a href="shop_grid.html"><span>ASUS VivoBook</span></a></li>
-                            <li><a href="shop_grid.html"><span>HP Pavilion</span></a></li>
-                            <li><a href="shop_grid.html"><span>iBall CompBook</span></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li class="nosub"><a href="#">Games &amp; Video</a></li>
-            <li>
-                <a href="blog.html">Blog</a>
-                <div class="wrap-popup column1">
-                    <div class="popup">
-                        <ul class="nav">
-                            <li><a href="blog_right_sidebar.html"> Blog – Right Sidebar </a></li>
-                            <li><a href="blog_left_sidebar.html"> Blog – Left Sidebar </a></li>
-                            <li><a href="blog_full_width.html"> Blog – Full-Width </a></li>
-                            <li><a href="blog_single_post.html"> Single post </a></li>
-                        </ul>
-                    </div>
-                </div>
-            </li>
-            <li class="nosub"><a href="shop_grid.html">Accessories</a></li>
+                    </li>
+
+                }
+                else
+                {
+                    <li class="nosub"><a href="/@item.SeoAlias-c.@(item.Id).html">@item.Name</a></li>
+                }
+
+            }
         </ul>
     </div>
 </div>

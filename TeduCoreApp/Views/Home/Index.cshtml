@@ -1,79 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model  HomeViewModel
+@{
+    ViewData["Title"] = Model.Title;
+    ViewData["MetaKeyword"] = Model.MetaKeyword;
+    ViewData["MetaDescription"] = Model.MetaDescription;
 }
 @section Scripts{
-    <script type='text/javascript'>
-        jQuery(document).ready(function () {
-            jQuery('#rev_slider_4').show().revolution({
-                dottedOverlay: 'none',
-                delay: 5000,
-                startwidth: 865,
-                startheight: 450,
 
-                hideThumbs: 200,
-                thumbWidth: 200,
-                thumbHeight: 50,
-                thumbAmount: 2,
-
-                navigationType: 'thumb',
-                navigationArrows: 'solo',
-                navigationStyle: 'round',
-
-                touchenabled: 'on',
-                onHoverStop: 'on',
-
-                swipe_velocity: 0.7,
-                swipe_min_touches: 1,
-                swipe_max_touches: 1,
-                drag_block_vertical: false,
-
-                spinner: 'spinner0',
-                keyboardNavigation: 'off',
-
-                navigationHAlign: 'center',
-                navigationVAlign: 'bottom',
-                navigationHOffset: 0,
-                navigationVOffset: 20,
-
-                soloArrowLeftHalign: 'left',
-                soloArrowLeftValign: 'center',
-                soloArrowLeftHOffset: 20,
-                soloArrowLeftVOffset: 0,
-
-                soloArrowRightHalign: 'right',
-                soloArrowRightValign: 'center',
-                soloArrowRightHOffset: 20,
-                soloArrowRightVOffset: 0,
-
-                shadow: 0,
-                fullWidth: 'on',
-                fullScreen: 'off',
-
-                stopLoop: 'off',
-                stopAfterLoops: -1,
-                stopAtSlide: -1,
-
-                shuffle: 'off',
-
-                autoHeight: 'off',
-                forceFullWidth: 'on',
-                fullScreenAlignForce: 'off',
-                minFullScreenHeight: 0,
-                hideNavDelayOnMobile: 1500,
-
-                hideThumbsOnMobile: 'off',
-                hideBulletsOnMobile: 'off',
-                hideArrowsOnMobile: 'off',
-                hideThumbsUnderResolution: 0,
-
-
-                hideSliderAtLimit: 0,
-                hideCaptionAtLimit: 0,
-                hideAllCaptionAtLilmit: 0,
-                startWithSlide: 0,
-                fullScreenOffsetContainer: ''
-            });
-        });
+    <script src="~/client-side/js/controllers/home/index.js"></script>
+    <script>
+        var homeObj = new HomeController();
+        homeObj.initialize();
     </script>
 }
 <!-- Slideshow  -->
@@ -86,34 +22,12 @@
                     <div id='rev_slider_4_wrapper' class='rev_slider_wrapper fullwidthbanner-container'>
                         <div id='rev_slider_4' class='rev_slider fullwidthabanner'>
                             <ul>
-                                <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                    <img src='/client-side/images/slider/slide-3.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
-                                    <div class="caption-inner">
-                                        <div class='tp-caption LargeTitle sft  tp-resizeme' data-x='250' data-y='110' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>Template for your business</div>
-                                        <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='200' data-y='160' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#fff; text-shadow:none;'>Easy to modify</div>
-                                        <div class='tp-caption' data-x='310' data-y='230' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap; color:#f8f8f8;'>Perfect website solution for your</div>
-                                        <div class='tp-caption sfb  tp-resizeme ' data-x='370' data-y='280' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">Get Started</a> </div>
-                                    </div>
-                                </li>
-                                <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                    <img src='/client-side/images/slider/slide-1.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
-                                    <div class="caption-inner left">
-                                        <div class='tp-caption LargeTitle sft  tp-resizeme' data-x='50' data-y='110' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>Smooth, Rich & Loud Audio</div>
-                                        <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='50' data-y='160' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>headphone</div>
-                                        <div class='tp-caption' data-x='72' data-y='230' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>World's Most advanced Wireless earbuds.</div>
-                                        <div class='tp-caption sfb  tp-resizeme ' data-x='72' data-y='280' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">EXPLORE NOW</a> </div>
-                                    </div>
-                                </li>
-                                <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                    <img src='/client-side/images/slider/slide-2.jpg' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="banner" />
-                                    <div class="caption-inner left">
-                                        <div class='tp-caption LargeTitle sft  tp-resizeme' data-x='350' data-y='100' data-endspeed='500' data-speed='500' data-start='1300' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:3; white-space:nowrap;'>It’s Time To Look</div>
-                                        <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='350' data-y='140' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>The New</div>
-                                        <div class='tp-caption ExtraLargeTitle sft  tp-resizeme' data-x='350' data-y='185' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>Standard</div>
-                                        <div class='tp-caption' data-x='375' data-y='245' data-endspeed='500' data-speed='500' data-start='1100' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:2; white-space:nowrap;'>The New Standard. under favorable smartwatches</div>
-                                        <div class='tp-caption sfb  tp-resizeme ' data-x='375' data-y='290' data-endspeed='500' data-speed='500' data-start='1500' data-easing='Linear.easeNone' data-splitin='none' data-splitout='none' data-elementdelay='0.1' data-endelementdelay='0.1' style='z-index:4; white-space:nowrap;'><a href='#' class="buy-btn">Start Buying </a> </div>
-                                    </div>
-                                </li>
+                                @foreach (var slide in Model.HomeSlides)
+                                {
+                                    <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
+                                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                    </li>
+                                }
                             </ul>
                             <div class="tp-bannertimer"></div>
                         </div>
@@ -124,56 +38,8 @@
     </div>
 </div>
 <!-- service section -->
-<div class="jtv-service-area">
-    <div class="container">
-        <div class="row">
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="block-wrapper ship">
-                    <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-paper-plane"></i></div>
-                        <div class="service-wrapper">
-                            <h3>World-Wide Shipping</h3>
-                            <p>On order over $99</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-3 col-sm-6 col-xs-12 ">
-                <div class="block-wrapper return">
-                    <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-rotate-right"></i></div>
-                        <div class="service-wrapper">
-                            <h3>100% secure payments</h3>
-                            <p>Credit/ Debit Card/ Banking </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="block-wrapper support">
-                    <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-umbrella"></i></div>
-                        <div class="service-wrapper">
-                            <h3>Support 24/7</h3>
-                            <p>Call us: ( +123 ) 456 789</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md-3 col-sm-6 col-xs-12">
-                <div class="block-wrapper user">
-                    <div class="text-des">
-                        <div class="icon-wrapper"><i class="fa fa-tags"></i></div>
-                        <div class="service-wrapper">
-                            <h3>Member Discount</h3>
-                            <p>25% on order over $199</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@Html.Partial("_ServicePartial.cshtml")
+
 <div class="inner-box">
     <div class="container">
         <div class="row">
@@ -204,13 +70,18 @@
                     <div class="slider-items-products">
                         <div id="jtv-best-sale-slider" class="product-flexslider">
                             <div class="slider-items">
+                               @foreach (var item in Model.TopSellProducts)
+                               {
                                 <div class="product-item">
                                     <div class="item-inner">
                                         <div class="product-thumbnail">
                                             <div class="icon-new-label new-left">New</div>
                                             <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
+                                                <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
+                                                    <figure>
+                                                        <img class="first-img" src="@item.Image" alt="@item.Name">
+                                                        <img class="hover-img" src="@item.Image" alt="@item.Name">
+                                                    </figure>
                                                 </a>
                                             </div>
                                             <div class="pr-info-area">
@@ -223,160 +94,21 @@
                                         </div>
                                         <div class="item-info">
                                             <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
+                                                <div class="item-title"> <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
                                                 <div class="item-content">
                                                     <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
                                                     <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
+                                                        <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                     </div>
                                                     <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
+                                                        <button type="button" class="add-to-cart"><span> Purchase</span> </button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="icon-sale-label sale-left">Sale</div>
-                                        <div class="icon-new-label new-right">New</div>
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-new-label new-left">New</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                               }
                             </div>
                         </div>
                     </div>
@@ -393,787 +125,83 @@
         <div class="tab-title text-left">
             <h2>Best selling</h2>
             <ul class="nav home-nav-tabs home-product-tabs">
-                <li class="active"><a href="#computer" data-toggle="tab" aria-expanded="false">Computer</a></li>
-                <li><a href="#smartphone" data-toggle="tab" aria-expanded="false">Smartphone</a></li>
-                <li><a href="#watches" data-toggle="tab" aria-expanded="false">Watches</a></li>
-                <li><a href="#photo" data-toggle="tab" aria-expanded="false">Photo & Camera</a></li>
+                @for (var i = 0; i < Model.HomeCategories.Count; i++)
+                {
+                    var item = Model.HomeCategories[i];
+                    if (i == 0)
+                    {
+                        <li class="active"><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#@item.SeoAlias" data-toggle="tab" aria-expanded="false">@item.Name</a></li>
+                    }
+                }
             </ul>
         </div>
         <div id="productTabContent" class="tab-content">
-            <div class="tab-pane active in" id="computer">
-                <div class="featured-pro">
-                    <div class="slider-items-products">
-                        <div id="computer-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col4">
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-new-label new-left">New</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
+            @for (var i = 0; i < Model.HomeCategories.Count; i++)
+            {
+                var category = Model.HomeCategories[i];
+                string css = string.Empty;
+                if (i == 0)
+                {
+                    css = "tab-pane active in";
+                }
+                else
+                {
+                    css = "tab-pane wow fadeInLeft";
+                }
+                <div class="@css" id="@category.SeoAlias">
+                    <div class="featured-pro">
+                        <div class="slider-items-products">
+                            <div id="computer-slider" class="product-flexslider hidden-buttons">
+                                <div class="slider-items slider-width-col4">
+                                    @foreach (var item in category.Products)
+                                    {
+                                        <div class="product-item">
+                                            <div class="item-inner">
+                                                <div class="product-thumbnail">
+                                                    <div class="icon-new-label new-left">mới</div>
+                                                    <div class="pr-img-area">
+                                                        <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
+                                                            <figure>
+                                                                <img class="first-img" src="@item.Image" alt="@item.Name">
+                                                                <img class="hover-img" src="@item.Image" alt="@item.Name">
+                                                            </figure>
+                                                        </a>
                                                     </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
+                                                    <div class="pr-info-area">
+                                                        <div class="pr-button">
+                                                            <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
+                                                            <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
+                                                            <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
                                                         </div>
                                                     </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
+                                                <div class="item-info">
+                                                    <div class="info-inner">
+                                                        <div class="item-title"> <a title="Product title here" href="/@item.SeoAlias-p.@(item.Id).html">@item.Name </a> </div>
+                                                        <div class="item-content">
+                                                            <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
+                                                            <div class="item-price">
+                                                                <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
+                                                            </div>
+                                                            <div class="pro-action">
+                                                                <button type="button" class="add-to-cart"><span> Mua ngay</span> </button>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="icon-sale-label sale-left">Sale</div>
-                                        <div class="icon-new-label new-right">New</div>
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-new-label new-left">New</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    }
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane wow animated fadeInLeft" id="smartphone">
-                <div class="top-sellers-pro">
-                    <div class="slider-items-products">
-                        <div id="smartphone-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col4 ">
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">Sale</div>
-                                            <div class="icon-new-label new-right">New</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">Sale</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane wow animated fadeInRight" id="watches">
-                <div class="top-sellers-pro">
-                    <div class="slider-items-products">
-                        <div id="watches-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col4 ">
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">Sale</div>
-                                            <div class="icon-new-label new-right">New</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tab-pane wow animated fadeInUp" id="photo">
-                <div class="top-sellers-pro">
-                    <div class="slider-items-products">
-                        <div id="photo-slider" class="product-flexslider hidden-buttons">
-                            <div class="slider-items slider-width-col4 ">
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="icon-sale-label sale-left">Sale</div>
-                                            <div class="icon-new-label new-right">New</div>
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box">
-                                                            <p class="special-price"> <span class="price-label">Special Price</span> <span class="price"> $456.00 </span> </p>
-                                                            <p class="old-price"> <span class="price-label">Regular Price:</span> <span class="price"> $567.00 </span> </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item">
-                                    <div class="item-inner">
-                                        <div class="product-thumbnail">
-                                            <div class="pr-img-area">
-                                                <a title="Product title here" href="single_product.html">
-                                                    <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> <img class="hover-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                                                </a>
-                                            </div>
-                                            <div class="pr-info-area">
-                                                <div class="pr-button">
-                                                    <div class="mt-button add_to_wishlist"> <a href="wishlist.html"> <i class="fa fa-heart-o"></i> </a> </div>
-                                                    <div class="mt-button add_to_compare"> <a href="compare.html"> <i class="fa fa-link"></i> </a> </div>
-                                                    <div class="mt-button quick-view"> <a href="quick_view.html"> <i class="fa fa-search"></i> </a> </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item-info">
-                                            <div class="info-inner">
-                                                <div class="item-title"> <a title="Product title here" href="single_product.html">Product title here </a> </div>
-                                                <div class="item-content">
-                                                    <div class="rating"> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> <i class="fa fa-star-o"></i> </div>
-                                                    <div class="item-price">
-                                                        <div class="price-box"> <span class="regular-price"> <span class="price">$125.00</span> </span> </div>
-                                                    </div>
-                                                    <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Add to Cart</span> </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="daily-deal-section">
-            <!-- daily deal section-->
-            <div class="col-md-7 daily-deal">
-                <h3 class="deal-title">Deal of the day</h3>
-                <div class="title-divider"><span></span></div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel massa eget ante tincidunt vestibulum. Aenean vel metus magna. Mauris nec. Nunc congue ac libero ut lacinia. In ultrices
-                    elementum ipsum, in tempus enim accumsan..
-                </p>
-                <div class="hot-offer-text">Summer Sale <span>2017</span></div>
-                <div class="box-timer">
-                    <span class="des-hot-deal">Hurry up! Special offer</span>
-                    <div class="time" data-countdown="countdown" data-date="09-30-2017-10-20-50"></div>
-                    <a href="#" class="link">Shopping Now</a>
-                </div>
-            </div>
-            <div class="col-md-5 hot-pr-img-area">
-                <div id="daily-deal-slider" class="product-flexslider hidden-buttons">
-                    <div class="slider-items slider-width-col4 ">
-                        <div class="pr-img-area">
-                            <a title="Product title here" href="single_product.html">
-                                <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"></figure>
-                            </a>
-                        </div>
-                        <div class="pr-img-area">
-                            <a title="Product title here" href="single_product.html">
-                                <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> </figure>
-                            </a>
-                        </div>
-                        <div class="pr-img-area">
-                            <a title="Product title here" href="single_product.html">
-                                <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> </figure>
-                            </a>
-                        </div>
-                        <div class="pr-img-area">
-                            <a title="Product title here" href="single_product.html">
-                                <figure> <img class="first-img" src="/client-side/images/products/product-1.jpg" alt="HTML template"> </figure>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="banner-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <figure> <a href="#" target="_self" class="image-wrapper"><img src="/client-side/images/banner-laptop.jpg" alt="banner laptop"></a></figure>
-            </div>
-            <div class="col-sm-6">
-                <figure> <a href="#" target="_self" class="image-wrapper"><img src="/client-side/images/banner-mob.jpg" alt="banner moblie"></a></figure>
-            </div>
+            }
         </div>
     </div>
 </div>
@@ -1517,76 +545,26 @@
         <div class="slider-items-products">
             <div id="latest-news-slider" class="product-flexslider hidden-buttons">
                 <div class="slider-items slider-width-col6">
-                    <div class="item">
-                        <div class="blog-box">
-                            <a href="blog_single_post.html"> <img class="primary-img" src="/client-side/images/blog-img1.jpg" alt="HTML template"></a>
-                            <div class="blog-btm-desc">
-                                <div class="blog-top-desc">
-                                    <div class="blog-date"> 28 Jan 2017 </div>
-                                    <h4><a href="blog_single_post.html">Lorem ipsum dolor sit</a></h4>
-                                    <div class="jtv-entry-meta"> <i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>15 Comments</strong></a></div>
+                    @foreach (var item in Model.LastestBlogs)
+                    {
+                        <div class="item">
+                            <div class="blog-box">
+                                <a href="blog_single_post.html"> <img class="primary-img" src="@item.Image" alt="@item.Name"></a>
+                                <div class="blog-btm-desc">
+                                    <div class="blog-top-desc">
+                                        <div class="blog-date"> @item.DateCreated </div>
+                                        <h4><a href="blog_single_post.html">@item.Name</a></h4>
+                                        <div class="jtv-entry-meta">
+                                            <i class="fa fa-user-o"></i> <strong>Admin</strong>
+                                            <a href="#"><i class="fa fa-commenting-o"></i> <strong>15 Comments</strong></a>
+                                        </div>
+                                    </div>
+                                    <p>@item.Description</p>
+                                    <a class="read-more" href="blog_single_post.html"> Read more</a>
                                 </div>
-                                <p>Aliquam erat volutpat. Duis ac turpis. Donec sit amet eros. Lorem ipsum dolor sit amet, Mauris fermentum dictum.</p>
-                                <a class="read-more" href="blog_single_post.html"> Read More</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog-box">
-                            <a href="blog_single_post.html"> <img class="primary-img" src="/client-side/images/blog-img1.jpg" alt="HTML template"></a>
-                            <div class="blog-btm-desc">
-                                <div class="blog-top-desc">
-                                    <div class="blog-date"> 18 Feb 2017 </div>
-                                    <h4><a href="blog_single_post.html">Sed do eiusmod sit amet</a></h4>
-                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>50 Comments</strong></a></div>
-                                </div>
-                                <p> Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-                                <a class="read-more" href="blog_single_post.html"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog-box">
-                            <a href="blog_single_post.html"> <img class="primary-img" src="/client-side/images/blog-img1.jpg" alt="HTML template"></a>
-                            <div class="blog-btm-desc">
-                                <div class="blog-top-desc">
-                                    <div class="blog-date"> 5 Mar 2017 </div>
-                                    <h4><a href="blog_single_post.html">Integer scelerisque diam</a></h4>
-                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>25 Comments</strong></a></div>
-                                </div>
-                                <p> Doloremque nam. Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis.  Aenean auctor wisi et urna.</p>
-                                <a class="read-more" href="blog_single_post.html"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog-box">
-                            <a href="blog_single_post.html"> <img class="primary-img" src="/client-side/images/blog-img1.jpg" alt="HTML template"></a>
-                            <div class="blog-btm-desc">
-                                <div class="blog-top-desc">
-                                    <div class="blog-date"> 5 May 2017 </div>
-                                    <h4><a href="blog_single_post.html">Integer scelerisque diam</a></h4>
-                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>05 Comments</strong></a></div>
-                                </div>
-                                <p>Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis.  Aenean auctor wisi et urna. Aliquam erat volutpat. </p>
-                                <a class="read-more" href="blog_single_post.html"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="blog-box">
-                            <a href="blog_single_post.html"> <img class="primary-img" src="/client-side/images/blog-img1.jpg" alt="HTML template"></a>
-                            <div class="blog-btm-desc">
-                                <div class="blog-top-desc">
-                                    <div class="blog-date"> 06 Aug 2017 </div>
-                                    <h4><a href="blog_single_post.html">Duis ac turpis aliquam leo</a></h4>
-                                    <div class="jtv-entry-meta"><i class="fa fa-user-o"></i> <strong>Admin</strong> <a href="#"><i class="fa fa-commenting-o"></i> <strong>25 Comments</strong></a></div>
-                                </div>
-                                <p>Ut sit amet turpis. In est arcu, sollicitudin eu, vehicula venenatis.  Aenean auctor wisi et urna. Aliquam erat volutpat.</p>
-                                <a class="read-more" href="blog_single_post.html"> Read More</a>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
@@ -1594,33 +572,7 @@
 </section>
 
 <!-- our clients Slider -->
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 col-xs-12">
-            <div class="our-clients">
-                <div class="slider-items-products">
-                    <div id="our-clients-slider" class="product-flexslider hidden-buttons">
-                        <div class="slider-items slider-width-col6">
-                            <div class="item"><a href="#"><img src="/client-side/images/brand1.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand2.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand3.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand4.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand5.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand6.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand7.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand8.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand9.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand10.png" alt="Image"></a> </div>
-                            <div class="item"><a href="#"><img src="/client-side/images/brand11.png" alt="Image"></a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
+@Component.InvokeAsync("Brand")
 <!-- BANNER-AREA-START -->
 <section class="banner-area">
     <div class="container">
@@ -1675,58 +627,3 @@
     </div>
 </section>
 <!-- BANNER-AREA-END -->
-
-<div class="footer-newsletter">
-    <div class="container">
-        <div class="row">
-            <!-- Newsletter -->
-            <div class="col-md-6 col-sm-6">
-                <form id="newsletter-validate-detail" method="post" action="#">
-                    <h3>Join Our Newsletter</h3>
-                    <div class="title-divider"><span></span></div>
-                    <p class="sub-title text-center">Get 25% off</p>
-                    <div class="newsletter-inner">
-                        <input class="newsletter-email" name='Email' placeholder='Enter Your Email' />
-                        <button class="button subscribe" type="submit" title="Subscribe">Subscribe</button>
-                    </div>
-                </form>
-            </div>
-            <!-- Customers Box -->
-            <div class="col-sm-6 col-xs-12 testimonials">
-                <div class="page-header">
-                    <h2>What Our Customers Say</h2>
-                </div>
-                <div class="slider-items-products">
-                    <div id="testimonials-slider" class="product-flexslider hidden-buttons home-testimonials">
-                        <div class="slider-items slider-width-col4 ">
-                            <div class="holder">
-                                <blockquote>
-                                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip volutpat.
-                                    Integer rutrum ante eu lacus.Vestibulum libero nisl, porta vel.
-                                </blockquote>
-                                <div class="thumb"> <img src="/client-side/images/testimonials-img3.jpg" alt="testimonials img"> </div>
-                                <div class="holder-info"> <strong class="name">John Doe</strong> <strong class="designation">CEO, Company</strong></div>
-                            </div>
-                            <div class="holder">
-                                <blockquote>Lorem ipsum dolor sit ame consetur adipisicing elit. Voluptate, consetur adipisicing elit.Lorem ipsum dolor sit ame consetur adipisicing elit.Lorem ipsum dolor sit ame consetur adipisicing elit. Voluptate, consetur adipisicing elit.</blockquote>
-                                <div class="thumb"> <img src="/client-side/images/testimonials-img1.jpg" alt="testimonials img"> </div>
-                                <div class="holder-info"> <strong class="name">Vince Roy</strong> <strong class="designation">CEO, Newspaper</strong> </div>
-                            </div>
-                            <div class="holder">
-                                <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim. Donec sit amet eros. Cras feugiat luctus nulla vitae posuere. Suspendisse potenti. </blockquote>
-                                <div class="thumb"> <img src="/client-side/images/testimonials-img2.jpg" alt="testimonials img"> </div>
-                                <div class="holder-info"><strong class="name">John Doe</strong> <strong class="designation">CEO, ABC Softwear</strong></div>
-                            </div>
-                            <div class="holder">
-                                <blockquote>Aliquam erat volutpat. Sed do eiusmod tempor incididunt Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget. Donec sit amet eros. Nulla non ornare nisi, sed condimentum lorem. Morbi sed vehicula magna.</blockquote>
-                                <div class="thumb"> <img src="/client-side/images/testimonials-img4.jpg" alt="testimonials img"> </div>
-                                <div class="holder-info"> <strong class="name">Vince Roy</strong> <strong class="designation">CEO, XYZ Softwear</strong></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
