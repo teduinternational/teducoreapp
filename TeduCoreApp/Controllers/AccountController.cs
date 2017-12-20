@@ -15,6 +15,7 @@ using TeduCoreApp.Models.AccountViewModels;
 using TeduCoreApp.Services;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
 
 namespace TeduCoreApp.Controllers
 {
@@ -219,6 +220,7 @@ namespace TeduCoreApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
+        [ValidateRecaptcha]
         [Route("register.html")]
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
