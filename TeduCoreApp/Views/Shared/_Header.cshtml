@@ -39,21 +39,30 @@
                             <li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
                             <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>
                             <li><a title="Checkout" href="checkout.html"><span>Checkout</span></a></li>
-                            <li>
-                                <div class="dropdown">
-                                    <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>My Account</span> <i class="fa fa-angle-down"></i></a>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="account_page.html">Account</a></li>
-                                        <li><a href="wishlist.html">Wishlist</a></li>
-                                        <li><a href="orders_list.html">Order Tracking</a></li>
-                                        <li><a href="about_us.html">About us</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="account_page.html">Log In</a></li>
-                                        <li><a href="/register.html">Register</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a title="login" href="account_page.html"><span>Login</span></a></li>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+
+                                <li>
+                                    <div class="dropdown">
+                                        <a class="current-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><span>@User.GetSpecificClaim("FullName")</span> <i class="fa fa-angle-down"></i></a>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li><a href="/account.html">Account</a></li>
+                                            <li><a href="/wishlist.html">Wishlist</a></li>
+                                            <li><a href="/orders-list.html">Order Tracking</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+                                        <a href="#" onclick="document.getElementById('logoutForm').submit()"><span>Thoát</span></a>
+                                    </form>
+                                </li>
+                            }
+                            else
+                            {
+                                <li><a title="login" href="/login.html"><span>Login</span></a></li>
+                                <li><a title="register" href="/register.html"><span>Register</span></a></li>
+                            }
                         </ul>
                     </div>
                 </div>
