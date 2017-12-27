@@ -43,6 +43,23 @@ namespace TeduCoreApp.Controllers
             return View(catalog);
         }
 
+
+        [Route("search.html")]
+        public IActionResult Search(string keyword, int? pageSize, string sortBy, int page = 1)
+        {
+            var catalog = new SearchResultViewModel();
+            ViewData["BodyClass"] = "shop_grid_full_width_page";
+            if (pageSize == null)
+                pageSize = _configuration.GetValue<int>("PageSize");
+
+            catalog.PageSize = pageSize;
+            catalog.SortType = sortBy;
+            catalog.Data = _productService.GetAllPaging(null, keyword, page, pageSize.Value);
+            catalog.Keyword = keyword;
+
+            return View(catalog);
+        }
+
         [Route("{alias}-p.{id}.html", Name = "ProductDetail")]
         public IActionResult Details(int id)
         {
