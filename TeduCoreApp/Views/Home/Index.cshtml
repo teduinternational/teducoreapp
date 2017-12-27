@@ -5,8 +5,7 @@
     ViewData["MetaDescription"] = Model.MetaDescription;
 }
 @section Scripts{
-
-    <script src="~/client-side/js/controllers/home/index.js"></script>
+    <script src="~/client-app/controllers/home/index.js"></script>
     <script>
         var homeObj = new HomeController();
         homeObj.initialize();
@@ -24,9 +23,9 @@
                             <ul>
                                 @foreach (var slide in Model.HomeSlides)
                                 {
-                                    <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
-                                    </li>
+                                <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
+                                    <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                </li>
                                 }
                             </ul>
                             <div class="tp-bannertimer"></div>
@@ -70,7 +69,7 @@
                     <div class="slider-items-products">
                         <div id="jtv-best-sale-slider" class="product-flexslider">
                             <div class="slider-items">
-                               @foreach (var item in Model.TopSellProducts)
+                                @foreach (var item in Model.TopSellProducts)
                                {
                                 <div class="product-item">
                                     <div class="item-inner">
