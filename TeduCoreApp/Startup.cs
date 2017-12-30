@@ -25,6 +25,7 @@ using TeduCoreApp.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using TeduCoreApp.Authorization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using TeduCoreApp.Extensions;
 
 namespace TeduCoreApp
 {
@@ -76,6 +77,7 @@ namespace TeduCoreApp
                 options.IdleTimeout = TimeSpan.FromHours(2);
                 options.Cookie.HttpOnly = true;
             });
+            services.AddImageResizer();
             services.AddAutoMapper();
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
@@ -152,7 +154,7 @@ namespace TeduCoreApp
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseImageResizer();
             app.UseStaticFiles();
 
             app.UseAuthentication();
