@@ -100,7 +100,7 @@
                                                         <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                     </div>
                                                     <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Purchase</span> </button>
+                                                        <button type="button" class="add-to-cart" data-id="@item.Id"><span> Purchase</span> </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +187,7 @@
                                                                 <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                             </div>
                                                             <div class="pro-action">
-                                                                <button type="button" class="add-to-cart"><span> Mua ngay</span> </button>
+                                                                <button type="button" data-id="@item.Id" class="add-to-cart"><span> Purchase</span> </button>
                                                             </div>
                                                         </div>
                                                     </div>

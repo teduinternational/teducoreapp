@@ -24,6 +24,7 @@ namespace TeduCoreApp.Application.Implementation
         private readonly IProductRepository _productRepository;
         private readonly IUnitOfWork _unitOfWork;
 
+
         public BillService(IBillRepository orderRepository,
             IBillDetailRepository orderDetailRepository,
             IColorRepository colorRepository,
@@ -174,6 +175,16 @@ namespace TeduCoreApp.Application.Implementation
             var detail = _orderDetailRepository.FindSingle(x => x.ProductId == productId
            && x.BillId == billId && x.ColorId == colorId && x.SizeId == sizeId);
             _orderDetailRepository.Remove(detail);
+        }
+
+        public ColorViewModel GetColor(int id)
+        {
+            return Mapper.Map<Color, ColorViewModel>(_colorRepository.FindById(id));
+        }
+
+        public SizeViewModel GetSize(int id)
+        {
+            return Mapper.Map<Size, SizeViewModel>(_sizeRepository.FindById(id));
         }
     }
 }

@@ -34,8 +34,4 @@
     <ProjectReference Include="..\TeduCoreApp.Utilities\TeduCoreApp.Utilities.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\client-app\controllers\cart\" />
-  </ItemGroup>
-
 </Project>
