@@ -20,9 +20,14 @@
                     size: sizeId
                 },
                 success: function () {
-                    alert(1);
+                    tedu.notify('Product was added successful', 'success');
+                    loadHeaderCart();
                 }
             });
         });
+    }
+
+    function loadHeaderCart() {
+        $("#headerCart").load("/AjaxContent/HeaderCart");
     }
 }
