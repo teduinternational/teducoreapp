@@ -1,0 +1,115 @@
+﻿@model ContactPageViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+@section Scripts{
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBn9gaKzspPwRtaABhpdtgZnmnkoAxy3ek">
+    </script>
+    <script src="~/client-app/controllers/contact/index.js" asp-append-version="true"></script>
+    <script>
+        var contactObj = new ContactController();
+        contactObj.initialize();
+    </script>
+}
+<input type="hidden" id="hidLng" value="@Model.Contact.Lng" />
+<input type="hidden" id="hidLat" value="@Model.Contact.Lat" />
+<input type="hidden" id="hidAddress" value="@Model.Contact.Address" />
+<input type="hidden" id="hidName" value="@Model.Contact.Name" />
+<!-- Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li class="home"> <a title="Go to Home Page" href="index.html">Home</a><span>&raquo;</span></li>
+                    <li><strong>Contact Us</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Main Container -->
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="row">
+            <section class="col-main col-sm-12">
+                <div id="contact" class="page-content page-contact">
+                    <div class="page-title">
+                        <h2>Contact Us</h2>
+                    </div>
+                    <div id="message-box-conact">We're available for new projects</div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6" id="contact_form_map">
+                            <h3 class="page-subheading">Let's get in touch</h3>
+                            <p>Lorem ipsum dolor sit amet onsectetuer adipiscing elit. Mauris fermentum dictum magna. Sed laoreet aliquam leo. Ut tellus dolor dapibus eget. Mauris tincidunt aliquam lectus sed vestibulum. Vestibulum bibendum suscipit mattis.</p>
+                            <br />
+                            <ul>
+                                <li><i class="fa fa-circle"></i> Praesent nec tincidunt turpis.</li>
+                                <li><i class="fa fa-circle"></i> Aliquam et nisi risus.&nbsp;Cras ut varius ante.</li>
+                                <li><i class="fa fa-circle"></i> Ut congue gravida dolor, vitae viverra dolor.</li>
+                            </ul>
+                            <br />
+                            <ul class="store_info">
+                                <li><i class="fa fa-home"></i>@Model.Contact.Address</li>
+                                <li><i class="fa fa-phone"></i><span>@Model.Contact.Phone</span></li>
+                                <li><i class="fa fa-envelope"></i>Email: <span><a href="mailto:@Model.Contact.Email">@Model.Contact.Email</a></span></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6">
+                            @if (ViewData["Success"] != null)
+                            {
+
+                                if ((bool)ViewData["Success"] == true)
+                                {
+                                    <div class="alert alert-success">
+                                        Thank you for your feedback. We are going to reply your order soon.
+                                    </div>
+
+                                }
+                                else
+                                {
+                                    <div class="alert alert-danger">
+                                        Have an error in send feedback progress. Please contact to administrator.
+                                    </div>
+
+                                }
+
+
+                            }
+                            else
+                            {
+                                <div id="map" style="width:100%;height:500px;"></div>
+                                <form action="/contact.html" method="post">
+                                    <h3 class="page-subheading">Make an enquiry</h3>
+                                    <div asp-validation-summary="All" class="text-danger"></div>
+                                    @Html.AntiForgeryToken()
+                                    <div class="contact-form-box">
+                                        <div class="form-selector">
+                                            <label>Name</label>
+                                            <input type="text" class="form-control input-sm" asp-for="Feedback.Name" />
+                                        </div>
+                                        <div class="form-selector">
+                                            <label>Email</label>
+                                            <input type="text" class="form-control input-sm" asp-for="Feedback.Email" />
+                                        </div>
+                                        <div class="form-selector">
+                                            <label>Message</label>
+                                            <textarea class="form-control input-sm" rows="10" asp-for="Feedback.Message"></textarea>
+                                        </div>
+                                        <div class="form-selector">
+                                            <button type="submit" class="button"><i class="icon-paper-plane icons"></i>&nbsp; <span>Send Message</span></button>
+                                            &nbsp; <a href="#" class="button">Clear</a>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            }
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
+<!-- Main Container End -->
