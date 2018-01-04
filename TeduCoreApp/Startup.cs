@@ -26,6 +26,7 @@ using Microsoft.AspNetCore.Authorization;
 using TeduCoreApp.Authorization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using TeduCoreApp.Extensions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TeduCoreApp
 {
@@ -49,6 +50,10 @@ namespace TeduCoreApp
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddMemoryCache();
+
+
+
             // Configure Identity
             services.Configure<IdentityOptions>(options =>
             {
@@ -67,7 +72,8 @@ namespace TeduCoreApp
                 options.User.RequireUniqueEmail = true;
             });
 
-            services.AddRecaptcha(new RecaptchaOptions() {
+            services.AddRecaptcha(new RecaptchaOptions()
+            {
                 SiteKey = Configuration["Recaptcha:SiteKey"],
                 SecretKey = Configuration["Recaptcha:SecretKey"]
             });
@@ -93,13 +99,27 @@ namespace TeduCoreApp
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddMvc(options =>
+            {
+                options.CacheProfiles.Add("Default",
+                    new CacheProfile()
+                    {
+                        Duration = 60
+                    });
+                options.CacheProfiles.Add("Never",
+                    new CacheProfile()
+                    {
+                        Location = ResponseCacheLocation.None,
+                        NoStore = true
+                    });
+            })
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
 
             //Repositories
-            services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
+            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IFunctionRepository, FunctionRepository>();
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ITagRepository, TagRepository>();
@@ -141,7 +161,7 @@ namespace TeduCoreApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddFile("Logs/tedu-{Date}.txt");
             if (env.IsDevelopment())
@@ -167,8 +187,10 @@ namespace TeduCoreApp
 
                 routes.MapRoute(name: "areaRoute",
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
+
+
             });
-          
+
         }
     }
 }
