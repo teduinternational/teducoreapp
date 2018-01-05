@@ -1,6 +1,8 @@
 ﻿@model TeduCoreApp.Application.ViewModels.Blog.PageViewModel
 @{
     ViewData["Title"] = Model.Name;
+    ViewData["MetaKeyword"] = Model.Name;
+    ViewData["MetaDescription"] = Model.Name;
 }
 
 <!-- Main Container -->
@@ -12,13 +14,9 @@
                     <div class="page-title">
                     </div>
                     <div class="entry-meta-data">
-
                         <div class="blog-top-desc">
                             <h1>@Model.Name</h1>
                         </div>
-
-
-
                     </div>
                     <div class="content-text clearfix">
                         @Html.Raw(Model.Content)

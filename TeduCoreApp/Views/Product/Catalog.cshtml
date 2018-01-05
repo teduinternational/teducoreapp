@@ -1,8 +1,8 @@
 ﻿@model TeduCoreApp.Models.ProductViewModels.CatalogViewModel
 @{
-    ViewData["Title"] = Model.Category.Name;
-    ViewData["MetaKeyword"] = Model.Category.SeoKeywords;
-    ViewData["MetaDescription"] = Model.Category.SeoDescription;
+    ViewData["Title"] = Model.Data.CurrentPage == 1 ? Model.Category.Name : Model.Category.Name + " - Page " + Model.Data.CurrentPage;
+    ViewData["MetaKeyword"] = Model.Data.CurrentPage == 1 ? Model.Category.SeoKeywords : Model.Category.SeoKeywords + " - Page " + Model.Data.CurrentPage;
+    ViewData["MetaDescription"] = Model.Data.CurrentPage == 1 ? Model.Category.SeoDescription : Model.Category.SeoDescription + " - Page " + Model.Data.CurrentPage;
 }
 <!-- Breadcrumbs -->
 
