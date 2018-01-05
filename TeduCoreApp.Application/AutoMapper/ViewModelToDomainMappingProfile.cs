@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TeduCoreApp.Application.ViewModels.Blog;
 using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Application.ViewModels.Product;
 using TeduCoreApp.Application.ViewModels.System;
@@ -47,6 +48,8 @@ namespace TeduCoreApp.Application.AutoMapper
             CreateMap<FeedbackViewModel, Feedback>()
                 .ConstructUsing(c => new Feedback(c.Id, c.Name, c.Email, c.Message, c.Status));
 
+            CreateMap<PageViewModel, Page>()
+             .ConstructUsing(c => new Page(c.Id, c.Name, c.Alias, c.Content, c.Status));
         }
     }
 }

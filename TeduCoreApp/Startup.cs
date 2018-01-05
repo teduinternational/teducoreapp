@@ -145,6 +145,7 @@ namespace TeduCoreApp
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             services.AddTransient<IContactRepository, ContactRepository>();
             services.AddTransient<IBlogRepository, BlogRepository>();
+            services.AddTransient<IPageRepository, PageRepository>();
 
             services.AddTransient<IBlogTagRepository, BlogTagRepository>();
             services.AddTransient<ISlideRepository, SlideRepository>();
@@ -164,6 +165,7 @@ namespace TeduCoreApp
             services.AddTransient<ICommonService, CommonService>();
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IPageService, PageService>();
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
