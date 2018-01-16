@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TeduCoreApp.Application.Dapper\TeduCoreApp.Application.Dapper.csproj" />
     <ProjectReference Include="..\TeduCoreApp.Application\TeduCoreApp.Application.csproj" />
     <ProjectReference Include="..\TeduCoreApp.Data.EF\TeduCoreApp.Data.EF.csproj" />
     <ProjectReference Include="..\TeduCoreApp.Data\TeduCoreApp.Data.csproj" />

@@ -27,6 +27,8 @@ using TeduCoreApp.Authorization;
 using PaulMiami.AspNetCore.Mvc.Recaptcha;
 using TeduCoreApp.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using TeduCoreApp.Application.Dapper.Interfaces;
+using TeduCoreApp.Application.Dapper.Implementation;
 
 namespace TeduCoreApp
 {
@@ -166,6 +168,7 @@ namespace TeduCoreApp
             services.AddTransient<IFeedbackService, FeedbackService>();
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
+            services.AddTransient<IReportService, ReportService>();
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
