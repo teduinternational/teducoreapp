@@ -18,6 +18,11 @@ using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.Implementation;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
+using TeduCoreApp.Data.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace TeduCoreApp.WebApi
 {
@@ -37,6 +42,45 @@ namespace TeduCoreApp.WebApi
                    options.UseSqlServer(Configuration.GetConnectionString("AppDbConnection"),
                        b => b.MigrationsAssembly("TeduCore.Data.EF")));
 
+            services.AddIdentity<AppUser, AppRole>()
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddDefaultTokenProviders();
+
+
+            // Configure Identity
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings
+                options.Password.RequireDigit = true;
+                options.Password.RequiredLength = 6;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+
+                // Lockout settings
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+                options.Lockout.MaxFailedAccessAttempts = 10;
+
+                // User settings
+                options.User.RequireUniqueEmail = true;
+            });
+            //Config authen
+            services.AddAuthentication(o =>
+            {
+                o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(cfg =>
+            {
+                cfg.RequireHttpsMetadata = false;
+                cfg.SaveToken = true;
+
+                cfg.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidIssuer = Configuration["Tokens:Issuer"],
+                    ValidAudience = Configuration["Tokens:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Tokens:Key"]))
+                };
+            });
             services.AddCors(o => o.AddPolicy("TeduCorsPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
@@ -55,6 +99,10 @@ namespace TeduCoreApp.WebApi
             services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
+            services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
+            services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+            services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+
             services.AddMvc().
                 AddJsonOptions(options => 
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver());
@@ -66,7 +114,7 @@ namespace TeduCoreApp.WebApi
                     Version = "v1",
                     Title = "TEDU Project",
                     Description = "TEDU API Swagger surface",
-                    Contact = new Contact { Name = "ToanBN", Email = "tedu.international@gmail.com", Url = "http://www.tedu.com.vn" },
+                    Contact = new Swashbuckle.AspNetCore.Swagger.Contact { Name = "ToanBN", Email = "tedu.international@gmail.com", Url = "http://www.tedu.com.vn" },
                     License = new License { Name = "MIT", Url = "https://github.com/teduinternational/teducoreapp" }
                 });
             });
@@ -82,6 +130,7 @@ namespace TeduCoreApp.WebApi
 
             app.UseStaticFiles();
             app.UseCors("TeduCorsPolicy");
+            app.UseAuthentication();
 
             app.UseSwagger();
             app.UseSwaggerUI(s =>
