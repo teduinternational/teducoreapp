@@ -1,44 +1,24 @@
-﻿<header>
+﻿@inject IViewLocalizer Localizer
+<header>
     <div class="header-container">
         <div class="header-top">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-4 col-md-4 col-xs-12">
                         <!-- Default Welcome Message -->
-                        <div class="welcome-msg hidden-xs hidden-sm">Default welcome msg! </div>
                         <!-- Language &amp; Currency wrapper -->
-                        <div class="language-currency-wrapper">
-                            <div class="inner-cl">
-                                <div class="block block-language form-language">
-                                    <div class="lg-cur"><span><img src="/client-side/images/flag-default.jpg" alt="French"><span class="lg-fr">French</span><i class="fa fa-angle-down"></i></span></div>
-                                    <ul>
-                                        <li><a class="selected" href="#"><img src="/client-side/images/flag-english.jpg" alt="english"><span>English</span></a></li>
-                                        <li><a href="#"><img src="/client-side/images/flag-default.jpg" alt="French"><span>French</span></a></li>
-                                        <li><a href="#"><img src="/client-side/images/flag-german.jpg" alt="German"><span>German</span></a></li>
-                                        <li><a href="#"><img src="/client-side/images/flag-brazil.jpg" alt="Brazil"><span>Brazil</span></a></li>
-                                        <li><a href="#"><img src="/client-side/images/flag-chile.jpg" alt="Chile"><span>Chile</span></a></li>
-                                        <li><a href="#"><img src="/client-side/images/flag-spain.jpg" alt="Spain"><span>Spain</span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="block block-currency">
-                                    <div class="item-cur"><span>USD</span><i class="fa fa-angle-down"></i></div>
-                                    <ul>
-                                        <li><a href="#"><span class="cur_icon">€</span>EUR</a></li>
-                                        <li><a href="#"><span class="cur_icon">¥</span>JPY</a></li>
-                                        <li><a class="selected" href="#"><span class="cur_icon">$</span>USD</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        @await Html.PartialAsync("_SelectLanguagePartial")
+
+
                     </div>
 
                     <!-- top links -->
                     <div class="headerlinkmenu col-md-8 col-sm-8 col-xs-12">
                         <span class="phone  hidden-xs hidden-sm">Call Us: +123.456.789</span>
                         <ul class="links">
-                            <li class="hidden-xs"><a title="Help Center" href="#"><span>Help Center</span></a></li>
+                            <li class="hidden-xs"><a title="Help Center" href="#"><span>@Localizer["HelpCenter"]</span></a></li>
                             <li><a title="Store Locator" href="#"><span>Store Locator</span></a></li>
-                            <li><a title="Checkout" href="checkout.html"><span>Checkout</span></a></li>
+                            <li><a title="Checkout" href="checkout.html"><span>@Localizer["Checkout"]</span></a></li>
                             @if (User.Identity.IsAuthenticated)
                             {
 

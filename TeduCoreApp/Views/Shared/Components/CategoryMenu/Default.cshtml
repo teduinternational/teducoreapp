@@ -1,7 +1,9 @@
 ﻿@model List<ProductCategoryViewModel>
+
+@inject IViewLocalizer Localizer
 <div class="navleft-container">
     <div class="mega-menu-title">
-        <h3><span>All Categories</span></h3>
+        <h3><span>@Localizer["AllCategories"]</span></h3>
     </div>
 
     <!-- Shop by category -->

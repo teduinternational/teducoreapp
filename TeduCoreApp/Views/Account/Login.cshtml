@@ -30,18 +30,16 @@
                         <h4>Login</h4>
                         <div asp-validation-summary="All" class="text-danger"></div>
                         <p class="before-login-text">Welcome back! Sign in to your account</p>
-                        <label for="emmail_login">Email address<span class="required">*</span></label>
+                        <label asp-for="Email"></label>
                         <input type="text" asp-for="Email" class="form-control">
-                        <label for="password_login">Password<span class="required">*</span></label>
+                        <label asp-for="Password"></label>
                         <input id="password_login" asp-for="Password" type="password" class="form-control">
                         <p class="forgot-pass"><a asp-action="ForgotPassword">Lost your password?</a></p>
                         <button type="submit" class="button">
                             <i class="icon-lock icons"></i>&nbsp; <span>Login</span>
                         </button>
                         <label class="inline" asp-for="RememberMe">
-
                             <input asp-for="RememberMe" />
-                            Remember me
                         </label>
                     </form>
 
