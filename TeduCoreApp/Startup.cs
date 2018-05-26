@@ -8,15 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TeduCoreApp.Data;
-using TeduCoreApp.Models;
 using TeduCoreApp.Services;
 using TeduCoreApp.Data.EF;
 using TeduCoreApp.Data.Entities;
 using AutoMapper;
 using TeduCoreApp.Application.Interfaces;
-using TeduCoreApp.Data.EF.Repositories;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Application.Implementation;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
@@ -154,33 +150,6 @@ namespace TeduCoreApp
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
-
-            //Repositories
-            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
-            services.AddTransient<IFunctionRepository, FunctionRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<ITagRepository, TagRepository>();
-            services.AddTransient<IProductTagRepository, ProductTagRepository>();
-            services.AddTransient<IPermissionRepository, PermissionRepository>();
-            services.AddTransient<IBillRepository, BillRepository>();
-            services.AddTransient<IBillDetailRepository, BillDetailRepository>();
-            services.AddTransient<IColorRepository, ColorRepository>();
-            services.AddTransient<ISizeRepository, SizeRepository>();
-            services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
-            services.AddTransient<IProductImageRepository, ProductImageRepository>();
-            services.AddTransient<IWholePriceRepository, WholePriceRepository>();
-            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
-            services.AddTransient<IContactRepository, ContactRepository>();
-            services.AddTransient<IBlogRepository, BlogRepository>();
-            services.AddTransient<IPageRepository, PageRepository>();
-
-            services.AddTransient<IBlogTagRepository, BlogTagRepository>();
-            services.AddTransient<ISlideRepository, SlideRepository>();
-            services.AddTransient<ISystemConfigRepository, SystemConfigRepository>();
-
-            services.AddTransient<IFooterRepository, FooterRepository>();
-
-
             //Serrvices
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();

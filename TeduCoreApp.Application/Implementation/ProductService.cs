@@ -5,38 +5,36 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using TeduCoreApp.Application.Interfaces;
+using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Application.ViewModels.Product;
-using TeduCoreApp.Data.EF.Repositories;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Constants;
 using TeduCoreApp.Utilities.Dtos;
 using TeduCoreApp.Utilities.Helpers;
-using TeduCoreApp.Application.ViewModels.Common;
 
 namespace TeduCoreApp.Application.Implementation
 {
     public class ProductService : IProductService
     {
-        IProductRepository _productRepository;
-        ITagRepository _tagRepository;
-        IProductTagRepository _productTagRepository;
-        IProductQuantityRepository _productQuantityRepository;
-        IProductImageRepository _productImageRepository;
-        IWholePriceRepository _wholePriceRepository;
+        private IRepository<Product, int> _productRepository;
+        private IRepository<Tag, string> _tagRepository;
+        private IRepository<ProductTag, int> _productTagRepository;
+        private IRepository<ProductQuantity, int> _productQuantityRepository;
+        private IRepository<ProductImage, int> _productImageRepository;
+        private IRepository<WholePrice, int> _wholePriceRepository;
 
-        IUnitOfWork _unitOfWork;
-        public ProductService(IProductRepository productRepository,
-            ITagRepository tagRepository,
-            IProductQuantityRepository productQuantityRepository,
-            IProductImageRepository productImageRepository,
-            IWholePriceRepository wholePriceRepository,
+        private IUnitOfWork _unitOfWork;
+
+        public ProductService(IRepository<Product, int> productRepository,
+            IRepository<Tag, string> tagRepository,
+            IRepository<ProductQuantity, int> productQuantityRepository,
+            IRepository<ProductImage, int> productImageRepository,
+            IRepository<WholePrice, int> wholePriceRepository,
         IUnitOfWork unitOfWork,
-        IProductTagRepository productTagRepository)
+        IRepository<ProductTag, int> productTagRepository)
         {
             _productRepository = productRepository;
             _tagRepository = tagRepository;
@@ -79,7 +77,6 @@ namespace TeduCoreApp.Application.Implementation
                     product.ProductTags.Add(productTag);
                 }
                 _productRepository.Add(product);
-
             }
             return productVm;
         }
@@ -247,8 +244,8 @@ namespace TeduCoreApp.Application.Implementation
                     Caption = string.Empty
                 });
             }
-
         }
+
         public void AddWholePrice(int productId, List<WholePriceViewModel> wholePrices)
         {
             _wholePriceRepository.RemoveMultiple(_wholePriceRepository.FindAll(x => x.ProductId == productId).ToList());
@@ -318,7 +315,6 @@ namespace TeduCoreApp.Application.Implementation
                             Name = t.Name
                         };
             return query.ToList();
-
         }
 
         public bool CheckAvailability(int productId, int size, int color)

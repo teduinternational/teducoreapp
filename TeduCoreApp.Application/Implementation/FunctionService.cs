@@ -9,26 +9,24 @@ using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.System;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 
 namespace TeduCoreApp.Application.Implementation
 {
     public class FunctionService : IFunctionService
     {
-        private IFunctionRepository _functionRepository;
+        private IRepository<Function, string> _functionRepository;
         private IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
 
         public FunctionService(IMapper mapper,
-            IFunctionRepository functionRepository,
+            IRepository<Function, string> functionRepository,
             IUnitOfWork unitOfWork)
         {
             _functionRepository = functionRepository;
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-
 
         public bool CheckExistedId(string id)
         {
@@ -64,6 +62,7 @@ namespace TeduCoreApp.Application.Implementation
         {
             return _functionRepository.FindAll(x => x.ParentId == parentId).ProjectTo<FunctionViewModel>();
         }
+
         public void Save()
         {
             _unitOfWork.Commit();
@@ -71,14 +70,12 @@ namespace TeduCoreApp.Application.Implementation
 
         public void Update(FunctionViewModel functionVm)
         {
-
             var functionDb = _functionRepository.FindById(functionVm.Id);
             var function = _mapper.Map<Function>(functionVm);
         }
 
         public void ReOrder(string sourceId, string targetId)
         {
-
             var source = _functionRepository.FindById(sourceId);
             var target = _functionRepository.FindById(targetId);
             int tempOrder = source.SortOrder;
@@ -88,7 +85,6 @@ namespace TeduCoreApp.Application.Implementation
 
             _functionRepository.Update(source);
             _functionRepository.Update(target);
-
         }
 
         public void UpdateParentId(string sourceId, string targetId, Dictionary<string, int> items)

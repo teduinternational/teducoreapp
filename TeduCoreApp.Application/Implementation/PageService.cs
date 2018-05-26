@@ -3,11 +3,9 @@ using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Blog;
 using TeduCoreApp.Data.Entities;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Dtos;
 
@@ -15,10 +13,10 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class PageService : IPageService
     {
-        private IPageRepository _pageRepository;
+        private IRepository<Page, int> _pageRepository;
         private IUnitOfWork _unitOfWork;
 
-        public PageService(IPageRepository pageRepository,
+        public PageService(IRepository<Page, int> pageRepository,
             IUnitOfWork unitOfWork)
         {
             this._pageRepository = pageRepository;

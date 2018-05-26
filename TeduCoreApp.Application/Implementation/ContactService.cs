@@ -3,11 +3,9 @@ using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Data.Entities;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Dtos;
 
@@ -15,10 +13,10 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class ContactService : IContactService
     {
-        private IContactRepository _contactRepository;
+        private IRepository<Contact, string> _contactRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ContactService(IContactRepository contactRepository,
+        public ContactService(IRepository<Contact, string> contactRepository,
             IUnitOfWork unitOfWork)
         {
             this._contactRepository = contactRepository;
@@ -67,7 +65,6 @@ namespace TeduCoreApp.Application.Implementation
 
             return paginationSet;
         }
-
 
         public ContactViewModel GetById(string id)
         {

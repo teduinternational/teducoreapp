@@ -3,11 +3,9 @@ using AutoMapper.QueryableExtensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Data.Entities;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Dtos;
 
@@ -15,10 +13,10 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class FeedbackService : IFeedbackService
     {
-        private IFeedbackRepository _feedbackRepository;
+        private IRepository<Feedback, int> _feedbackRepository;
         private IUnitOfWork _unitOfWork;
 
-        public FeedbackService(IFeedbackRepository feedbackRepository,
+        public FeedbackService(IRepository<Feedback, int> feedbackRepository,
             IUnitOfWork unitOfWork)
         {
             _feedbackRepository = feedbackRepository;

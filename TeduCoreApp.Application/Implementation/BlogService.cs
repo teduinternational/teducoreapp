@@ -1,15 +1,12 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Blog;
 using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Constants;
 using TeduCoreApp.Utilities.Dtos;
@@ -19,14 +16,14 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class BlogService : IBlogService
     {
-        private readonly IBlogRepository _blogRepository;
-        private readonly ITagRepository _tagRepository;
-        private readonly IBlogTagRepository _blogTagRepository;
+        private readonly IRepository<Blog, int> _blogRepository;
+        private readonly IRepository<Tag, string> _tagRepository;
+        private readonly IRepository<BlogTag, int> _blogTagRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public BlogService(IBlogRepository blogRepository,
-            IBlogTagRepository blogTagRepository,
-            ITagRepository tagRepository,
+        public BlogService(IRepository<Blog, int> blogRepository,
+            IRepository<BlogTag, int> blogTagRepository,
+            IRepository<Tag, string> tagRepository,
             IUnitOfWork unitOfWork)
         {
             _blogRepository = blogRepository;

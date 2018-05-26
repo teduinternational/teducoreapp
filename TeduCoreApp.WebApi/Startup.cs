@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using AutoMapper;
-using TeduCoreApp.Infrastructure.Interfaces;
-using TeduCoreApp.Data.EF;
-using Microsoft.EntityFrameworkCore;
-using TeduCoreApp.Data.IRepositories;
-using TeduCoreApp.Data.EF.Repositories;
-using TeduCoreApp.Application.Interfaces;
-using TeduCoreApp.Application.Implementation;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
+using TeduCoreApp.Application.Implementation;
+using TeduCoreApp.Application.Interfaces;
+using TeduCoreApp.Data.EF;
+using TeduCoreApp.Infrastructure.Interfaces;
 
 namespace TeduCoreApp.WebApi
 {
@@ -45,18 +37,13 @@ namespace TeduCoreApp.WebApi
             }));
             services.AddAutoMapper();
 
-
             services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
-
-            services.AddTransient<IProductRepository, ProductRepository>();
-
-            services.AddTransient<IProductCategoryRepository, ProductCategoryRepository>();
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
             services.AddMvc().
-                AddJsonOptions(options => 
+                AddJsonOptions(options =>
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
             services.AddSwaggerGen(s =>

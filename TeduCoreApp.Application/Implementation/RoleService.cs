@@ -5,12 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.System;
 using TeduCoreApp.Data.Entities;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Dtos;
 
@@ -19,17 +17,19 @@ namespace TeduCoreApp.Application.Implementation
     public class RoleService : IRoleService
     {
         private RoleManager<AppRole> _roleManager;
-        private IFunctionRepository _functionRepository;
-        private IPermissionRepository _permissionRepository;
+        private IRepository<Function, string> _functionRepository;
+        private IRepository<Permission, int> _permissionRepository;
         private IUnitOfWork _unitOfWork;
+
         public RoleService(RoleManager<AppRole> roleManager, IUnitOfWork unitOfWork,
-         IFunctionRepository functionRepository, IPermissionRepository permissionRepository)
+         IRepository<Function, string> functionRepository, IRepository<Permission, int> permissionRepository)
         {
             _unitOfWork = unitOfWork;
             _roleManager = roleManager;
             _functionRepository = functionRepository;
             _permissionRepository = permissionRepository;
         }
+
         public async Task<bool> AddAsync(AppRoleViewModel roleVm)
         {
             var role = new AppRole()
