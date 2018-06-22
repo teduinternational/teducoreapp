@@ -40,6 +40,8 @@ namespace TeduCoreApp.WebApi
             services.AddSingleton(Mapper.Configuration);
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
+            services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
+
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
             services.AddMvc().
