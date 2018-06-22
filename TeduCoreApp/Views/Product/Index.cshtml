@@ -1,0 +1,62 @@
+﻿@model List<TeduCoreApp.Application.ViewModels.Product.ProductCategoryViewModel>
+@{
+    ViewData["Title"] = "All product  categories";
+    ViewData["MetaDescription"] = "All our products";
+}
+<!-- Breadcrumbs -->
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
+                    <li><strong>Product categories</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Main Container -->
+<div class="main-container col1-layout">
+    <div class="container">
+        <div class="row">
+            <div class="col-main col-sm-12 col-xs-12">
+                <div class="shop-inner">
+                    <div class="page-title">
+                        <h2>Product categories</h2>
+                    </div>
+
+                    <div class="product-grid-area">
+                        <ul class="products-grid">
+                            @foreach (var item in Model)
+                            {
+                                var url = "/" + item.SeoAlias + "-c." + item.Id + ".html";
+                                <li class="item col-lg-3 col-md-4 col-sm-6 col-xs-6 ">
+                                    <div class="product-item">
+                                        <div class="item-inner">
+                                            <div class="product-thumbnail">
+                                                <div class="icon-sale-label sale-left">Sale</div>
+                                                <div class="icon-new-label new-right">New</div>
+                                                <div class="pr-img-area">
+                                                    <a title="@item.Name" href="@url">
+                                                        <figure> <img class="first-img" src="@item.Image" alt="@item.Name"> <img class="hover-img" src="@item.Image" alt="@item.Name"></figure>
+                                                    </a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            }
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Container End -->

@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewData["Title"] = "Cart";
+}
+@section Scripts{
+    <script src="~/client-app/controllers/cart/index.js" asp-append-version="true"></script>
+    <script>
+        var cartObj = new CartController();
+        cartObj.initialize();
+    </script>
+}
+<!-- Main Container -->
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="col-main">
+            <div class="cart">
+
+                <div class="page-content page-order">
+                    <div class="page-title">
+                        <h2>Shopping Cart</h2>
+                    </div>
+
+
+                    <div class="order-detail-content">
+                        <div class="table-responsive">
+                            <table class="table table-bordered cart_summary">
+                                <thead>
+                                    <tr>
+                                        <th class="cart_product">Product</th>
+                                        <th>Description</th>
+                                        <th>Unit price</th>
+                                        <th>Qty</th>
+                                        <th>Total</th>
+                                        <th class="action"><i class="fa fa-trash-o"></i></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-cart-content"></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3"><strong>Total</strong></td>
+                                        <td colspan="3"><strong><span id="lblTotalAmount"></span> </strong></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                            <script id="template-cart" type="x-tmpl-mustache">
+                                <tr data-id="{{ProductId}}">
+                                    <td class="cart_product">
+                                        <a href="{{Url}}">
+                                            <img src="{{Image}}" alt="{{ProductName}}">
+                                        </a>
+                                    </td>
+                                    <td class="cart_description">
+                                        <p class="product-name"><a href="#">{{ProductName}}</a></p>
+                                        <small><a href="#">Color : {{{Colors}}}</a></small>
+                                        <small><a href="#">Size : {{{Sizes}}}</a></small>
+                                    </td>
+                                    <td class="price"><span>{{Price}}</span></td>
+                                    <td class="qty"><input class="form-control input-sm txtQuantity" data-id="{{ProductId}}" type="text" value="{{Quantity}}"></td>
+                                    <td class="price"><span>{{Amount}}</span></td>
+                                    <td class="action"><a href="#" data-id="{{ProductId}}" class="btn-delete"><i class="icon-close"></i></a></td>
+                                </tr>
+                            </script>
+                        </div>
+                        <div class="cart_navigation">
+                            <a class="continue-btn" href="/products.html"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a>
+                            <a id="btnClearAll" href="#"><i class="fa fa-remove"> </i>&nbsp; Clear cart</a>
+                            <a class="checkout-btn" href="/checkout.html"><i class="fa fa-check"></i> Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

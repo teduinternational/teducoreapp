@@ -1,4 +1,24 @@
-﻿<div class="row top_tiles">
+﻿@section Scripts{
+    <!-- Flot -->
+    <script src="~/lib/flot/jquery.flot.js"></script>
+    <script src="~/lib/flot/jquery.flot.pie.js"></script>
+    <script src="~/lib/flot/jquery.flot.time.js"></script>
+    <script src="~/lib/flot/jquery.flot.stack.js"></script>
+    <script src="~/lib/flot/jquery.flot.resize.js"></script>
+
+    <!-- Flot plugins -->
+    <script src="~/lib/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/lib/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="~/lib/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="~/lib/DateJS/build/date.js"></script>
+    <script src="~/app/controllers/home/index.js" asp-append-version="true"></script>
+    <script>
+        var homeObj = new HomeController();
+        homeObj.initialize();
+    </script>
+}
+<div class="row top_tiles">
     <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
         <div class="tile-stats">
             <div class="icon"><i class="fa fa-caret-square-o-right"></i></div>

@@ -1,24 +1,21 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Product;
 using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Data.Enums;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 
 namespace TeduCoreApp.Application.Implementation
 {
     public class ProductCategoryService : IProductCategoryService
     {
-        private IProductCategoryRepository _productCategoryRepository;
+        private IRepository<ProductCategory, int> _productCategoryRepository;
         private IUnitOfWork _unitOfWork;
 
-        public ProductCategoryService(IProductCategoryRepository productCategoryRepository,
+        public ProductCategoryService(IRepository<ProductCategory, int> productCategoryRepository,
             IUnitOfWork unitOfWork)
         {
             _productCategoryRepository = productCategoryRepository;
@@ -30,7 +27,6 @@ namespace TeduCoreApp.Application.Implementation
             var productCategory = Mapper.Map<ProductCategoryViewModel, ProductCategory>(productCategoryVm);
             _productCategoryRepository.Add(productCategory);
             return productCategoryVm;
-
         }
 
         public void Delete(int id)
@@ -119,7 +115,7 @@ namespace TeduCoreApp.Application.Implementation
 
             //Get all sibling
             var sibling = _productCategoryRepository.FindAll(x => items.ContainsKey(x.Id));
-            foreach(var child in sibling)
+            foreach (var child in sibling)
             {
                 child.SortOrder = items[child.Id];
                 _productCategoryRepository.Update(child);

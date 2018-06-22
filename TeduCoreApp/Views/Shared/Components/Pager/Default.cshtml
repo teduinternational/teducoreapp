@@ -1,0 +1,56 @@
+﻿@model TeduCoreApp.Utilities.Dtos.PagedResultBase
+@{
+    var urlTemplate = Url.Action() + "?page={0}";
+    var request = ViewContext.HttpContext.Request;
+    foreach (var key in request.Query.Keys)
+    {
+        if (key == "page")
+        {
+            continue;
+        }
+
+        urlTemplate += "&" + key + "=" + request.Query[key];
+    }
+
+    var startIndex = Math.Max(Model.CurrentPage - 5, 1);
+    var finishIndex = Math.Min(Model.CurrentPage + 5, Model.PageCount);
+}
+<div class="pagination-area">
+    <div class="col-md-4 col-sm-4 items-info">
+        Từ @Model.FirstRowOnPage đến @Model.LastRowOnPage của @Model.RowCount sản phẩm
+    </div>
+    <div class="col-md-8 col-sm-8">
+        @if (Model.PageCount > 1)
+        {
+            <ul>
+                @if (Model.CurrentPage == startIndex)
+                {
+                    <li><i class="fa fa-angle-left"></i></li>
+                }
+                else
+                {
+                    <li><a href="@urlTemplate.Replace("{0}", Model.PageCount.ToString())"><i class="fa fa-angle-left"></i></a></li>
+                }
+                @for (var i = startIndex; i <= finishIndex; i++)
+                {
+                    if (i == Model.CurrentPage)
+                    {
+                        <li><a class="active" href="#"><span>@i</span></a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@urlTemplate.Replace("{0}", i.ToString())">@i</a></li>
+                    }
+                }
+                @if (Model.CurrentPage == finishIndex)
+                {
+                    <li><i class="fa fa-angle-right"></i></li>
+                }
+                else
+                {
+                    <li><a href="@urlTemplate.Replace("{0}", Model.PageCount.ToString())"><i class="fa fa-angle-right"></i></a></li>
+                }
+            </ul>
+        }
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TeduCoreApp.Application.Dapper\TeduCoreApp.Application.Dapper.csproj" />
+    <ProjectReference Include="..\TeduCoreApp.Application\TeduCoreApp.Application.csproj" />
+    <ProjectReference Include="..\TeduCoreApp.Data.EF\TeduCoreApp.Data.EF.csproj" />
+    <ProjectReference Include="..\TeduCoreApp.Data\TeduCoreApp.Data.csproj" />
+    <ProjectReference Include="..\TeduCoreApp.Infrastructure\TeduCoreApp.Infrastructure.csproj" />
+    <ProjectReference Include="..\TeduCoreApp.Utilities\TeduCoreApp.Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

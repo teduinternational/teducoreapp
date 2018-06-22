@@ -1,0 +1,53 @@
+﻿@model BillViewModel
+<h1>Panda Shop new bill</h1>
+<table>
+    <tr>
+        <td>Customer Name</td>
+        <td>@Model.CustomerName</td>
+    </tr>
+    <tr>
+        <td>Address</td>
+        <td>@Model.CustomerAddress</td>
+    </tr>
+    <tr>
+        <td>Phone</td>
+        <td>@Model.CustomerMobile</td>
+    </tr>
+    <tr>
+        <td>Date</td>
+        <td>@Model.DateCreated.ToString("dd/MM/yyyy hh:mm")</td>
+    </tr>
+    <tr>
+        <td>Details</td>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.BillDetails)
+                    {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price</td>
+                            <td>@((item.Quantity * item.Price).ToString("N0"))</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="5">
+                            Total: @Model.BillDetails.Sum(x => x.Quantity * x.Price).ToString("N0")
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </td>
+    </tr>
+</table>

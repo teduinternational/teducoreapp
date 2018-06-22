@@ -8,7 +8,6 @@ using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.Blog;
 using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Data.Entities;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Infrastructure.Interfaces;
 using TeduCoreApp.Utilities.Constants;
 using TeduCoreApp.Utilities.Dtos;
@@ -18,14 +17,14 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class CommonService : ICommonService
     {
-        IFooterRepository _footerRepository;
-        ISystemConfigRepository _systemConfigRepository;
+        IRepository<Footer, string> _footerRepository;
+        IRepository<SystemConfig, string> _systemConfigRepository;
         IUnitOfWork _unitOfWork;
-        ISlideRepository _slideRepository;
-        public CommonService(IFooterRepository footerRepository,
-            ISystemConfigRepository systemConfigRepository,
+        IRepository<Slide, int> _slideRepository;
+        public CommonService(IRepository<Footer, string> footerRepository,
+            IRepository<SystemConfig, string> systemConfigRepository,
             IUnitOfWork unitOfWork,
-            ISlideRepository slideRepository)
+            IRepository<Slide, int> slideRepository)
         {
             _footerRepository = footerRepository;
             _unitOfWork = unitOfWork;

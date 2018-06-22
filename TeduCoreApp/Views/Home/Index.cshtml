@@ -5,8 +5,7 @@
     ViewData["MetaDescription"] = Model.MetaDescription;
 }
 @section Scripts{
-
-    <script src="~/client-side/js/controllers/home/index.js"></script>
+    <script src="~/client-app/controllers/home/index.js"></script>
     <script>
         var homeObj = new HomeController();
         homeObj.initialize();
@@ -24,9 +23,9 @@
                             <ul>
                                 @foreach (var slide in Model.HomeSlides)
                                 {
-                                    <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
-                                        <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
-                                    </li>
+                                <li data-transition='fade' data-slotamount='7' data-masterspeed='1000' data-thumb=''>
+                                    <img src='@slide.Image' data-bgposition='left top' data-bgfit='cover' data-bgrepeat='no-repeat' alt="@slide.Name" />
+                                </li>
                                 }
                             </ul>
                             <div class="tp-bannertimer"></div>
@@ -70,7 +69,7 @@
                     <div class="slider-items-products">
                         <div id="jtv-best-sale-slider" class="product-flexslider">
                             <div class="slider-items">
-                               @foreach (var item in Model.TopSellProducts)
+                                @foreach (var item in Model.TopSellProducts)
                                {
                                 <div class="product-item">
                                     <div class="item-inner">
@@ -79,8 +78,8 @@
                                             <div class="pr-img-area">
                                                 <a title="@item.Name" href="/@item.SeoAlias-p.@(item.Id).html">
                                                     <figure>
-                                                        <img class="first-img" src="@item.Image" alt="@item.Name">
-                                                        <img class="hover-img" src="@item.Image" alt="@item.Name">
+                                                        <img class="first-img" src="@item.Image?w=190" alt="@item.Name">
+                                                        <img class="hover-img" src="@item.Image?w=190" alt="@item.Name">
                                                     </figure>
                                                 </a>
                                             </div>
@@ -101,7 +100,7 @@
                                                         <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                     </div>
                                                     <div class="pro-action">
-                                                        <button type="button" class="add-to-cart"><span> Purchase</span> </button>
+                                                        <button type="button" class="add-to-cart" data-id="@item.Id"><span> Purchase</span> </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,7 +187,7 @@
                                                                 <div class="price-box"> <span class="regular-price"> <span class="price">@item.Price.ToString("N0")</span> </span> </div>
                                                             </div>
                                                             <div class="pro-action">
-                                                                <button type="button" class="add-to-cart"><span> Mua ngay</span> </button>
+                                                                <button type="button" data-id="@item.Id" class="add-to-cart"><span> Purchase</span> </button>
                                                             </div>
                                                         </div>
                                                     </div>

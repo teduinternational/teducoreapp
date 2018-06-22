@@ -1,0 +1,53 @@
+﻿<div id="modal-add-edit" class="bootbox modal fade modal-darkorange in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="bootbox-close-button close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Add/edit page</h4>
+            </div>
+            <div class="modal-body">
+                <div id="horizontal-form">
+                    <form class="form-horizontal" role="form" id="frmMaintainance">
+                        <div class="form-group">
+                            <input type="hidden" id="hidIdM" value="0" />
+                            <label for="txtNameM" class="col-sm-2 control-label no-padding-right">Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtNameM" class="form-control" id="txtNameM">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtAliasM" class="col-sm-2 control-label no-padding-right">Alias</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="txtAliasM" class="form-control" id="txtAliasM">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtContentM" class="col-sm-2 control-label no-padding-right">Content</label>
+                            <div class="col-sm-10">
+                                <textarea id="txtContentM" rows="6" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked="checked" id="ckStatusM">
+                                        <span class="text">Active.</span>
+                                    </label>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnSaveM" class="btn btn-success">Save</button>
+                                <button type="button" id="btnCancelM" data-dismiss="modal" class="btn btn-danger">Cancel</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

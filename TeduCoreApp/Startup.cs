@@ -8,15 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using TeduCoreApp.Data;
-using TeduCoreApp.Models;
 using TeduCoreApp.Services;
 using TeduCoreApp.Data.EF;
 using TeduCoreApp.Data.Entities;
 using AutoMapper;
 using TeduCoreApp.Application.Interfaces;
-using TeduCoreApp.Data.EF.Repositories;
-using TeduCoreApp.Data.IRepositories;
 using TeduCoreApp.Application.Implementation;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Serialization;
@@ -24,6 +20,15 @@ using TeduCoreApp.Helpers;
 using TeduCoreApp.Infrastructure.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using TeduCoreApp.Authorization;
+using PaulMiami.AspNetCore.Mvc.Recaptcha;
+using TeduCoreApp.Extensions;
+using Microsoft.AspNetCore.Mvc;
+using TeduCoreApp.Application.Dapper.Interfaces;
+using TeduCoreApp.Application.Dapper.Implementation;
+using Microsoft.AspNetCore.Mvc.Razor;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
+using Microsoft.Extensions.Options;
 
 namespace TeduCoreApp
 {
@@ -41,11 +46,15 @@ namespace TeduCoreApp
         {
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
-                o=>o.MigrationsAssembly("TeduCoreApp.Data.EF")));
+                o => o.MigrationsAssembly("TeduCoreApp.Data.EF")));
 
             services.AddIdentity<AppUser, AppRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddMemoryCache();
+
+            services.AddMinResponse();
 
             // Configure Identity
             services.Configure<IdentityOptions>(options =>
@@ -65,7 +74,29 @@ namespace TeduCoreApp
                 options.User.RequireUniqueEmail = true;
             });
 
+            services.AddRecaptcha(new RecaptchaOptions()
+            {
+                SiteKey = Configuration["Recaptcha:SiteKey"],
+                SecretKey = Configuration["Recaptcha:SecretKey"]
+            });
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromHours(2);
+                options.Cookie.HttpOnly = true;
+            });
+            services.AddImageResizer();
             services.AddAutoMapper();
+            services.AddAuthentication()
+                .AddFacebook(facebookOpts =>
+                {
+                    facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
+                    facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+                })
+                .AddGoogle(googleOpts=> {
+                    googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
+                    googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                });
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
@@ -74,40 +105,51 @@ namespace TeduCoreApp
             services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IViewRenderService, ViewRenderService>();
 
             services.AddTransient<DbInitializer>();
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
-            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddMvc(options =>
+            {
+                options.CacheProfiles.Add("Default",
+                    new CacheProfile()
+                    {
+                        Duration = 60
+                    });
+                options.CacheProfiles.Add("Never",
+                    new CacheProfile()
+                    {
+                        Location = ResponseCacheLocation.None,
+                        NoStore = true
+                    });
+            }).AddViewLocalization(
+                    LanguageViewLocationExpanderFormat.Suffix,
+                    opts => { opts.ResourcesPath = "Resources"; })
+                .AddDataAnnotationsLocalization()
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
+            services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+
+            services.Configure<RequestLocalizationOptions>(
+              opts =>
+              {
+                  var supportedCultures = new List<CultureInfo>
+                  {
+                        new CultureInfo("en-US"),
+                        new CultureInfo("vi-VN")
+                  };
+
+                  opts.DefaultRequestCulture = new RequestCulture("en-US");
+                   // Formatting numbers, dates, etc.
+                   opts.SupportedCultures = supportedCultures;
+                   // UI strings that we have localized.
+                   opts.SupportedUICultures = supportedCultures;
+              });
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
-
-            //Repositories
-            services.AddTransient<IProductCategoryRepository,ProductCategoryRepository>();
-            services.AddTransient<IFunctionRepository, FunctionRepository>();
-            services.AddTransient<IProductRepository, ProductRepository>();
-            services.AddTransient<ITagRepository, TagRepository>();
-            services.AddTransient<IProductTagRepository, ProductTagRepository>();
-            services.AddTransient<IPermissionRepository, PermissionRepository>();
-            services.AddTransient<IBillRepository, BillRepository>();
-            services.AddTransient<IBillDetailRepository, BillDetailRepository>();
-            services.AddTransient<IColorRepository, ColorRepository>();
-            services.AddTransient<ISizeRepository, SizeRepository>();
-            services.AddTransient<IProductQuantityRepository, ProductQuantityRepository>();
-            services.AddTransient<IProductImageRepository, ProductImageRepository>();
-            services.AddTransient<IWholePriceRepository, WholePriceRepository>();
-
-            services.AddTransient<IBlogRepository, BlogRepository>();
-
-            services.AddTransient<IBlogTagRepository, BlogTagRepository>();
-            services.AddTransient<ISlideRepository, SlideRepository>();
-            services.AddTransient<ISystemConfigRepository, SystemConfigRepository>();
-
-            services.AddTransient<IFooterRepository, FooterRepository>();
-
-
             //Serrvices
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
             services.AddTransient<IFunctionService, FunctionService>();
@@ -117,6 +159,10 @@ namespace TeduCoreApp
             services.AddTransient<IBillService, BillService>();
             services.AddTransient<IBlogService, BlogService>();
             services.AddTransient<ICommonService, CommonService>();
+            services.AddTransient<IFeedbackService, FeedbackService>();
+            services.AddTransient<IContactService, ContactService>();
+            services.AddTransient<IPageService, PageService>();
+            services.AddTransient<IReportService, ReportService>();
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
@@ -124,7 +170,7 @@ namespace TeduCoreApp
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddFile("Logs/tedu-{Date}.txt");
             if (env.IsDevelopment())
@@ -137,10 +183,14 @@ namespace TeduCoreApp
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            app.UseImageResizer();
             app.UseStaticFiles();
-
+            app.UseMinResponse();
             app.UseAuthentication();
+            app.UseSession();
+
+            var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
+            app.UseRequestLocalization(options.Value);
 
             app.UseMvc(routes =>
             {
@@ -150,8 +200,10 @@ namespace TeduCoreApp
 
                 routes.MapRoute(name: "areaRoute",
                     template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
+
+
             });
-          
+
         }
     }
 }

@@ -6,15 +6,26 @@
     <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
 }
 @section Scripts{
-    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
-    <script src="~/app/controllers/product/quantity-management.js"></script>
-    <script src="~/app/controllers/product/image-management.js"></script>
-    <script src="~/app/controllers/product/whole-price-management.js"></script>
-    <script src="~/app/controllers/product/index.js"></script>
+<script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
+
+<environment names="Development">
+    <script src="~/app/controllers/product/image-management.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/product/quantity-management.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/product/whole-price-management.js" asp-append-version="true"></script>
+    <script src="~/app/controllers/product/index.js" asp-append-version="true"></script>
     <script>
         var product = new productController();
         product.initialize();
     </script>
+</environment>
+<environment names="Staging,Production">
+    <script>
+        var product = new productController();
+        product.initialize();
+    </script>
+</environment>
+
+
 }
 <div class="page-title">
     <div class="title_left">

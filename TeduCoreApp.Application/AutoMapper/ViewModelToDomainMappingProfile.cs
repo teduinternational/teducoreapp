@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TeduCoreApp.Application.ViewModels.Blog;
+using TeduCoreApp.Application.ViewModels.Common;
 using TeduCoreApp.Application.ViewModels.Product;
 using TeduCoreApp.Application.ViewModels.System;
 using TeduCoreApp.Data.Entities;
@@ -39,6 +41,15 @@ namespace TeduCoreApp.Application.AutoMapper
               .ConstructUsing(c => new BillDetail(c.Id, c.BillId, c.ProductId,
               c.Quantity, c.Price, c.ColorId, c.SizeId));
 
+
+            CreateMap<ContactViewModel, Contact>()
+                .ConstructUsing(c => new Contact(c.Id, c.Name, c.Phone, c.Email, c.Website, c.Address, c.Other, c.Lng, c.Lat, c.Status));
+
+            CreateMap<FeedbackViewModel, Feedback>()
+                .ConstructUsing(c => new Feedback(c.Id, c.Name, c.Email, c.Message, c.Status));
+
+            CreateMap<PageViewModel, Page>()
+             .ConstructUsing(c => new Page(c.Id, c.Name, c.Alias, c.Content, c.Status));
         }
     }
 }

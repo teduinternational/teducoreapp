@@ -93,7 +93,7 @@
         });
 
         $('#btnSave').on('click', function (e) {
-            saveProduct();
+            saveProduct(e);
         });
 
         $('#btn-import').on('click', function () {
@@ -168,7 +168,7 @@
 
     }
 
-    function saveProduct() {
+    function saveProduct(e) {
         if ($('#frmMaintainance').valid()) {
             e.preventDefault();
             var id = $('#hidIdM').val();
@@ -262,7 +262,7 @@
         });
     }
 
-    function loadDetails(id) {
+    function loadDetails(that) {
         $.ajax({
             type: "GET",
             url: "/Admin/Product/GetById",

@@ -1,0 +1,188 @@
+﻿@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+@section Scripts {
+    <recaptcha-script validation-message-element-id="recaptchaErrorMessage" />
+
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}
+<!-- Breadcrumbs -->
+
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <ul>
+                    <li class="home"> <a title="Go to Home Page" href="/">Home</a><span>&raquo;</span></li>
+                    <li><strong>Checkout</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumbs End -->
+<!-- Main Container -->
+<section class="main-container col2-right-layout">
+    <div class="main container">
+        <div class="row">
+            <div class="col-main col-sm-12 col-xs-12">
+                <div class="page-title">
+                    <h2>Checkout</h2>
+                </div>
+                <div class="page-content checkout-page">
+                    @if (ViewData["Success"] != null)
+                    {
+                        if ((bool)ViewData["Success"] == true)
+                        {
+                            <div class="alert alert-success">
+                                Thank you for your order. We are going to confirm your order soon.
+                            </div>
+
+                        }
+                        else
+                        {
+                            <div class="alert alert-danger">
+                                Have an error in order progress. Please contact to administrator.
+                            </div>
+
+                        }
+
+
+                    }
+                    else
+                    {
+
+                        <form action="/checkout.html" method="post">
+                            @Html.AntiForgeryToken()
+                            <h4 class="checkout-sep">1. Checkout Method</h4>
+                            <div class="box-border">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h5>Checkout as a Guest or Register</h5>
+                                        <p>Register with us for future convenience:</p>
+                                        <br>
+                                        <h4>Register and save time!</h4>
+                                        <p>Register with us for future convenience:</p>
+                                        <p><i class="fa fa-check-circle text-primary"></i> Fast and easy check out</p>
+                                        <p><i class="fa fa-check-circle text-primary"></i> Easy access to your order history and status</p>
+                                        <button class="button" onclick="window.location.href='/register.html'"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h5>Login</h5>
+                                        <p>Already registered? Please log in below:</p>
+                                        <button class="button" onclick="window.location.href='/login.html'"><i class="icon-login"></i>&nbsp; <span>Login</span></button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h4 class="checkout-sep">2. Shipping Information</h4>
+                            <div class="box-border">
+                                <ul>
+                                    <li class="row">
+                                        <div class="col-sm-6">
+                                            <label class="required">Full name</label>
+                                            <input class="input form-control" type="text" asp-for="CustomerName">
+                                        </div>
+                                        <!--/ [col] -->
+                                        <div class="col-sm-6">
+                                            <label class="required">Phone</label>
+                                            <input class="input form-control" type="text" asp-for="CustomerMobile">
+                                        </div>
+                                    </li>
+                                    <!--/ .row -->
+                                    <!--/ .row -->
+
+                                    <li class="row">
+                                        <div class="col-xs-12">
+                                            <label class="required">Address</label>
+                                            <input class="input form-control" type="text" asp-for="CustomerAddress">
+                                        </div>
+                                        <!--/ [col] -->
+
+                                    </li>
+                                    <!--/ .row -->
+
+
+                                    <li class="row">
+                                        <div class="col-sm-12">
+                                            <label class="required">Message</label>
+                                            <input class="input form-control" type="text" asp-for="CustomerMessage">
+                                        </div>
+                                        <!--/ [col] -->
+
+                                    </li>
+                                    <!--/ .row -->
+
+
+                                </ul>
+                            </div>
+                            <h4 class="checkout-sep">3. Payment Information</h4>
+                            <div class="box-border">
+                                <ul>
+                                    @for (int i = 0; i < Model.PaymentMethods.Count; i++)
+                                    {
+                                        <li>
+                                            <label asp-for="@Model.PaymentMethods[i].Value">
+                                                <input type="radio" name="paymentMethod" asp-for="PaymentMethod" value="@Model.PaymentMethods[i].Value">
+                                                @Model.PaymentMethods[i].Name
+                                            </label>
+                                        </li>
+                                    }
+                                </ul>
+                                <button class="button"><i class="fa fa-angle-double-right"></i>&nbsp; <span>Continue</span></button>
+                            </div>
+                            <h4 class="checkout-sep last">4. Order Review</h4>
+                            <div class="box-border">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered cart_summary">
+                                        <thead>
+                                            <tr>
+                                                <th class="cart_product">Product</th>
+                                                <th>Description</th>
+                                                <th>Unit price</th>
+                                                <th>Qty</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.Carts)
+                                            {
+                                                <tr>
+                                                    <td class="cart_product"><a href="/@item.Product.SeoAlias-p.@(item.Product.Id).html"><img src="@item.Product.Image" alt="@item.Product.Name"></a></td>
+                                                    <td class="cart_description">
+                                                        <p class="product-name"><a href="/@item.Product.SeoAlias-p.@(item.Product.Id).html">@item.Product.Name </a></p>
+                                                        <small><a href="#">Color : @item.Color.Name</a></small><br>
+                                                        <small><a href="#">Size : @item.Size.Name</a></small>
+                                                    </td>
+                                                    <td class="price"><span>@item.Price.ToString("N0") </span></td>
+                                                    <td class="qty">@item.Quantity</td>
+                                                    <td class="price"><span>@((item.Price * item.Quantity).ToString("N0")) </span></td>
+                                                </tr>
+
+                                            }
+
+
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="3"><strong>Total</strong></td>
+                                                <td colspan="2"><strong>@Model.Carts.Sum(x => x.Quantity * x.Price).ToString("N0") </strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <recaptcha /><span class="text-danger" id="recaptchaErrorMessage"></span>
+                                <button type="button" class="button" onclick="window.location.href='/cart.html'"><span>Back to cart</span></button>
+
+                                <button type="submit" class="button pull-right"><span>Place Order</span></button>
+                            </div>
+                        </form>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Main Container End -->

@@ -1,0 +1,52 @@
+﻿@model List<ShoppingCartViewModel>
+<div class="mini-cart" id="headerCart">
+    <div data-toggle="dropdown" data-hover="dropdown" class="basket dropdown-toggle">
+        <a href="#">
+            <div class="cart-icon"><i class="icon-basket-loaded icons"></i>
+            @if (Model.Count > 0)
+            {
+                <span class="cart-total">@Model.Count</span>
+            }
+            </div>
+            <div class="shoppingcart-inner hidden-xs"><span class="cart-title">My Cart</span> </div>
+        </a>
+    </div>
+    <div>
+        <div class="top-cart-content">
+            @if (Model.Count > 0)
+            {
+                <div class="block-subtitle hidden">Recently added items</div>
+                <ul id="cart-sidebar" class="mini-products-list">
+                    @foreach (var item in Model)
+                {
+                    var url = "/" + item.Product.SeoAlias + "-p." + item.Product.Id + ".html";
+
+                        <li class="item last odd">
+                            <a href="@url" title="@item.Product.Name" class="product-image">
+                                <img src="@item.Product.Image" alt="@item.Product.Name" width="65">
+                            </a>
+                            <div class="product-details">
+                                <a href="#" title="@item.Product.Name" data-id="@item.Product.Id" class="remove-cart"><i class="pe-7s-trash"></i></a>
+                                <p class="product-name">
+                                    <a href="@url">@item.Product.Name</a>
+                                </p>
+                                <strong>@item.Quantity</strong> x <span class="price">@((item.Product.PromotionPrice ?? item.Product.Price).ToString("N0"))</span>
+                            </div>
+                        </li>
+                    }
+                </ul>
+                <div class="top-subtotal">Subtotal: <span class="price">@Model.Sum(x => x.Quantity * x.Price).ToString("N0")</span></div>
+                <div class="actions">
+                    <button class="btn-checkout" type="button" onClick="location.href='/checkout.html'"><i class="fa fa-check"></i><span>Checkout</span></button>
+                    <button class="view-cart" type="button" onClick="location.href='/cart.html'"><i class="fa fa-shopping-cart"></i><span>View Cart</span></button>
+                </div>
+
+            }
+            else
+            {
+                <p>You have no product</p>
+
+            }
+        </div>
+    </div>
+</div>
