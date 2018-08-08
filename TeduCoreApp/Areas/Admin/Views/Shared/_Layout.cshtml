@@ -174,6 +174,8 @@
 
     <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/signalr/signalr.js"></script>
+
     <!-- Bootstrap -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <!-- FastClick -->
@@ -201,14 +203,13 @@
     <script src="~/lib/bootbox/bootbox.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="~/admin-side/js/custom.min.js"></script>
-
     <environment names="Development">
         <script src="~/app/shared/tedu.js" asp-append-version="true"></script>
     </environment>
     <environment names="Staging,Production">
         <script src="~/bundled/site-admin.min.js"></script>
-
     </environment>
+    <script src="~/app/shared/signalR.js"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

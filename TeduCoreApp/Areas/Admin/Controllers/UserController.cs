@@ -7,7 +7,11 @@ using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Application.ViewModels.System;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.SignalR;
 using TeduCoreApp.Authorization;
+using TeduCoreApp.Data.Enums;
+using TeduCoreApp.Extensions;
+using TeduCoreApp.SignalR;
 
 namespace TeduCoreApp.Areas.Admin.Controllers
 {
@@ -15,12 +19,16 @@ namespace TeduCoreApp.Areas.Admin.Controllers
     {
         private readonly IUserService _userService;
         private readonly IAuthorizationService _authorizationService;
+        private readonly IHubContext<TeduHub> _hubContext;
 
 
-        public UserController(IUserService userService, IAuthorizationService authorizationService)
+        public UserController(IUserService userService,
+            IAuthorizationService authorizationService,
+            IHubContext<TeduHub> hubContext)
         {
             _userService = userService;
             _authorizationService = authorizationService;
+            _hubContext = hubContext;
         }
         public async Task<IActionResult> Index()
         {
@@ -60,18 +68,25 @@ namespace TeduCoreApp.Areas.Admin.Controllers
                 IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
                 return new BadRequestObjectResult(allErrors);
             }
+            if (userVm.Id == null)
+            {
+                var announcement = new AnnouncementViewModel()
+                {
+                    Content = $"User {userVm.UserName} has been created",
+                    DateCreated = DateTime.Now,
+                    Status = Status.Active,
+                    Title = "User created",
+                    UserId = User.GetUserId(),
+                    Id = Guid.NewGuid().ToString()
+                };
+                await _userService.AddAsync(userVm);
+                await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);
+            }
             else
             {
-                if (userVm.Id == null)
-                {
-                    await _userService.AddAsync(userVm);
-                }
-                else
-                {
-                    await _userService.UpdateAsync(userVm);
-                }
-                return new OkObjectResult(userVm);
+                await _userService.UpdateAsync(userVm);
             }
+            return new OkObjectResult(userVm);
         }
 
         [HttpPost]
