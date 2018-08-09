@@ -5,17 +5,23 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TeduCoreApp.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.SignalR;
 using TeduCoreApp.Application.ViewModels.System;
+using TeduCoreApp.Data.Entities;
+using TeduCoreApp.Extensions;
+using TeduCoreApp.SignalR;
 
 namespace TeduCoreApp.Areas.Admin.Controllers
 {
     public class RoleController : BaseController
     {
         private readonly IRoleService _roleService;
+        private readonly IHubContext<TeduHub> _hubContext;
 
-        public RoleController(IRoleService roleService)
+        public RoleController(IRoleService roleService, IHubContext<TeduHub> hubContext)
         {
             _roleService = roleService;
+            _hubContext = hubContext;
         }
         public IActionResult Index()
         {
@@ -53,7 +59,23 @@ namespace TeduCoreApp.Areas.Admin.Controllers
             }
             if (!roleVm.Id.HasValue)
             {
-                await _roleService.AddAsync(roleVm);
+                var notificationId = Guid.NewGuid().ToString();
+                var announcement = new AnnouncementViewModel()
+                {
+                    Title = "Role created",
+                    DateCreated = DateTime.Now,
+                    Content = $"Role {roleVm.Name} has been created",
+                    Id = notificationId,
+                    UserId = User.GetUserId()
+                };
+                var announcementUsers = new List<AnnouncementUserViewModel>()
+                {
+                    new AnnouncementUserViewModel(){AnnouncementId = notificationId,HasRead = false,UserId = User.GetUserId()}
+                };
+                await _roleService.AddAsync(announcement, announcementUsers,roleVm );
+
+                await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);
+
             }
             else
             {

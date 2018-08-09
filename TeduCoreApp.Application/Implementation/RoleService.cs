@@ -19,18 +19,28 @@ namespace TeduCoreApp.Application.Implementation
         private RoleManager<AppRole> _roleManager;
         private IRepository<Function, string> _functionRepository;
         private IRepository<Permission, int> _permissionRepository;
+        private IRepository<Announcement, string> _announRepository;
+        private IRepository<AnnouncementUser, int> _announUserRepository;
+
         private IUnitOfWork _unitOfWork;
 
-        public RoleService(RoleManager<AppRole> roleManager, IUnitOfWork unitOfWork,
-         IRepository<Function, string> functionRepository, IRepository<Permission, int> permissionRepository)
+        public RoleService(RoleManager<AppRole> roleManager,
+            IUnitOfWork unitOfWork,
+            IRepository<AnnouncementUser, int> announUserRepository,
+         IRepository<Function, string> functionRepository,
+         IRepository<Permission, int> permissionRepository,
+            IRepository<Announcement, string> announRepository)
         {
             _unitOfWork = unitOfWork;
             _roleManager = roleManager;
+            _announRepository = announRepository;
             _functionRepository = functionRepository;
+            _announUserRepository = announUserRepository;
             _permissionRepository = permissionRepository;
         }
 
-        public async Task<bool> AddAsync(AppRoleViewModel roleVm)
+        public async Task<bool> AddAsync(AnnouncementViewModel announcementVm,
+            List<AnnouncementUserViewModel> announcementUsers, AppRoleViewModel roleVm)
         {
             var role = new AppRole()
             {
@@ -38,6 +48,14 @@ namespace TeduCoreApp.Application.Implementation
                 Description = roleVm.Description
             };
             var result = await _roleManager.CreateAsync(role);
+            var announcement = Mapper.Map<AnnouncementViewModel, Announcement>(announcementVm);
+            _announRepository.Add(announcement);
+            foreach (var userVm in announcementUsers)
+            {
+                var user = Mapper.Map<AnnouncementUserViewModel, AnnouncementUser>(userVm);
+                _announUserRepository.Add(user);
+            }
+            _unitOfWork.Commit();
             return result.Succeeded;
         }
 

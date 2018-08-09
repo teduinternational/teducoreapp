@@ -24,7 +24,7 @@ namespace TeduCoreApp.Application.AutoMapper
            c.SeoPageTitle, c.SeoAlias, c.SeoKeywords, c.SeoDescription));
 
             CreateMap<AppUserViewModel, AppUser>()
-            .ConstructUsing(c => new AppUser(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.UserName, 
+            .ConstructUsing(c => new AppUser(c.Id.GetValueOrDefault(Guid.Empty), c.FullName, c.UserName,
             c.Email, c.PhoneNumber, c.Avatar, c.Status));
 
             CreateMap<PermissionViewModel, Permission>()
@@ -33,8 +33,8 @@ namespace TeduCoreApp.Application.AutoMapper
 
 
             CreateMap<BillViewModel, Bill>()
-              .ConstructUsing(c => new Bill(c.Id,c.CustomerName, c.CustomerAddress, 
-              c.CustomerMobile, c.CustomerMessage, c.BillStatus, 
+              .ConstructUsing(c => new Bill(c.Id, c.CustomerName, c.CustomerAddress,
+              c.CustomerMobile, c.CustomerMessage, c.BillStatus,
               c.PaymentMethod, c.Status, c.CustomerId));
 
             CreateMap<BillDetailViewModel, BillDetail>()
@@ -50,6 +50,13 @@ namespace TeduCoreApp.Application.AutoMapper
 
             CreateMap<PageViewModel, Page>()
              .ConstructUsing(c => new Page(c.Id, c.Name, c.Alias, c.Content, c.Status));
+
+
+            CreateMap<AnnouncementViewModel, Announcement>()
+                .ConstructUsing(c => new Announcement(c.Title, c.Content, c.UserId, c.Status));
+
+            CreateMap<AnnouncementUserViewModel, AnnouncementUser>()
+                .ConstructUsing(c => new AnnouncementUser(c.AnnouncementId,c.UserId,c.HasRead));
         }
     }
 }

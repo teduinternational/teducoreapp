@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using TeduCoreApp.Application.ViewModels.System;
+using TeduCoreApp.Data.Entities;
 using TeduCoreApp.Utilities.Dtos;
 
 namespace TeduCoreApp.Application.Interfaces
 {
     public interface IRoleService
     {
-        Task<bool> AddAsync(AppRoleViewModel userVm);
+        Task<bool> AddAsync(AnnouncementViewModel announcement,List<AnnouncementUserViewModel> announcementUsers, AppRoleViewModel userVm);
 
         Task DeleteAsync(Guid id);
 

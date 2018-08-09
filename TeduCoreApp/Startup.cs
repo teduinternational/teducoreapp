@@ -29,6 +29,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
+using TeduCoreApp.SignalR;
 
 namespace TeduCoreApp
 {
@@ -132,6 +133,15 @@ namespace TeduCoreApp
 
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 
+            services.AddCors(options => options.AddPolicy("CorsPolicy",
+                builder =>
+                {
+                    builder.AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .WithOrigins("http://localhost:3000")
+                        .AllowCredentials();
+                }));
+
             services.Configure<RequestLocalizationOptions>(
               opts =>
               {
@@ -163,9 +173,11 @@ namespace TeduCoreApp
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
             services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IAnnouncementService, AnnouncementService>();
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
+            services.AddSignalR();
 
         }
 
@@ -176,7 +188,7 @@ namespace TeduCoreApp
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
             }
             else
@@ -191,7 +203,11 @@ namespace TeduCoreApp
 
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
-
+            app.UseCors("CorsPolicy");
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TeduHub>("/teduHub");
+            });
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
