@@ -173,6 +173,7 @@ namespace TeduCoreApp
             services.AddTransient<IContactService, ContactService>();
             services.AddTransient<IPageService, PageService>();
             services.AddTransient<IReportService, ReportService>();
+            services.AddTransient<IAnnouncementService, AnnouncementService>();
 
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 

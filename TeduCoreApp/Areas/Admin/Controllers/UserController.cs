@@ -77,7 +77,8 @@ namespace TeduCoreApp.Areas.Admin.Controllers
                     Status = Status.Active,
                     Title = "User created",
                     UserId = User.GetUserId(),
-                    Id = Guid.NewGuid().ToString()
+                    Id = Guid.NewGuid().ToString(),
+                    
                 };
                 await _userService.AddAsync(userVm);
                 await _hubContext.Clients.All.SendAsync("ReceiveMessage", announcement);

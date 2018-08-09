@@ -85,69 +85,12 @@
                                 @await Html.PartialAsync("_LoginPartial")
                             </li>
 
-                            <li role="presentation" class="dropdown">
+                            <li role="presentation" id="announcementArea" class="dropdown">
                                 <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
                                     <i class="fa fa-envelope-o"></i>
-                                    <span class="badge bg-green">6</span>
+                                    <span class="badge bg-green"><label id="totalAnnouncement"></label></span>
                                 </a>
-                                <ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="/admin-side/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="/admin-side/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="/admin-side/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>John Smith</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a>
-                                            <span class="image"><img src="/admin-side/images/img.jpg" alt="Profile Image" /></span>
-                                            <span>
-                                                <span>@User.GetSpecificClaim("FullName")</span>
-                                                <span class="time">3 mins ago</span>
-                                            </span>
-                                            <span class="message">
-                                                Film festivals used to be do-or-die moments for movie makers. They were where...
-                                            </span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <div class="text-center">
-                                            <a>
-                                                <strong>See All Alerts</strong>
-                                                <i class="fa fa-angle-right"></i>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
+                                <ul id="annoncementList" class="dropdown-menu list-unstyled msg_list" role="menu"></ul>
                             </li>
                         </ul>
                     </nav>
@@ -171,7 +114,30 @@
             <!-- /footer content -->
         </div>
     </div>
-
+    <script id="announcement-template" type="x-tmpl-mustache">
+        <li data-id="{{Id}}">
+            <a>
+                <span class="image"><img src="{{Avatar}}" alt="Profile Image" /></span>
+                <span>
+                    <span>{{FullName}}</span>
+                    <span class="time">{{DateCreated}}</span>
+                </span>
+                <span class="message">
+                    {{Content}}
+                </span>
+            </a>
+        </li>
+    </script>
+    <script id="announcement-tag-template" type="x-tmpl-mustache">
+        <li >
+            <div class="text-center">
+                <a>
+                    <strong>See All Alerts</strong>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+        </li>
+    </script>
     <!-- jQuery -->
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/signalr/signalr.js"></script>
@@ -209,7 +175,13 @@
     <environment names="Staging,Production">
         <script src="~/bundled/site-admin.min.js"></script>
     </environment>
-    <script src="~/app/shared/signalR.js"></script>
+    <script src="~/app/shared/base.js"  asp-append-version="true"></script>
+
+    <script src="~/app/shared/signalR.js" asp-append-version="true"></script>
+    <script>
+        var baseObj = new BaseController();
+        baseObj.initialize();
+    </script>
 
     @RenderSection("Scripts", required: false)
 </body>

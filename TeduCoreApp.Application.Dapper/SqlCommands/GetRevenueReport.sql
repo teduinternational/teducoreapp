@@ -1,4 +1,4 @@
-﻿CREATE PROC GetRevenueDaily
+﻿create PROC GetRevenueDaily
 	@fromDate VARCHAR(10),
 	@toDate VARCHAR(10)
 AS
@@ -16,6 +16,7 @@ BEGIN
 				AND b.DateCreated >= cast(@fromDate as date)
                 group by b.DateCreated
 END
+go
 
-EXEC dbo.GetRevenueDaily @fromDate = '12/01/2017',
-                         @toDate = '01/16/2018' 
+--EXEC dbo.GetRevenueDaily @fromDate = '12/01/2017',
+                        -- @toDate = '01/16/2018' 

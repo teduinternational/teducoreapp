@@ -10,6 +10,14 @@ namespace TeduCoreApp.Data.Entities
     [Table("AnnouncementUsers")]
     public class AnnouncementUser : DomainEntity<int>
     {
+        public AnnouncementUser() { }
+        public AnnouncementUser(string announcementId, Guid userId, bool? hasRead)
+        {
+            AnnouncementId = announcementId;
+            UserId = userId;
+            HasRead = hasRead;
+        }
+
         [StringLength(128)]
         [Required]
         public string AnnouncementId { get; set; }
