@@ -47,7 +47,7 @@ namespace TeduCoreApp.Application.Implementation
         public FunctionViewModel GetById(string id)
         {
             var function = _functionRepository.FindSingle(x => x.Id == id);
-            return Mapper.Map<Function, FunctionViewModel>(function);
+            return _mapper.Map<Function, FunctionViewModel>(function);
         }
 
         public Task<List<FunctionViewModel>> GetAll(string filter)
@@ -55,12 +55,14 @@ namespace TeduCoreApp.Application.Implementation
             var query = _functionRepository.FindAll(x => x.Status == Status.Active);
             if (!string.IsNullOrEmpty(filter))
                 query = query.Where(x => x.Name.Contains(filter));
-            return query.OrderBy(x => x.ParentId).ProjectTo<FunctionViewModel>().ToListAsync();
+
+            return _mapper.ProjectTo<FunctionViewModel>(query.OrderBy(x => x.ParentId)).ToListAsync();
         }
 
         public IEnumerable<FunctionViewModel> GetAllWithParentId(string parentId)
         {
-            return _functionRepository.FindAll(x => x.ParentId == parentId).ProjectTo<FunctionViewModel>();
+            return _mapper.ProjectTo<FunctionViewModel>(
+                _functionRepository.FindAll(x => x.ParentId == parentId));
         }
 
         public void Save()

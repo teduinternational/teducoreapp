@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Bill management";
 }
 @section Scripts{
@@ -30,7 +29,6 @@
             </div>
             <div class="col-md-2 col-sm-3 col-xs-12 form-group">
                 <input type="text" id="txtSearchKeyword" class="form-control" placeholder="Tìm kiếm...">
-
             </div>
             <div class="col-md-2 col-sm-2 col-xs-12 form-group">
                 <button class="btn btn-default" id="btn-search" type="button">Search!</button>
@@ -73,7 +71,7 @@
                                 <span class="item-per-page">
                                     recors/page.
                                 </span>
-                               Total records: <strong id="lbl-total-records"></strong>
+                                Total records: <strong id="lbl-total-records"></strong>
                             </div>
                         </div><div class="col-sm-7">
                             <div class="dataTables_paginate" id="datatable-checkbox_paginate">
@@ -81,12 +79,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 
     <script id="table-template" type="x-tmpl-mustache">
         <tr>
@@ -99,4 +95,4 @@
         </tr>
     </script>
 </div>
-@Html.Partial("_DetailModal.cshtml")
+<partial name="_DetailModal" />

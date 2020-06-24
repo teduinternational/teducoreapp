@@ -16,20 +16,20 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class BillService : IBillService
     {
-        private readonly IRepository<Bill,int> _orderRepository;
+        private readonly IRepository<Bill, int> _orderRepository;
         private readonly IRepository<BillDetail, int> _orderDetailRepository;
         private readonly IRepository<Color, int> _colorRepository;
         private readonly IRepository<Size, int> _sizeRepository;
         private readonly IRepository<Product, int> _productRepository;
         private readonly IUnitOfWork _unitOfWork;
-
+        private readonly IMapper _mapper;
 
         public BillService(IRepository<Bill, int> orderRepository,
             IRepository<BillDetail, int> orderDetailRepository,
             IRepository<Color, int> colorRepository,
             IRepository<Product, int> productRepository,
             IRepository<Size, int> sizeRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IMapper mapper)
         {
             _orderRepository = orderRepository;
             _orderDetailRepository = orderDetailRepository;
@@ -37,12 +37,13 @@ namespace TeduCoreApp.Application.Implementation
             _sizeRepository = sizeRepository;
             _productRepository = productRepository;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public void Create(BillViewModel billVm)
         {
-            var order = Mapper.Map<BillViewModel, Bill>(billVm);
-            var orderDetails = Mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
+            var order = _mapper.Map<BillViewModel, Bill>(billVm);
+            var orderDetails = _mapper.Map<List<BillDetailViewModel>, List<BillDetail>>(billVm.BillDetails);
             foreach (var detail in orderDetails)
             {
                 var product = _productRepository.FindById(detail.ProductId);
@@ -55,7 +56,7 @@ namespace TeduCoreApp.Application.Implementation
         public void Update(BillViewModel billVm)
         {
             //Mapping to order domain
-            var order = Mapper.Map<BillViewModel, Bill>(billVm);
+            var order = _mapper.Map<BillViewModel, Bill>(billVm);
 
             //Get order Detail
             var newDetails = order.BillDetails;
@@ -100,7 +101,7 @@ namespace TeduCoreApp.Application.Implementation
 
         public List<SizeViewModel> GetSizes()
         {
-            return _sizeRepository.FindAll().ProjectTo<SizeViewModel>().ToList();
+            return _mapper.ProjectTo<SizeViewModel>(_sizeRepository.FindAll()).ToList();
         }
 
         public void Save()
@@ -127,10 +128,9 @@ namespace TeduCoreApp.Application.Implementation
                 query = query.Where(x => x.CustomerName.Contains(keyword) || x.CustomerMobile.Contains(keyword));
             }
             var totalRow = query.Count();
-            var data = query.OrderByDescending(x => x.DateCreated)
+            var data = _mapper.ProjectTo<BillViewModel>(query.OrderByDescending(x => x.DateCreated)
                 .Skip((pageIndex - 1) * pageSize)
-                .Take(pageSize)
-                .ProjectTo<BillViewModel>()
+                .Take(pageSize))
                 .ToList();
             return new PagedResult<BillViewModel>()
             {
@@ -144,27 +144,27 @@ namespace TeduCoreApp.Application.Implementation
         public BillViewModel GetDetail(int billId)
         {
             var bill = _orderRepository.FindSingle(x => x.Id == billId);
-            var billVm = Mapper.Map<Bill, BillViewModel>(bill);
-            var billDetailVm = _orderDetailRepository.FindAll(x => x.BillId == billId).ProjectTo<BillDetailViewModel>().ToList();
+            var billVm = _mapper.Map<Bill, BillViewModel>(bill);
+            var billDetailVm = _mapper.ProjectTo<BillDetailViewModel>(_orderDetailRepository.FindAll(x => x.BillId == billId)).ToList();
             billVm.BillDetails = billDetailVm;
             return billVm;
         }
 
         public List<BillDetailViewModel> GetBillDetails(int billId)
         {
-            return _orderDetailRepository
-                .FindAll(x => x.BillId == billId, c => c.Bill, c => c.Color, c => c.Size, c => c.Product)
-                .ProjectTo<BillDetailViewModel>().ToList();
+            return _mapper.ProjectTo<BillDetailViewModel>(_orderDetailRepository
+                .FindAll(x => x.BillId == billId, c => c.Bill,
+                c => c.Color, c => c.Size, c => c.Product)).ToList();
         }
 
         public List<ColorViewModel> GetColors()
         {
-            return _colorRepository.FindAll().ProjectTo<ColorViewModel>().ToList();
+            return _mapper.ProjectTo<ColorViewModel>(_colorRepository.FindAll()).ToList();
         }
 
         public BillDetailViewModel CreateDetail(BillDetailViewModel billDetailVm)
         {
-            var billDetail = Mapper.Map<BillDetailViewModel, BillDetail>(billDetailVm);
+            var billDetail = _mapper.Map<BillDetailViewModel, BillDetail>(billDetailVm);
             _orderDetailRepository.Add(billDetail);
             return billDetailVm;
         }
@@ -178,12 +178,12 @@ namespace TeduCoreApp.Application.Implementation
 
         public ColorViewModel GetColor(int id)
         {
-            return Mapper.Map<Color, ColorViewModel>(_colorRepository.FindById(id));
+            return _mapper.Map<Color, ColorViewModel>(_colorRepository.FindById(id));
         }
 
         public SizeViewModel GetSize(int id)
         {
-            return Mapper.Map<Size, SizeViewModel>(_sizeRepository.FindById(id));
+            return _mapper.Map<Size, SizeViewModel>(_sizeRepository.FindById(id));
         }
     }
 }

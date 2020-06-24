@@ -6,25 +6,24 @@
     <link href="~/lib/jQuery-EasyUI/themes/icon.css" rel="stylesheet" />
 }
 @section Scripts{
-<script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
+    <script src="~/lib/jQuery-EasyUI/jquery.easyui.min.js"></script>
 
-<environment names="Development">
-    <script src="~/app/controllers/product/image-management.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/product/quantity-management.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/product/whole-price-management.js" asp-append-version="true"></script>
-    <script src="~/app/controllers/product/index.js" asp-append-version="true"></script>
-    <script>
-        var product = new productController();
-        product.initialize();
-    </script>
-</environment>
-<environment names="Staging,Production">
-    <script>
-        var product = new productController();
-        product.initialize();
-    </script>
-</environment>
-
+    <environment names="Development">
+        <script src="~/app/controllers/product/image-management.js" asp-append-version="true"></script>
+        <script src="~/app/controllers/product/quantity-management.js" asp-append-version="true"></script>
+        <script src="~/app/controllers/product/whole-price-management.js" asp-append-version="true"></script>
+        <script src="~/app/controllers/product/index.js" asp-append-version="true"></script>
+        <script>
+            var product = new productController();
+            product.initialize();
+        </script>
+    </environment>
+    <environment names="Staging,Production">
+        <script>
+            var product = new productController();
+            product.initialize();
+        </script>
+    </environment>
 
 }
 <div class="page-title">
@@ -52,7 +51,6 @@
             <a class="btn btn-danger" href="~/templates/ProductImportTemplate.xlsx">Template</a>
             <button class="btn btn-primary" id="btn-import" type="button"><i class="fa fa-file-excel-o"></i></button>
             <button class="btn btn-default" id="btn-export" type="button"><i class="fa fa-forward"></i></button>
-
         </div>
     </div>
 </div>
@@ -65,7 +63,7 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                           
+
                             <th>Name</th>
                             <th>Category</th>
                             <th>Price</th>
@@ -104,7 +102,7 @@
 </div>
 <script id="table-template" type="x-tmpl-mustache">
     <tr>
-        
+
         <td>{{Name}}</td>
         <td>{{CategoryName}}</td>
         <td>{{Price}}</td>
@@ -120,8 +118,8 @@
         </th>
     </tr>
 </script>
-@Html.Partial("_AddEditModal.cshtml")
-@Html.Partial("_ImportExcelModal.cshtml")
-@Html.Partial("_QuantityManagement.cshtml")
-@Html.Partial("_ImageManagement.cshtml")
-@Html.Partial("_WholePriceManagement.cshtml")
+<partial name="_AddEditModal" />
+<partial name="_ImportExcelModal" />
+<partial name="_QuantityManagement" />
+<partial name="_ImageManagement" />
+<partial name="_WholePriceManagement" />

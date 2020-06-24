@@ -18,13 +18,14 @@ namespace TeduCoreApp.Controllers
 {
     public class CartController : Controller
     {
-        IProductService _productService;
-        IBillService _billService;
-        IViewRenderService _viewRenderService;
-        IConfiguration _configuration;
-        IEmailSender _emailSender;
+        private IProductService _productService;
+        private IBillService _billService;
+        private IViewRenderService _viewRenderService;
+        private IConfiguration _configuration;
+        private IEmailSender _emailSender;
+
         public CartController(IProductService productService,
-            IViewRenderService viewRenderService,IEmailSender emailSender,
+            IViewRenderService viewRenderService, IEmailSender emailSender,
             IConfiguration configuration, IBillService billService)
         {
             _productService = productService;
@@ -33,6 +34,7 @@ namespace TeduCoreApp.Controllers
             _configuration = configuration;
             _emailSender = emailSender;
         }
+
         [Route("cart.html", Name = "Cart")]
         public IActionResult Index()
         {
@@ -53,10 +55,11 @@ namespace TeduCoreApp.Controllers
             model.Carts = session;
             return View(model);
         }
+
         [Route("checkout.html", Name = "Checkout")]
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public async Task<IActionResult> Checkout(CheckoutViewModel model)
+        public IActionResult Checkout(CheckoutViewModel model)
         {
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
 
@@ -93,7 +96,6 @@ namespace TeduCoreApp.Controllers
                     _billService.Create(billViewModel);
                     try
                     {
-
                         _billService.Save();
 
                         //var content = await _viewRenderService.RenderToStringAsync("Cart/_BillMail", billViewModel);
@@ -106,13 +108,14 @@ namespace TeduCoreApp.Controllers
                         ViewData["Success"] = false;
                         ModelState.AddModelError("", ex.Message);
                     }
-
                 }
             }
             model.Carts = session;
             return View(model);
         }
+
         #region AJAX Request
+
         /// <summary>
         /// Get list item
         /// </summary>
@@ -239,7 +242,7 @@ namespace TeduCoreApp.Controllers
         /// <param name="productId"></param>
         /// <param name="quantity"></param>
         /// <returns></returns>
-        public IActionResult UpdateCart(int productId, int quantity,int color, int size)
+        public IActionResult UpdateCart(int productId, int quantity, int color, int size)
         {
             var session = HttpContext.Session.Get<List<ShoppingCartViewModel>>(CommonConstants.CartSession);
             if (session != null)
@@ -280,6 +283,7 @@ namespace TeduCoreApp.Controllers
             var sizes = _billService.GetSizes();
             return new OkObjectResult(sizes);
         }
-        #endregion
+
+        #endregion AJAX Request
     }
 }

@@ -14,8 +14,8 @@ namespace TeduCoreApp.Areas.Admin.Controllers
 {
     public class UploadController : BaseController
     {
-        private readonly IHostingEnvironment _hostingEnvironment;
-        public UploadController(IHostingEnvironment hostingEnvironment)
+        private readonly IWebHostEnvironment _hostingEnvironment;
+        public UploadController(IWebHostEnvironment hostingEnvironment)
         {
             _hostingEnvironment = hostingEnvironment;
         }

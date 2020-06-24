@@ -30,6 +30,9 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Options;
 using TeduCoreApp.SignalR;
+using TeduCoreApp.Application.AutoMapper;
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Http;
 
 namespace TeduCoreApp
 {
@@ -86,24 +89,22 @@ namespace TeduCoreApp
                 options.IdleTimeout = TimeSpan.FromHours(2);
                 options.Cookie.HttpOnly = true;
             });
-            services.AddImageResizer();
-            services.AddAutoMapper();
+
+            services.AddSingleton(AutoMapperConfig.RegisterMappings().CreateMapper());
             services.AddAuthentication()
                 .AddFacebook(facebookOpts =>
                 {
                     facebookOpts.AppId = Configuration["Authentication:Facebook:AppId"];
                     facebookOpts.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
                 })
-                .AddGoogle(googleOpts=> {
+                .AddGoogle(googleOpts =>
+                {
                     googleOpts.ClientId = Configuration["Authentication:Google:ClientId"];
                     googleOpts.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
                 });
             // Add application services.
             services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
-
-            services.AddSingleton(Mapper.Configuration);
-            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IViewRenderService, ViewRenderService>();
@@ -112,7 +113,7 @@ namespace TeduCoreApp
 
             services.AddScoped<IUserClaimsPrincipalFactory<AppUser>, CustomClaimsPrincipalFactory>();
 
-            services.AddMvc(options =>
+            services.AddControllersWithViews(options =>
             {
                 options.CacheProfiles.Add("Default",
                     new CacheProfile()
@@ -125,11 +126,16 @@ namespace TeduCoreApp
                         Location = ResponseCacheLocation.None,
                         NoStore = true
                     });
-            }).AddViewLocalization(
-                    LanguageViewLocationExpanderFormat.Suffix,
-                    opts => { opts.ResourcesPath = "Resources"; })
+            })
+                .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix,
+                        opts => { opts.ResourcesPath = "Resources"; }
+                    )
                 .AddDataAnnotationsLocalization()
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+                .AddJsonOptions(options =>
+                   {
+                       options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                       options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                   });
 
             services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
 
@@ -138,7 +144,7 @@ namespace TeduCoreApp
                 {
                     builder.AllowAnyMethod()
                         .AllowAnyHeader()
-                        .WithOrigins("http://localhost:3000")
+                        .WithOrigins("http://localhost:4000")
                         .AllowCredentials();
                 }));
 
@@ -152,10 +158,10 @@ namespace TeduCoreApp
                   };
 
                   opts.DefaultRequestCulture = new RequestCulture("en-US");
-                   // Formatting numbers, dates, etc.
-                   opts.SupportedCultures = supportedCultures;
-                   // UI strings that we have localized.
-                   opts.SupportedUICultures = supportedCultures;
+                  // Formatting numbers, dates, etc.
+                  opts.SupportedCultures = supportedCultures;
+                  // UI strings that we have localized.
+                  opts.SupportedUICultures = supportedCultures;
               });
 
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
@@ -178,48 +184,43 @@ namespace TeduCoreApp
             services.AddTransient<IAuthorizationHandler, BaseResourceAuthorizationHandler>();
 
             services.AddSignalR();
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddFile("Logs/tedu-{Date}.txt");
-            if (env.IsDevelopment())
+            if (env.EnvironmentName == Environments.Development)
             {
                 app.UseDeveloperExceptionPage();
-                //app.UseBrowserLink();
-                app.UseDatabaseErrorPage();
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            app.UseImageResizer();
             app.UseStaticFiles();
-            app.UseMinResponse();
+            app.UseRouting();
+            app.UseCors("CorsPolicy");
+            //app.UseMinResponse();
             app.UseAuthentication();
+            app.UseAuthorization();
             app.UseSession();
 
             var options = app.ApplicationServices.GetService<IOptions<RequestLocalizationOptions>>();
             app.UseRequestLocalization(options.Value);
-            app.UseCors("CorsPolicy");
-            app.UseSignalR(routes =>
+
+            app.UseEndpoints(routes =>
             {
                 routes.MapHub<TeduHub>("/teduHub");
+
+                routes.MapControllerRoute(
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
+
+                routes.MapControllerRoute(
+                    "areaRoute",
+                    "{area:exists}/{controller=Login}/{action=Index}/{id?}");
             });
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-
-                routes.MapRoute(name: "areaRoute",
-                    template: "{area:exists}/{controller=Login}/{action=Index}/{id?}");
-
-
-            });
-
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using TeduCoreApp.Application.Interfaces;
@@ -16,16 +17,17 @@ namespace TeduCoreApp.Application.Implementation
     {
         private IRepository<Announcement, string> _announcementRepository;
         private IRepository<AnnouncementUser, int> _announcementUserRepository;
-
+        private readonly IMapper _mapper;
         private IUnitOfWork _unitOfWork;
 
         public AnnouncementService(IRepository<Announcement, string> announcementRepository,
             IRepository<AnnouncementUser, int> announcementUserRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IMapper mapper)
         {
             _announcementUserRepository = announcementUserRepository;
             this._announcementRepository = announcementRepository;
             this._unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public PagedResult<AnnouncementViewModel> GetAllUnReadPaging(Guid userId, int pageIndex, int pageSize)
@@ -39,8 +41,10 @@ namespace TeduCoreApp.Application.Implementation
                         select x;
             int totalRow = query.Count();
 
-            var model = query.OrderByDescending(x => x.DateCreated)
-                .Skip(pageSize * (pageIndex - 1)).Take(pageSize).ProjectTo<AnnouncementViewModel>().ToList();
+            var model = _mapper.ProjectTo<AnnouncementViewModel>(
+                query.OrderByDescending(x => x.DateCreated)
+                .Skip(pageSize * (pageIndex - 1)).Take(pageSize))
+                .ToList();
 
             var paginationSet = new PagedResult<AnnouncementViewModel>
             {
@@ -75,7 +79,6 @@ namespace TeduCoreApp.Application.Implementation
                     announ.HasRead = true;
                     result = true;
                 }
-
             }
             return result;
         }

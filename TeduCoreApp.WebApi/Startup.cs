@@ -4,8 +4,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
+using System;
+using TeduCoreApp.Application.AutoMapper;
 using TeduCoreApp.Application.Implementation;
 using TeduCoreApp.Application.Interfaces;
 using TeduCoreApp.Data.EF;
@@ -35,36 +39,46 @@ namespace TeduCoreApp.WebApi
                     .AllowAnyMethod()
                     .AllowAnyHeader();
             }));
-            services.AddAutoMapper();
+            services.AddSingleton(AutoMapperConfig.RegisterMappings().CreateMapper());
 
-            services.AddSingleton(Mapper.Configuration);
-            services.AddScoped<IMapper>(sp => new Mapper(sp.GetRequiredService<AutoMapper.IConfigurationProvider>(), sp.GetService));
             services.AddTransient(typeof(IUnitOfWork), typeof(EFUnitOfWork));
             services.AddTransient(typeof(IRepository<,>), typeof(EFRepository<,>));
 
             services.AddTransient<IProductCategoryService, ProductCategoryService>();
 
-            services.AddMvc().
-                AddJsonOptions(options =>
-                options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+            services.AddControllers()
+                 .AddJsonOptions(options =>
+                 {
+                     options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+                     options.JsonSerializerOptions.PropertyNamingPolicy = null;
+                 });
 
             services.AddSwaggerGen(s =>
             {
-                s.SwaggerDoc("v1", new Info
+                s.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "TEDU Project",
                     Description = "TEDU API Swagger surface",
-                    Contact = new Contact { Name = "ToanBN", Email = "tedu.international@gmail.com", Url = "http://www.tedu.com.vn" },
-                    License = new License { Name = "MIT", Url = "https://github.com/teduinternational/teducoreapp" }
+                    Contact = new OpenApiContact
+                    {
+                        Name = "ToanBN",
+                        Email = "tedu.international@gmail.com",
+                        Url = new Uri("http://www.tedu.com.vn")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "MIT",
+                        Url = new Uri("https://github.com/teduinternational/teducoreapp")
+                    }
                 });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
+            if (env.EnvironmentName == Environments.Development)
             {
                 app.UseDeveloperExceptionPage();
             }
@@ -78,11 +92,11 @@ namespace TeduCoreApp.WebApi
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "Project API v1.1");
             });
 
-            app.UseMvc(routes =>
+            app.UseEndpoints(routes =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapControllerRoute(
+                    "default",
+                   "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Role list";
 }
 @section Styles{
@@ -30,9 +29,7 @@
                         <button class="btn btn-default" id="btn-search" type="button">Search!</button>
                     </span>
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -73,12 +70,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 
     <script id="table-template" type="x-tmpl-mustache">
         <tr>
@@ -92,5 +87,5 @@
         </tr>
     </script>
 </div>
-@Html.Partial("_AddEditModal.cshtml")
-@Html.Partial("_AssignPermission.cshtml")
+<partial name="_AddEditModal" />
+<partial name="_AssignPermission" />
