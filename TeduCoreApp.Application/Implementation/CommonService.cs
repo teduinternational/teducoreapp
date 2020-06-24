@@ -17,36 +17,40 @@ namespace TeduCoreApp.Application.Implementation
 {
     public class CommonService : ICommonService
     {
-        IRepository<Footer, string> _footerRepository;
-        IRepository<SystemConfig, string> _systemConfigRepository;
-        IUnitOfWork _unitOfWork;
-        IRepository<Slide, int> _slideRepository;
+        private IRepository<Footer, string> _footerRepository;
+        private IRepository<SystemConfig, string> _systemConfigRepository;
+        private IUnitOfWork _unitOfWork;
+        private IRepository<Slide, int> _slideRepository;
+        private readonly IMapper _mapper;
+
         public CommonService(IRepository<Footer, string> footerRepository,
             IRepository<SystemConfig, string> systemConfigRepository,
-            IUnitOfWork unitOfWork,
+            IUnitOfWork unitOfWork, IMapper mapper,
             IRepository<Slide, int> slideRepository)
         {
             _footerRepository = footerRepository;
             _unitOfWork = unitOfWork;
             _systemConfigRepository = systemConfigRepository;
             _slideRepository = slideRepository;
+            _mapper = mapper;
         }
 
         public FooterViewModel GetFooter()
         {
-            return Mapper.Map<Footer, FooterViewModel>(_footerRepository.FindSingle(x => x.Id ==
+            return _mapper.Map<Footer, FooterViewModel>(_footerRepository.FindSingle(x => x.Id ==
             CommonConstants.DefaultFooterId));
         }
 
         public List<SlideViewModel> GetSlides(string groupAlias)
         {
-            return _slideRepository.FindAll(x => x.Status && x.GroupAlias == groupAlias)
-                .ProjectTo<SlideViewModel>().ToList();
+            return _mapper.ProjectTo<SlideViewModel>(
+                _slideRepository.FindAll(x => x.Status && x.GroupAlias == groupAlias))
+                .ToList();
         }
 
         public SystemConfigViewModel GetSystemConfig(string code)
         {
-            return Mapper.Map<SystemConfig, SystemConfigViewModel>(_systemConfigRepository.FindSingle(x => x.Id == code));
+            return _mapper.Map<SystemConfig, SystemConfigViewModel>(_systemConfigRepository.FindSingle(x => x.Id == code));
         }
     }
 }

@@ -19,6 +19,7 @@ namespace TeduCoreApp.Application.Dapper.Implementation
         {
             _configuration = configuration;
         }
+
         public async Task<IEnumerable<RevenueReportViewModel>> GetReportAsync(string fromDate, string toDate)
         {
             using (var sqlConnection = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
@@ -33,15 +34,8 @@ namespace TeduCoreApp.Application.Dapper.Implementation
                 dynamicParameters.Add("@fromDate", string.IsNullOrEmpty(fromDate) ? firstDayOfMonth.ToString("MM/dd/yyyy") : fromDate);
                 dynamicParameters.Add("@toDate", string.IsNullOrEmpty(toDate) ? lastDayOfMonth.ToString("MM/dd/yyyy") : toDate);
 
-                try
-                {
-                    return await sqlConnection.QueryAsync<RevenueReportViewModel>(
-                        "GetRevenueDaily", dynamicParameters, commandType: CommandType.StoredProcedure);
-                }
-                catch (Exception ex)
-                {
-                    throw;
-                }
+                return await sqlConnection.QueryAsync<RevenueReportViewModel>(
+                    "GetRevenueDaily", dynamicParameters, commandType: CommandType.StoredProcedure);
             }
         }
     }

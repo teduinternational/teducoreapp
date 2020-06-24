@@ -15,17 +15,19 @@ namespace TeduCoreApp.Application.Implementation
     {
         private IRepository<Page, int> _pageRepository;
         private IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
         public PageService(IRepository<Page, int> pageRepository,
-            IUnitOfWork unitOfWork)
+            IUnitOfWork unitOfWork, IMapper mapper)
         {
             this._pageRepository = pageRepository;
             this._unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public void Add(PageViewModel pageVm)
         {
-            var page = Mapper.Map<PageViewModel, Page>(pageVm);
+            var page = _mapper.Map<PageViewModel, Page>(pageVm);
             _pageRepository.Add(page);
         }
 
@@ -41,7 +43,7 @@ namespace TeduCoreApp.Application.Implementation
 
         public List<PageViewModel> GetAll()
         {
-            return _pageRepository.FindAll().ProjectTo<PageViewModel>().ToList();
+            return _mapper.ProjectTo<PageViewModel>(_pageRepository.FindAll()).ToList();
         }
 
         public PagedResult<PageViewModel> GetAllPaging(string keyword, int page, int pageSize)
@@ -57,7 +59,7 @@ namespace TeduCoreApp.Application.Implementation
 
             var paginationSet = new PagedResult<PageViewModel>()
             {
-                Results = data.ProjectTo<PageViewModel>().ToList(),
+                Results = _mapper.ProjectTo<PageViewModel>(data).ToList(),
                 CurrentPage = page,
                 RowCount = totalRow,
                 PageSize = pageSize
@@ -68,12 +70,12 @@ namespace TeduCoreApp.Application.Implementation
 
         public PageViewModel GetByAlias(string alias)
         {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindSingle(x => x.Alias == alias));
+            return _mapper.Map<Page, PageViewModel>(_pageRepository.FindSingle(x => x.Alias == alias));
         }
 
         public PageViewModel GetById(int id)
         {
-            return Mapper.Map<Page, PageViewModel>(_pageRepository.FindById(id));
+            return _mapper.Map<Page, PageViewModel>(_pageRepository.FindById(id));
         }
 
         public void SaveChanges()
@@ -83,7 +85,7 @@ namespace TeduCoreApp.Application.Implementation
 
         public void Update(PageViewModel pageVm)
         {
-            var page = Mapper.Map<PageViewModel, Page>(pageVm);
+            var page = _mapper.Map<PageViewModel, Page>(pageVm);
             _pageRepository.Update(page);
         }
     }

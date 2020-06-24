@@ -17,9 +17,12 @@ namespace TeduCoreApp.Application.Implementation
     public class UserService : IUserService
     {
         private readonly UserManager<AppUser> _userManager;
-        public UserService(UserManager<AppUser> userManager)
+        private readonly IMapper _mapper;
+
+        public UserService(UserManager<AppUser> userManager, IMapper mapper)
         {
             _userManager = userManager;
+            _mapper = mapper;
         }
 
         public async Task<bool> AddAsync(AppUserViewModel userVm)
@@ -39,7 +42,6 @@ namespace TeduCoreApp.Application.Implementation
                 var appUser = await _userManager.FindByNameAsync(user.UserName);
                 if (appUser != null)
                     await _userManager.AddToRolesAsync(appUser, userVm.Roles);
-
             }
             return true;
         }
@@ -52,7 +54,7 @@ namespace TeduCoreApp.Application.Implementation
 
         public async Task<List<AppUserViewModel>> GetAllAsync()
         {
-            return await _userManager.Users.ProjectTo<AppUserViewModel>().ToListAsync();
+            return await _mapper.ProjectTo<AppUserViewModel>(_userManager.Users).ToListAsync();
         }
 
         public PagedResult<AppUserViewModel> GetAllPagingAsync(string keyword, int page, int pageSize)
@@ -78,7 +80,6 @@ namespace TeduCoreApp.Application.Implementation
                 PhoneNumber = x.PhoneNumber,
                 Status = x.Status,
                 DateCreated = x.DateCreated
-
             }).ToList();
             var paginationSet = new PagedResult<AppUserViewModel>()
             {
@@ -95,7 +96,7 @@ namespace TeduCoreApp.Application.Implementation
         {
             var user = await _userManager.FindByIdAsync(id);
             var roles = await _userManager.GetRolesAsync(user);
-            var userVm = Mapper.Map<AppUser, AppUserViewModel>(user);
+            var userVm = _mapper.Map<AppUser, AppUserViewModel>(user);
             userVm.Roles = roles.ToList();
             return userVm;
         }
@@ -121,7 +122,6 @@ namespace TeduCoreApp.Application.Implementation
                 user.PhoneNumber = userVm.PhoneNumber;
                 await _userManager.UpdateAsync(user);
             }
-
         }
     }
 }

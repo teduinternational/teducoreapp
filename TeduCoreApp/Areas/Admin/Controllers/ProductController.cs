@@ -19,11 +19,11 @@ namespace TeduCoreApp.Areas.Admin.Controllers
     {
         private IProductService _productService;
         private IProductCategoryService _productCategoryService;
-        private readonly IHostingEnvironment _hostingEnvironment;
+        private readonly IWebHostEnvironment _hostingEnvironment;
 
         public ProductController(IProductService productService, 
             IProductCategoryService productCategoryService,
-            IHostingEnvironment hostingEnvironment)
+            IWebHostEnvironment hostingEnvironment)
         {
             _productService = productService;
             _productCategoryService = productCategoryService;

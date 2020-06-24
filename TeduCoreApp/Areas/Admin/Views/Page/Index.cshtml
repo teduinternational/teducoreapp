@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Pages";
 }
 @section Scripts{
@@ -31,9 +30,7 @@
                         <button class="btn btn-default" id="btn-search" type="button">Search!</button>
                     </span>
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -76,12 +73,10 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-
 
     <script id="table-template" type="x-tmpl-mustache">
         <tr>
@@ -96,4 +91,4 @@
         </tr>
     </script>
 </div>
-@Html.Partial("_AddEditModal.cshtml")
+<partial name="_AddEditModal" />
